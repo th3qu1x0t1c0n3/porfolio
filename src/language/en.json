@@ -1,0 +1,12 @@
+{
+  "utils": {
+    "pageNotFound": "Error Page Not Found"
+  },
+  "header": {
+    "home": "Home",
+    "intro": "Introduction",
+    "project": "Projects",
+    "progress": "Progress",
+    "contact": "Contact"
+  }
+}
