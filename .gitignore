@@ -23,3 +23,40 @@ yarn-debug.log*
 yarn-error.log*
 
 /secret
+
+# Fichiers et dossiers générés par la plupart des IDE
+.idea/
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Fichiers de sauvegarde
+*~
+*.bak
+*.swp
+
+# Dossiers de compilation et fichiers temporaires
+bin/
+obj/
+out/
+
+# Dossiers spécifiques à d'autres IDE (ajoutez ceux que vous utilisez)
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
