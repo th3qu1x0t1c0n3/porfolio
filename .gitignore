@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -41,7 +39,6 @@ bin/
 obj/
 out/
 
-# Dossiers spécifiques à d'autres IDE (ajoutez ceux que vous utilisez)
 # Eclipse
 .classpath
 .project
