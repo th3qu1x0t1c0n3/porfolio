@@ -101,41 +101,41 @@ function ArchitectCloud() {
                     height="250"
                     style={imgStyle}
                 />
-                <button
-                    onClick={() => navigate("/architectCloud#acceuil")}
+                <a
+                    href={"/architectCloud#acceuil"}
                     style={buttonStyle}
                 >
                     Page d'acceuil
-                </button>
+                </a>
                 <button onClick={() => navigate("/architectCloud/references")} style={buttonStyle}>
                     Référence
                 </button>
             </header>
             <aside id="gauche" style={gaucheStyle}>
-                <button
-                    onClick={() => navigate("/architectCloud#acceuil")}
+                <a
+                    href={"/architectCloud#acceuil"}
                     style={asideButtonStyle}
                 >
                     Page d'acceuil
-                </button>
-                <button
-                    onClick={() => navigate("/architectCloud#descrip")}
+                </a>
+                <a
+                    href={"/architectCloud#descrip"}
                     style={asideButtonStyle}
                 >
                     Description
-                </button>
-                <button
-                    onClick={() => navigate("/architectCloud#debouche")}
+                </a>
+                <a
+                    href={"/architectCloud#debouche"}
                     style={asideButtonStyle}
                 >
                     Débouchés
-                </button>
-                <button
-                    onClick={() => navigate("/architectCloud#conclu")}
+                </a>
+                <a
+                    href={"/architectCloud#conclu"}
                     style={asideButtonStyle}
                 >
                     Conclusion
-                </button>
+                </a>
             </aside>
 
             <aside id="droite" style={droiteStyle}></aside>
@@ -262,13 +262,13 @@ function ArchitectCloud() {
             <aside></aside>
 
             <footer>
-                <button
-                    onClick={() => navigate("/architectCloud#acceuil")}
+                <a
+                    href={"/architectCloud#acceuil"}
                     style={buttonStyle}
                 >
                     Page d'acceuil
-                </button>
-                <p>&copy;Louis-Philippe Forget & &copy;Cégep André-Laurendeau</p>
+                </a>
+                <p>©Louis-Philippe Forget & ©Cégep André-Laurendeau</p>
             </footer>
         </div>
     );

@@ -12,7 +12,7 @@
   "footer": {
     "title": "Site web Bootstrap",
     "desc": "Styles css et certaines fonctionnalités",
-    "copyright": "&copy; Copyright 2022 - Made by LP-F"
+    "copyright": "© Copyright 2022 - Made by LP-F"
   },
   "projects": {
     "architect": {

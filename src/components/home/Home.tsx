@@ -72,7 +72,7 @@ function Home () {
                             <p className="text-secondary">{t(projet.desc)}</p>
                         </div>
                         <div className="text-end">
-                            <button className="btn btn-outline-dark m-2 mt-0" onClick={() => navigate(projet.lien)}>{t('pages.home.goToProjects')}</button>
+                            <a className="btn btn-outline-dark m-2 mt-0" href={projet.lien} onClick={() => navigate(projet.lien)}>{t('pages.home.goToProjects')}</a>
                         </div>
                     </div>
                 ))}
