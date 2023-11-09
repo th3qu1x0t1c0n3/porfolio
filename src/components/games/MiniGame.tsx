@@ -8,7 +8,7 @@ function MiniGame() {
 
     // TODO: Finir le jeu et arranger le reste
     return (
-        <div className="p-5 bg-info min-vh-100">
+        <div id="acceuil" className="p-5 bg-info min-vh-100">
             <GameHeader />
             <div className="row pt-4 p-2 bg-white">
                 <div className="col">

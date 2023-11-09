@@ -1,6 +1,6 @@
 import {useTranslation} from "react-i18next";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
     const { t } = useTranslation();
@@ -14,7 +14,7 @@ function Footer() {
                         <h3 className="text-light fw-light fst-italic mb-3">{t('footer.desc')}</h3>
                         <div className="py-2">
                             <a target="_blank" rel="noreferrer" href="https://www.facebook.com/louisphilippe.forget.12">
-                                <FontAwesomeIcon icon={['fab', 'facebook']} className="fab fa-facebook fa-2x text-info mx-3"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faFacebook} className="fab fa-facebook fa-2x text-info mx-3"></FontAwesomeIcon>
                             </a>
                         </div>
                         <p className="text-light py-4 m-0">{t('footer.copyright')}</p>

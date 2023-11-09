@@ -3,7 +3,7 @@ import Home from "../home/Home";
 import PageNotFound from "../PageNotFound";
 import ArchitectCloud from "../architect/ArchitectCloud";
 import References from "../architect/References";
-import MiniGame from "../games/MiniJeux";
+import MiniGame from "../games/MiniGame";
 import Catalogue from "../games/Catalogue";
 import Maintenance from "../games/Maintenance";
 import SauveQuiPeut from "../games/SauveQuiPeut";
