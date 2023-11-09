@@ -83,12 +83,8 @@ function ArchitectCloud() {
     return (
         <div>
             <header style={headerStyle}>
-                <h1 id="acceuil" style={h1Style}>
-                    Architecte Cloud
-                </h1>
-                <p style={pStyle}>
-                    Autrement appelé : Architecte virtualisation ou Ingénieur cloud
-                </p>
+                <h1 id="acceuil" style={h1Style}>Architecte Cloud</h1>
+                <p style={pStyle}>Autrement appelé : Architecte virtualisation ou Ingénieur cloud</p>
                 <p style={pStyle}>
                     Le métier d'architecte cloud consiste à répartir la tâche d'un gros
                     problème en plusieurs petits problèmes.
@@ -99,12 +95,8 @@ function ArchitectCloud() {
                     alt="Représentation du métier d'architecte cloud"
                     width="500"
                     height="250"
-                    style={imgStyle}
-                />
-                <a
-                    href={"/architectCloud#acceuil"}
-                    style={buttonStyle}
-                >
+                    style={imgStyle} />
+                <a href={"/architectCloud#acceuil"} style={buttonStyle}>
                     Page d'acceuil
                 </a>
                 <button onClick={() => navigate("/architectCloud/references")} style={buttonStyle}>
@@ -112,28 +104,20 @@ function ArchitectCloud() {
                 </button>
             </header>
             <aside id="gauche" style={gaucheStyle}>
-                <a
-                    href={"/architectCloud#acceuil"}
-                    style={asideButtonStyle}
-                >
+                <a href={"/architectCloud#acceuil"}
+                   style={asideButtonStyle}>
                     Page d'acceuil
                 </a>
-                <a
-                    href={"/architectCloud#descrip"}
-                    style={asideButtonStyle}
-                >
+                <a href={"/architectCloud#descrip"}
+                   style={asideButtonStyle}>
                     Description
                 </a>
-                <a
-                    href={"/architectCloud#debouche"}
-                    style={asideButtonStyle}
-                >
+                <a href={"/architectCloud#debouche"}
+                   style={asideButtonStyle}>
                     Débouchés
                 </a>
-                <a
-                    href={"/architectCloud#conclu"}
-                    style={asideButtonStyle}
-                >
+                <a href={"/architectCloud#conclu"}
+                   style={asideButtonStyle}>
                     Conclusion
                 </a>
             </aside>
@@ -249,23 +233,15 @@ function ArchitectCloud() {
                 </p>
                 <p>
                     Pour plus d'information je vous invite à visiter le site de{" "}
-                    <a
-                        href="https://www.regionsjob.com/observatoire-metiers/fiche/architecte-cloud"
-                        style={buttonStyle}
-                    >
-                        REGIONSJOB
-                    </a>
-                    .
+                    <a href="https://www.regionsjob.com/observatoire-metiers/fiche/architecte-cloud"
+                       style={buttonStyle}>REGIONSJOB
+                    </a>.
                 </p>
             </section>
-
             <aside></aside>
-
             <footer>
-                <a
-                    href={"/architectCloud#acceuil"}
-                    style={buttonStyle}
-                >
+                <a href={"/architectCloud#acceuil"}
+                   style={buttonStyle}>
                     Page d'acceuil
                 </a>
                 <p>©Louis-Philippe Forget & ©Cégep André-Laurendeau</p>
