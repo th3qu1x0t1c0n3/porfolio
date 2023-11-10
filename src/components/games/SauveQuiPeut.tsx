@@ -1,5 +1,3 @@
-import GameHeader from "./GameHeader";
-import GameFooter from "./GameFooter";
 import React from "react";
 
 

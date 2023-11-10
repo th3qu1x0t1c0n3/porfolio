@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import GameHeader from "./GameHeader";
-import {useNavigate} from "react-router-dom";
 import GameFooter from "./GameFooter";
-import { Accordion, Card, Button, Form } from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 import Connexion from "./Connexion";
 import Catalogue from "./Catalogue";
@@ -10,7 +7,6 @@ import Maintenance from "./Maintenance";
 import SauveQuiPeut from "./SauveQuiPeut";
 
 function MiniGame() {
-    const navigate = useNavigate();
     const [t] = useTranslation();
 
     const [tab, setTab] = useState('home');
@@ -36,9 +32,9 @@ function MiniGame() {
                         <ul className="navbar-nav">
                             {
                                 tabs.map((tabItem) => (
-                                    tabItem.id !== 'maintenance' &&
+                                    tabItem.id !== 'maintenance' && (tabItem.id !== 'sauveQuiPeut' || tab === 'sauveQuiPeut') &&
                                     <li className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.id ? 'bg-white' : ''}`} key={tabItem.id}>
-                                        <button className={`nav-link mb-2 font-weight-bold text-dark ${tab === tabItem.id ? 'bg-white' : ''}`}
+                                        <button className={`nav-link mb-2 font-weight-bold text-dark`}
                                                 onClick={() => {setTab(tabItem.id)}}
                                         >
                                             {t(tabItem.label)}
@@ -70,7 +66,6 @@ function MiniGame() {
                     </div>
                 </div>
             </div>
-
             {tab === 'home' && <Connexion setTab={setTab} />}
             {tab === 'catalogue' && <Catalogue setTab={setTab} />}
             {tab === 'sauveQuiPeut' && <SauveQuiPeut />}

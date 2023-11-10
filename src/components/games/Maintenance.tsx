@@ -1,5 +1,4 @@
 import sadFace from "../../assets/Images/sadFace.jpg"
-import GameHeader from "./GameHeader";
 
 function Maintenance(){
     return(

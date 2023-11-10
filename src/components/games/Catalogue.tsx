@@ -10,7 +10,6 @@ import React from "react";
 
 
 function Catalogue({setTab}: {setTab: (tab: string) => void}){
-    const navigate = useNavigate();
 
     const leCatalogue: IJeu[] = [{
         nom: "Sauve qui peut",
