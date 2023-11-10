@@ -29,6 +29,10 @@
     }
   },
   "pages": {
+    "common": {
+      "login": "Se connecter",
+      "signUp": "S'inscrire"
+    },
     "home": {
       "title": "Technique De L'Informatique",
       "description": "Cette page est présentée par Louis-Philippe Forget, étudiant en technique de l'informatique au Cégep André-Laurendeau. Vous y trouverez des informations sur moi, mes projets et mes progrès en langage de programmation.",
