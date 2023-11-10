@@ -23,7 +23,7 @@ function Main() {
                 <Route path="/MiniGame" element={<MiniGame />} />
                 <Route path="/MiniGame/Catalogue" element={<Catalogue />} />
                 <Route path="/MiniGame/jeux/sauveQuiPeut" element={<SauveQuiPeut />} />
-                <Route path="/MiniGame/jeux/Maintenance" element={<Maintenance />} />
+                <Route path="/MiniGame/Maintenance" element={<Maintenance />} />
 
                 <Route path="/Dungeon" element={<Dungeon />} />
 
