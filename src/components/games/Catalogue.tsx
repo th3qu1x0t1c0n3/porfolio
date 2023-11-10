@@ -22,34 +22,32 @@ function Catalogue(){
     }, {
         nom: "Pac Man",
         imgFile: pacMan,
-        url: "/MiniGame/jeux/Maintenance",
+        url: "/MiniGame/Maintenance",
         action: "na"
     }, {
         nom: "Duck Hunt",
         imgFile: duckHunt,
-        url: "/MiniGame/jeux/Maintenance",
+        url: "/MiniGame/Maintenance",
         action: "na"
     }, {
         nom: "Pong",
         imgFile: Pong,
-        url: "/MiniGame/jeux/Maintenance",
+        url: "/MiniGame/Maintenance",
         action: "na"
     }, {
         nom: "Chucky Egg",
         imgFile: ChuckyEgg,
-        url: "/MiniGame/jeux/Maintenance",
+        url: "/MiniGame/Maintenance",
         action: "na"
     }, {
         nom: "Paperboy",
         imgFile: Paperboy,
-        url: "/MiniGame/jeux/Maintenance",
+        url: "/MiniGame/Maintenance",
         action: "na"
     }];
 
     return(
-        <>
-            <GameHeader />
-
+        <div className={`row pt-4 p-3 bg-white`}>
             <div className="modal fade" id="dlgErrModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
@@ -76,9 +74,7 @@ function Catalogue(){
                     ))}
                 </div>
             </div>
-
-            <GameFooter />
-        </>
+        </div>
     )
 }
 

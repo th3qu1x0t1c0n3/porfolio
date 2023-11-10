@@ -11,7 +11,7 @@ function GameHeader() {
                 </div>
             </div>
 
-            <div className="row bg-dark">
+            <div className="row bg-dark ">
                 <nav className="col-lg-8 col-md-5 col-sm-5 navbar navbar-expand-sm navbar-light pb-0 mt-2">
                     <ul className="navbar-nav">
                         <li className="nav-item bg-light active rounded-top">
@@ -25,7 +25,7 @@ function GameHeader() {
                     </ul>
                 </nav>
 
-                <div className="col-lg-4 col-md-6 col-sm-7 text-right mt-3" id="connexion">
+                <div className="col-lg-4 col-md-6 col-sm-7 text-right mt-3 text-end" id="connexion">
                     <p className="d-inline-block text-white" id="utilisateur">Veuillez vous connecter</p>
                     <button className="d-inline-block bg-danger" id="btnDeco">Déconnexion</button>
                 </div>
