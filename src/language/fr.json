@@ -35,7 +35,10 @@
       "logout": "Se déconnecter",
       "cancel": "Annuler",
       "confirm": "Confirmer",
+      "confirmPassword": "Confirmer le mot de passe",
       "username": "Nom d'utilisateur",
+      "email": "Courriel",
+      "enterEmail": "Entrer votre courriel",
       "password": "Mot de passe",
       "forgotPassword": "Mot de passe oublié?",
       "enterUsername": "Entrer votre nom d'utilisateur"

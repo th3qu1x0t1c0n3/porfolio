@@ -1,11 +1,8 @@
 import React from 'react';
-import {useNavigate} from "react-router-dom";
 import {Accordion, Button, Card, Form} from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 
 function Connexion({setTab}: { setTab: (tab: string) => void }) {
-
-    const navigate = useNavigate();
     const [t] = useTranslation();
 
     // TODO: créer un compte pour le jeu?
@@ -65,22 +62,22 @@ function Connexion({setTab}: { setTab: (tab: string) => void }) {
                                 <Card.Body>
                                     <Form autoComplete="off">
                                         <Form.Group className="mb-3" controlId="userIn">
-                                            <Form.Label>Utilisateur</Form.Label>
-                                            <Form.Control type="text" placeholder="Choisir un nom d'utilisateur"/>
+                                            <Form.Label>{t('pages.common.email')}</Form.Label>
+                                            <Form.Control type="text" placeholder={t('pages.common.enterEmail')}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="pseudo">
-                                            <Form.Label>Pseudonyme</Form.Label>
-                                            <Form.Control type="text" placeholder="Choisir un pseudonyme"/>
+                                            <Form.Label>{t('pages.common.username')}</Form.Label>
+                                            <Form.Control type="text" placeholder={t('pages.common.enterUsername')}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdpIn">
-                                            <Form.Label>Mot de passe</Form.Label>
+                                            <Form.Label>{t('pages.common.password')}</Form.Label>
                                             <Form.Control type="password" placeholder="PassWord123"/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdpIn2">
-                                            <Form.Label>Confirmer mot de passe</Form.Label>
+                                            <Form.Label>{t('pages.common.confirmPassword')}</Form.Label>
                                             <Form.Control type="password" placeholder="PassWord123"/>
                                         </Form.Group>
 
