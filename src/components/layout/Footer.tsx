@@ -14,7 +14,7 @@ function Footer() {
                         <h3 className="text-light fw-light fst-italic mb-3">{t('footer.desc')}</h3>
                         <div className="py-2">
                             <a target="_blank" rel="noreferrer" href="https://www.facebook.com/louisphilippe.forget.12">
-                                <FontAwesomeIcon icon={faFacebook} className="fab fa-facebook fa-2x text-info mx-3"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faFacebook} className="fab fa-facebook fa-2x text-primary bg-white rounded rounded-5 mx-3"></FontAwesomeIcon>
                             </a>
                         </div>
                         <p className="text-light py-4 m-0">{t('footer.copyright')}</p>
