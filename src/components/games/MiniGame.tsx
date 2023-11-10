@@ -5,17 +5,18 @@ import Connexion from "./Connexion";
 import Catalogue from "./Catalogue";
 import Maintenance from "./Maintenance";
 import SauveQuiPeut from "./SauveQuiPeut";
+import GameUser from "../../assets/models/user";
 
 function MiniGame() {
     const [t] = useTranslation();
-
-    const [tab, setTab] = useState('home');
     const tabs = [
         {id: 'home', label: 'home'},
         {id: 'catalogue', label: 'catalogue'},
         {id: 'sauveQuiPeut', label: 'sauveQuiPeut'},
         {id: 'maintenance', label: 'maintenance'}
     ];
+    const [tab, setTab] = useState('home');
+    const [user, setUser] = useState(new GameUser());
 
     // TODO: Finir le jeu et arranger le reste
     return (
@@ -71,7 +72,7 @@ function MiniGame() {
                     </div>
                 </div>
             </div>
-            {tab === 'home' && <Connexion setTab={setTab}/>}
+            {tab === 'home' && <Connexion setTab={setTab} setUser={setUser} />}
             {tab === 'catalogue' && <Catalogue setTab={setTab}/>}
             {tab === 'sauveQuiPeut' && <SauveQuiPeut/>}
             {tab === 'maintenance' && <Maintenance/>}
