@@ -70,22 +70,22 @@ export interface IInventory {
     equipped: boolean
 }
 
-export interface IEquipementReference{
-  "id": string,
-  "character_id": string,
-  "reference": string,
-  "qty": number,
-  "equipped": boolean
+export interface IEquipementReference {
+    "id": string,
+    "character_id": string,
+    "reference": string,
+    "qty": number,
+    "equipped": boolean
 }
 
-export interface IEquipementPost{
-  "reference": string,
-  "qty": number,
-  "equipped": boolean
+export interface IEquipementPost {
+    "reference": string,
+    "qty": number,
+    "equipped": boolean
 }
 
-export interface IEquipDnd{
-  index: string
-  name:string
-  url:string
+export interface IEquipDnd {
+    index: string
+    name: string
+    url: string
 }

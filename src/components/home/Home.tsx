@@ -1,17 +1,15 @@
 import {useNavigate} from "react-router-dom";
 import {mesProjets} from "../../assets/pseudoService/projetPseudoService";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faDisplay } from '@fortawesome/free-solid-svg-icons';
-import { faPenToSquare  } from '@fortawesome/free-solid-svg-icons';
-import { faTerminal} from "@fortawesome/free-solid-svg-icons";
+import {faDisplay, faPenToSquare, faTerminal} from '@fortawesome/free-solid-svg-icons';
 import {useTranslation} from "react-i18next";
 import Contact from "./Contact";
 
-function Home () {
+function Home() {
     const navigate = useNavigate();
     const {t} = useTranslation()
 
-    return(
+    return (
         <div>
             <div id="home" className="bg-primary container-fluid">
                 <div className="row align-items-center vh-100 text-center">
@@ -37,19 +35,19 @@ function Home () {
 
                     <div className="row my-4">
                         <div className="col-lg-4 col-md-12 my-md-3">
-                            <FontAwesomeIcon  className="fa-solid fa-display fa-6x text-warning" icon={faDisplay} />
+                            <FontAwesomeIcon className="fa-solid fa-display fa-6x text-warning" icon={faDisplay}/>
                             <h1>{t('pages.home.developpement')}</h1>
                             <p>{t('pages.home.developpementDesc')}</p>
                         </div>
 
                         <div className="col-lg-4 col-md-12 my-md-3">
-                            <FontAwesomeIcon  className="fa-solid fa-display fa-6x text-warning" icon={faPenToSquare} />
+                            <FontAwesomeIcon className="fa-solid fa-display fa-6x text-warning" icon={faPenToSquare}/>
                             <h1>{t('pages.home.design')}</h1>
                             <p>{t('pages.home.designDesc')}</p>
                         </div>
 
                         <div className="col-lg-4 col-md-12 my-md-3">
-                            <FontAwesomeIcon  className="fa-solid fa-display fa-6x text-warning" icon={faTerminal} />
+                            <FontAwesomeIcon className="fa-solid fa-display fa-6x text-warning" icon={faTerminal}/>
                             <h1>{t('pages.home.commands')}</h1>
                             <p>{t('pages.home.commandsDesc')}</p>
                         </div>
@@ -66,13 +64,14 @@ function Home () {
             <div className="row mx-5 pb-5 justify-content-center">
                 {mesProjets.map((projet, index) => (
                     <div key={index} className="card col-lg-3 col-md-6 p-0 mx-xlg-5 mx-lg-5 mx-sm-1 my-3">
-                        <img src={projet.image} className="card-img-top" alt="x" />
+                        <img src={projet.image} className="card-img-top" alt="x"/>
                         <div className="card-body">
                             <h1 className="text-warning my-4">{t(projet.titre)}</h1>
                             <p className="text-secondary">{t(projet.desc)}</p>
                         </div>
                         <div className="text-end">
-                            <a className="btn btn-outline-dark m-2 mt-0" href={projet.lien} onClick={() => navigate(projet.lien)}>{t('pages.home.goToProjects')}</a>
+                            <a className="btn btn-outline-dark m-2 mt-0" href={projet.lien}
+                               onClick={() => navigate(projet.lien)}>{t('pages.home.goToProjects')}</a>
                         </div>
                     </div>
                 ))}
@@ -90,31 +89,31 @@ function Home () {
                         <div className="col-lg-6 col-sm-10 text-secondary">
                             <h2>JAVA</h2>
                             <div className="progress bg-secondary mb-3">
-                                <div className="progress-bar" style={{ width: '95%' }}>
+                                <div className="progress-bar" style={{width: '95%'}}>
                                     95%
                                 </div>
                             </div>
                             <h2>SQL</h2>
                             <div className="progress bg-secondary mb-3">
-                                <div className="progress-bar bg-danger" style={{ width: '50%' }}>
+                                <div className="progress-bar bg-danger" style={{width: '50%'}}>
                                     50%
                                 </div>
                             </div>
                             <h2>ANGULAR</h2>
                             <div className="progress bg-secondary mb-3">
-                                <div className="progress-bar bg-warning" style={{ width: '90%' }}>
+                                <div className="progress-bar bg-warning" style={{width: '90%'}}>
                                     90%
                                 </div>
                             </div>
                             <h2>React</h2>
                             <div className="progress bg-secondary mb-3">
-                                <div className="progress-bar bg-warning" style={{ width: '90%' }}>
+                                <div className="progress-bar bg-warning" style={{width: '90%'}}>
                                     90%
                                 </div>
                             </div>
                             <h2>C++</h2>
                             <div className="progress bg-secondary mb-3">
-                                <div className="progress-bar bg-success" style={{ width: '10%' }}>
+                                <div className="progress-bar bg-success" style={{width: '10%'}}>
                                     10%
                                 </div>
                             </div>
@@ -125,7 +124,7 @@ function Home () {
 
             <section id="contact" className=" bg-light pb-5">
                 <div className="container-fluid">
-                    <Contact />
+                    <Contact/>
                 </div>
             </section>
         </div>

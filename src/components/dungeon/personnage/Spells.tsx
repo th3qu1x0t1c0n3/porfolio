@@ -1,5 +1,3 @@
-
-
 function Spells() {
     return (
         <div>

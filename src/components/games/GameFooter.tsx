@@ -1,5 +1,3 @@
-
-
 function GameFooter() {
     return (
         <div className="mt-0 pt-0 bg-info">

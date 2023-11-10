@@ -1,7 +1,5 @@
-
-
 function Traits() {
-    return(
+    return (
         <div>
             <h1>Traits</h1>
         </div>

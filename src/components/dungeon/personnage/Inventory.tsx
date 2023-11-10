@@ -1,8 +1,6 @@
+function Inventory() {
 
-
-function Inventory(){
-
-    return(
+    return (
         <div>
             <h1>Inventory</h1>
         </div>

@@ -1,4 +1,4 @@
-interface IDamage  {
+interface IDamage {
     damage_type: {
         index: string;
         name: string;
@@ -23,7 +23,7 @@ interface IClasses {
 
 export interface ISpells {
     // _id: string;
-    higher_level?: string[] ;
+    higher_level?: string[];
     index: string;
     name: string;
     desc: string[];
@@ -52,8 +52,8 @@ export interface ISpellAffiche {
 }
 
 export interface ISpellReference {
-  id: string,
-  character_id: string,
-  reference: string,
-  qty: number
+    id: string,
+    character_id: string,
+    reference: string,
+    qty: number
 }

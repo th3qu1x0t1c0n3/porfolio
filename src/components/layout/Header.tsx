@@ -12,9 +12,10 @@ function Header() {
     return (
         <div className="sticky-top">
             <div className="bg-secondary">
-                <nav className="navbar navbar-expand-md bg-dark text-uppercase fw-bold px-3 text-light navbar-dark sticky-top">
+                <nav
+                    className="navbar navbar-expand-md bg-dark text-uppercase fw-bold px-3 text-light navbar-dark sticky-top">
                     <a className="navbar-brand" href="/portfolio#home">
-                        <FontAwesomeIcon icon={faChild} className="text-warning fa-2x" />
+                        <FontAwesomeIcon icon={faChild} className="text-warning fa-2x"/>
                     </a>
                     <button
                         type="button"
@@ -27,27 +28,32 @@ function Header() {
                     <div className="collapse navbar-collapse justify-content-between" id="nav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link px-3 active" href="/portfolio#home" onClick={() => navigate('/portfolio#home')}>
+                                <a className="nav-link px-3 active" href="/portfolio#home"
+                                   onClick={() => navigate('/portfolio#home')}>
                                     {t('header.home')}
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link px-3 active" href="/portfolio#intro" onClick={() => navigate('/portfolio#intro')}>
+                                <a className="nav-link px-3 active" href="/portfolio#intro"
+                                   onClick={() => navigate('/portfolio#intro')}>
                                     {t('header.intro')}
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link px-3 active" href="/portfolio#projet" onClick={() => navigate('/portfolio#projet')}>
+                                <a className="nav-link px-3 active" href="/portfolio#projet"
+                                   onClick={() => navigate('/portfolio#projet')}>
                                     {t('header.project')}
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link px-3 active" href="/portfolio#progres" onClick={() => navigate('/portfolio#progres')}>
+                                <a className="nav-link px-3 active" href="/portfolio#progres"
+                                   onClick={() => navigate('/portfolio#progres')}>
                                     {t('header.progress')}
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link px-3 active" href="/portfolio#contact" onClick={() => navigate('/portfolio#contact')}>
+                                <a className="nav-link px-3 active" href="/portfolio#contact"
+                                   onClick={() => navigate('/portfolio#contact')}>
                                     {t('header.contact')}
                                 </a>
                             </li>
@@ -61,7 +67,7 @@ function Header() {
                     {/*        </a>*/}
                     {/*    </li>*/}
                     {/*</ul>*/}
-                    <LanguageSelector />
+                    <LanguageSelector/>
                 </nav>
             </div>
         </div>

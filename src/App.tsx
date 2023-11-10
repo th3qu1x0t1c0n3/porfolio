@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import {BrowserRouter} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
 import Main from "./components/layout/Main";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -25,9 +25,9 @@ function App() {
             />
             <BrowserRouter>
                 <div className="min-vh-100 p-0 m-0">
-                    <Header />
-                    <Main />
-                    <Footer />
+                    <Header/>
+                    <Main/>
+                    <Footer/>
                 </div>
             </BrowserRouter>
         </I18nextProvider>

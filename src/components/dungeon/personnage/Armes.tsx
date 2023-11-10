@@ -1,5 +1,3 @@
-
-
 function Armes() {
     return (
         <div className="bg-dark text-white">

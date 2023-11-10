@@ -1,5 +1,3 @@
-
-
 function Logs() {
     return (
         <div>

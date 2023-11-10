@@ -1,4 +1,3 @@
-
 function Dungeon() {
     return (
         <>
@@ -7,7 +6,7 @@ function Dungeon() {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <div className="container-fluid">
                         <div className="row">
-                        {/*    TODO: Side bar*/}
+                            {/*    TODO: Side bar*/}
                         </div>
                     </div>
                 </div>
@@ -20,7 +19,7 @@ function Dungeon() {
                 </div>
 
             </section>
-        {/*    TODO: Bottom bar*/}
+            {/*    TODO: Bottom bar*/}
         </>
     )
 }

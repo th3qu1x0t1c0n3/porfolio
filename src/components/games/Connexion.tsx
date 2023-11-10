@@ -1,10 +1,9 @@
-
 import React from 'react';
 import {useNavigate} from "react-router-dom";
-import { Accordion, Card, Button, Form } from 'react-bootstrap';
+import {Accordion, Button, Card, Form} from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 
-function Connexion({setTab}: {setTab: (tab: string) => void}) {
+function Connexion({setTab}: { setTab: (tab: string) => void }) {
 
     const navigate = useNavigate();
     const [t] = useTranslation();
@@ -26,27 +25,28 @@ function Connexion({setTab}: {setTab: (tab: string) => void}) {
                         <Card>
                             <Card.Header>
                                 <Accordion.Button as={Button} variant="outline-info" eventKey="0">
-                                    Connexion
+                                    {t('pages.common.login')}
                                 </Accordion.Button>
                             </Card.Header>
                             <Accordion.Body>
                                 <Card.Body>
                                     <Form className="mb-4" autoComplete="off">
                                         <Form.Group className="mb-3" controlId="user">
-                                            <Form.Label>Utilisateur</Form.Label>
-                                            <Form.Control type="text" placeholder="Entrer votre utilisateur" />
+                                            <Form.Label>{t('pages.common.username')}</Form.Label>
+                                            <Form.Control type="text" placeholder={t('pages.common.enterUsername')}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdp">
-                                            <Form.Label>Mot de passe</Form.Label>
-                                            <Form.Control type="password" placeholder="" />
+                                            <Form.Label>{t('pages.common.password')}</Form.Label>
+                                            <Form.Control type="password" placeholder=""/>
                                         </Form.Group>
 
                                         <div className="text-center mt-4 mb-2">
                                             <Button variant="success" className="me-2" onClick={handleLogin}>
-                                                Se Connecter
+                                                {t('pages.common.login')}
                                             </Button>
-                                            <a href="" onClick={() => navigate('/MiniGame/Maintenance')} style={{ fontSize: '12px' }}>Mot de passe oublié?</a>
+                                            <button className={"btn"} style={{fontSize: '12px'}}
+                                                    onClick={() => setTab('maintenance')}>{t('pages.common.forgotPassword')}</button>
                                         </div>
                                     </Form>
                                 </Card.Body>
@@ -58,7 +58,7 @@ function Connexion({setTab}: {setTab: (tab: string) => void}) {
                         <Card>
                             <Card.Header>
                                 <Accordion.Button as={Button} variant="outline-info" eventKey="1">
-                                    Inscription
+                                    {t('pages.common.signUp')}
                                 </Accordion.Button>
                             </Card.Header>
                             <Accordion.Body>
@@ -66,30 +66,31 @@ function Connexion({setTab}: {setTab: (tab: string) => void}) {
                                     <Form autoComplete="off">
                                         <Form.Group className="mb-3" controlId="userIn">
                                             <Form.Label>Utilisateur</Form.Label>
-                                            <Form.Control type="text" placeholder="Choisir un nom d'utilisateur" />
+                                            <Form.Control type="text" placeholder="Choisir un nom d'utilisateur"/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="pseudo">
                                             <Form.Label>Pseudonyme</Form.Label>
-                                            <Form.Control type="text" placeholder="Choisir un pseudonyme" />
+                                            <Form.Control type="text" placeholder="Choisir un pseudonyme"/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdpIn">
                                             <Form.Label>Mot de passe</Form.Label>
-                                            <Form.Control type="password" placeholder="PassWord123" />
+                                            <Form.Control type="password" placeholder="PassWord123"/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdpIn2">
                                             <Form.Label>Confirmer mot de passe</Form.Label>
-                                            <Form.Control type="password" placeholder="PassWord123" />
+                                            <Form.Control type="password" placeholder="PassWord123"/>
                                         </Form.Group>
 
                                         <div className="text-center mt-4">
-                                            <Button variant="success" className="me-1" type="button" onClick={handleCreation}>
-                                                S'inscrire
+                                            <Button variant="success" className="me-1" type="button"
+                                                    onClick={handleCreation}>
+                                                {t('pages.common.signUp')}
                                             </Button>
                                             <Button variant="danger" className="ms-1" type="reset">
-                                                Annuler
+                                                {t('pages.common.cancel')}
                                             </Button>
                                         </div>
                                     </Form>

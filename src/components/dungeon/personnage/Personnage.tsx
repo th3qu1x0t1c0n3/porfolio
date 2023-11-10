@@ -16,37 +16,37 @@ function Personnage() {
             <div className="row mt-md-5"></div>
             <div className="row mt-md-5"></div>
 
-            <Statistics />
+            <Statistics/>
 
             <div className="row d-md-none">
                 <div className="col-lg-6 col-12">
-                    <Dice />
+                    <Dice/>
                 </div>
             </div>
             {/* Dés End  */}
 
             <div className="row">
                 <div className="col-lg-6 col-12">
-                    <Informations />
-                    <Armes />
+                    <Informations/>
+                    <Armes/>
                 </div>
                 <div className="col-lg-6 col-12">
-                    <Inventory />
+                    <Inventory/>
                 </div>
             </div>
 
             <div className="row">
                 {/* sorts */}
                 <div className="col-lg-6 col-12">
-                    <Spells />
+                    <Spells/>
                 </div>
                 {/* traits de personnage */}
                 <div className="col-lg-6 col-12">
-                    <Traits />
+                    <Traits/>
                 </div>
             </div>
             {/* journal */}
-            <Logs />
+            <Logs/>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import architectCloud from "../../assets/Images/arcCloud/ArchitecteCloud.jpg";
 
 function ArchitectCloud() {
@@ -95,7 +95,7 @@ function ArchitectCloud() {
                     alt="Représentation du métier d'architecte cloud"
                     width="500"
                     height="250"
-                    style={imgStyle} />
+                    style={imgStyle}/>
                 <a href={"/architectCloud#acceuil"} style={buttonStyle}>
                     Page d'acceuil
                 </a>
@@ -188,26 +188,26 @@ function ArchitectCloud() {
                 <h3>Salaire</h3>
                 <table style={tableStyle}>
                     <tbody>
-                        <tr style={trStyle}>
-                            <th style={thStyle}>Période de travail</th>
-                            <th style={thStyle}>Salaire/heure($)</th>
-                            <th style={thStyle}>Salaire/année($)</th>
-                        </tr>
-                        <tr style={trStyle}>
-                            <th>Début</th>
-                            <td>44$/h</td>
-                            <td>85 000$</td>
-                        </tr>
-                        <tr style={trStyle}>
-                            <th>Moyen</th>
-                            <td>65$/h</td>
-                            <td>125 000$</td>
-                        </tr>
-                        <tr style={trStyle}>
-                            <th>Fin de carrière</th>
-                            <td>90$/h</td>
-                            <td>175 000$</td>
-                        </tr>
+                    <tr style={trStyle}>
+                        <th style={thStyle}>Période de travail</th>
+                        <th style={thStyle}>Salaire/heure($)</th>
+                        <th style={thStyle}>Salaire/année($)</th>
+                    </tr>
+                    <tr style={trStyle}>
+                        <th>Début</th>
+                        <td>44$/h</td>
+                        <td>85 000$</td>
+                    </tr>
+                    <tr style={trStyle}>
+                        <th>Moyen</th>
+                        <td>65$/h</td>
+                        <td>125 000$</td>
+                    </tr>
+                    <tr style={trStyle}>
+                        <th>Fin de carrière</th>
+                        <td>90$/h</td>
+                        <td>175 000$</td>
+                    </tr>
                     </tbody>
                 </table>
                 <h3>Évolution professionnelle</h3>

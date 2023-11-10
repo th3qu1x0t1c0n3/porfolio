@@ -31,16 +31,21 @@
   "pages": {
     "common": {
       "login": "Se connecter",
-      "signUp": "S'inscrire"
+      "signUp": "S'inscrire",
+      "logout": "Se déconnecter",
+      "cancel": "Annuler",
+      "confirm": "Confirmer",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "forgotPassword": "Mot de passe oublié?",
+      "enterUsername": "Entrer votre nom d'utilisateur"
     },
     "home": {
       "title": "Technique De L'Informatique",
       "description": "Cette page est présentée par Louis-Philippe Forget, étudiant en technique de l'informatique au Cégep André-Laurendeau. Vous y trouverez des informations sur moi, mes projets et mes progrès en langage de programmation.",
-
       "intro": "Introduction",
       "me": "Moi",
       "desc": "Je suis Louis-Philippe étudiant en technique de l'informatique au cégep André-Laurendeau",
-
       "aptitudes": "Aptitudes",
       "aptitudesDesc": "Je suis un programmeur qui aime apprendre de nouvelles choses et qui est capable de s'adapter à de nouvelles situations. Je suis aussi capable de travailler en équipe et de m'adapter à de nouvelles situations.",
       "developpement": "Développement",
@@ -49,16 +54,12 @@
       "designDesc": "Cette page utilise les designs de Bootstrap v5. Je ne suis bien évidemment pas le meilleur en design :) ",
       "commands": "Commandes & Requêtes",
       "commandsDesc": "Dans le programme 420.0B nous utilisons différents systèmes d'exploitation et différentes méthodes pour stocker des données ce qui nous oblige à apprendre les lignes de commande et les requêtes.",
-
       "projects": "Mes projets",
       "projectSecond": "J'ai eu la chance de faire plusieurs projets en programmation web.",
       "projectsDesc": "Les différents sites sont ici pour voir mon évolution de la première session à la 3e session. Malheureusement, certains sites ne sont pas totalement complétés par la transcription de JavaScript à TypeScript. Aussi, l'API du site de Dungeon & Dragon est fermée par notre professeur ce qui lui donne une allure bien moins justifiée pour le moment.",
-
       "goToProjects": "Aller aux projets",
-
       "progress": "Progrès",
       "progressDesc": "Cette page est faite pour montrer mon évolution en programmation web. Vous y trouverez des informations sur les différents langages que j'ai appris et les différents projets que j'ai fait.",
-
       "contact": "Nous Contacter",
       "question": "Si vous avez des questions, n'hésitez pas à nous contacter.",
       "name": "Nom complet",

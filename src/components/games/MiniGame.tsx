@@ -11,10 +11,10 @@ function MiniGame() {
 
     const [tab, setTab] = useState('home');
     const tabs = [
-        { id: 'home', label: 'home' },
-        { id: 'catalogue', label: 'catalogue' },
-        { id: 'sauveQuiPeut', label: 'sauveQuiPeut' },
-        { id: 'maintenance', label: 'maintenance' }
+        {id: 'home', label: 'home'},
+        {id: 'catalogue', label: 'catalogue'},
+        {id: 'sauveQuiPeut', label: 'sauveQuiPeut'},
+        {id: 'maintenance', label: 'maintenance'}
     ];
 
     // TODO: Finir le jeu et arranger le reste
@@ -33,9 +33,12 @@ function MiniGame() {
                             {
                                 tabs.map((tabItem) => (
                                     tabItem.id !== 'maintenance' && (tabItem.id !== 'sauveQuiPeut' || tab === 'sauveQuiPeut') &&
-                                    <li className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.id ? 'bg-white' : ''}`} key={tabItem.id}>
+                                    <li className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.id ? 'bg-white' : ''}`}
+                                        key={tabItem.id}>
                                         <button className={`nav-link mb-2 font-weight-bold text-dark`}
-                                                onClick={() => {setTab(tabItem.id)}}
+                                                onClick={() => {
+                                                    setTab(tabItem.id)
+                                                }}
                                         >
                                             {t(tabItem.label)}
                                         </button>
@@ -52,12 +55,14 @@ function MiniGame() {
                     </div>
                 </div>
 
-                <div className="modal fade" id="dlgErrModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="dlgErrModal" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="titre">Erreur</h5>
-                                <button type="button" className="btn btn-danger" id="sortieDlg" aria-label="Close"> x </button>
+                                <button type="button" className="btn btn-danger" id="sortieDlg" aria-label="Close"> x
+                                </button>
                             </div>
                             <div className="modal-body">
                                 <p id="msg">Message d'erreur</p>
@@ -66,12 +71,12 @@ function MiniGame() {
                     </div>
                 </div>
             </div>
-            {tab === 'home' && <Connexion setTab={setTab} />}
-            {tab === 'catalogue' && <Catalogue setTab={setTab} />}
-            {tab === 'sauveQuiPeut' && <SauveQuiPeut />}
-            {tab === 'maintenance' && <Maintenance />}
+            {tab === 'home' && <Connexion setTab={setTab}/>}
+            {tab === 'catalogue' && <Catalogue setTab={setTab}/>}
+            {tab === 'sauveQuiPeut' && <SauveQuiPeut/>}
+            {tab === 'maintenance' && <Maintenance/>}
 
-            <GameFooter />
+            <GameFooter/>
         </div>
     );
 }

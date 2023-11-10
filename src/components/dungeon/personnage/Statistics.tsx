@@ -1,7 +1,6 @@
-
 function Statistics() {
 
-    return(
+    return (
         <div>
             <p>Statistic</p>
         </div>
