@@ -9,38 +9,38 @@ import Paperboy from "./../../assets/Images/35829-posts.article_lg-200.jpg";
 import React from "react";
 
 
-function Catalogue(){
+function Catalogue({setTab}: {setTab: (tab: string) => void}){
     const navigate = useNavigate();
 
     const leCatalogue: IJeu[] = [{
         nom: "Sauve qui peut",
         imgFile: sauveQuiPeut,
-        url: "/MiniGame/jeux/sauveQuiPeut",
+        url: "sauveQuiPeut",
         action: "sauveQuiPeut"
     }, {
         nom: "Pac Man",
         imgFile: pacMan,
-        url: "/MiniGame/Maintenance",
+        url: "maintenance",
         action: "na"
     }, {
         nom: "Duck Hunt",
         imgFile: duckHunt,
-        url: "/MiniGame/Maintenance",
+        url: "maintenance",
         action: "na"
     }, {
         nom: "Pong",
         imgFile: Pong,
-        url: "/MiniGame/Maintenance",
+        url: "maintenance",
         action: "na"
     }, {
         nom: "Chucky Egg",
         imgFile: ChuckyEgg,
-        url: "/MiniGame/Maintenance",
+        url: "maintenance",
         action: "na"
     }, {
         nom: "Paperboy",
         imgFile: Paperboy,
-        url: "/MiniGame/Maintenance",
+        url: "maintenance",
         action: "na"
     }];
 
@@ -66,7 +66,7 @@ function Catalogue(){
                         <div key={index} className="col-lg-3 card p-0 ms-5 me-3 mt-3 mb-5">
                             <img className="card-body p-0" alt={jeu.nom} src={jeu.imgFile} />
                             <div className="card-footer text-center">
-                                <button className="btn btn-outline-info text-dark" onClick={() => navigate(jeu.url)}>{jeu.nom}</button>
+                                <button className="btn btn-outline-info text-dark" onClick={() => setTab(jeu.url)}>{jeu.nom}</button>
                             </div>
                         </div>
                     ))}

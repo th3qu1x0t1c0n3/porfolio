@@ -6,6 +6,8 @@ import { Accordion, Card, Button, Form } from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 import Connexion from "./Connexion";
 import Catalogue from "./Catalogue";
+import Maintenance from "./Maintenance";
+import SauveQuiPeut from "./SauveQuiPeut";
 
 function MiniGame() {
     const navigate = useNavigate();
@@ -14,7 +16,9 @@ function MiniGame() {
     const [tab, setTab] = useState('home');
     const tabs = [
         { id: 'home', label: 'home' },
-        { id: 'catalogue', label: 'catalogue' }
+        { id: 'catalogue', label: 'catalogue' },
+        { id: 'sauveQuiPeut', label: 'sauveQuiPeut' },
+        { id: 'maintenance', label: 'maintenance' }
     ];
 
     // TODO: Finir le jeu et arranger le reste
@@ -32,6 +36,7 @@ function MiniGame() {
                         <ul className="navbar-nav">
                             {
                                 tabs.map((tabItem) => (
+                                    tabItem.id !== 'maintenance' &&
                                     <li className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.id ? 'bg-white' : ''}`} key={tabItem.id}>
                                         <button className={`nav-link mb-2 font-weight-bold text-dark ${tab === tabItem.id ? 'bg-white' : ''}`}
                                                 onClick={() => {setTab(tabItem.id)}}
@@ -67,7 +72,9 @@ function MiniGame() {
             </div>
 
             {tab === 'home' && <Connexion setTab={setTab} />}
-            {tab === 'catalogue' && <Catalogue />}
+            {tab === 'catalogue' && <Catalogue setTab={setTab} />}
+            {tab === 'sauveQuiPeut' && <SauveQuiPeut />}
+            {tab === 'maintenance' && <Maintenance />}
 
             <GameFooter />
         </div>
