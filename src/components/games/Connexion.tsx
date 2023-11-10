@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Accordion, Button, Card, Form, Toast} from 'react-bootstrap';
+import {Accordion, Button, Card, Form} from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 import GameUser from "../../assets/models/user";
 import {toast} from "react-toastify";
@@ -13,14 +13,31 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     const [t] = useTranslation();
     const [loginForm, setLoginForm] = useState({username: '', mdp: ''});
     const [creationForm, setCreationForm] = useState({email: '', username: '', mdp: '', mdp2: ''});
+    const [warnings, setWarnings] = useState({email: '', username: '', mdp: '', mdp2: ''});
+
+    // TODO: get tous Regex de BE
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])(?!.*\s).{8,}$/;
+
 
     // TODO: créer un compte pour le jeu?
     function handleLogin(e: React.FormEvent) {
         e.preventDefault();
+        let isValid = true;
 
-        if (loginForm.username === '' || loginForm.mdp === '') {
-            toast.error(t('pages.common.error'));
+        if (!passwordRegex.test(loginForm.mdp))
+        {
+            toast.error('Mot de passe valide');
+            setWarnings({...warnings, mdp: 'errors.password'});
+            isValid = false;
         }
+        else if (loginForm.username.trim().length <= 4) {
+            toast.error('username');
+            setWarnings({...warnings, username: 'errors.username'})
+            isValid = false;
+        }
+
+        if (!isValid)
+            return;
 
         let gameUser = new GameUser();
         gameUser.username = loginForm.username;
@@ -64,13 +81,15 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                     <Form className="mb-4" autoComplete="off">
                                         <Form.Group className="mb-3" controlId="user">
                                             <Form.Label>{t('pages.common.username')}</Form.Label>
-                                            <Form.Control onChange={handleLoginChange} type="text"
+                                            <Form.Control className={`${warnings.username ? "is-invalid" : ""}`} onChange={handleLoginChange} type="text"
                                                           placeholder={t('pages.common.enterUsername')}/>
+                                            <h5 className="text-danger">{t(warnings.username)}</h5>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdp">
                                             <Form.Label>{t('pages.common.password')}</Form.Label>
-                                            <Form.Control onChange={handleLoginChange} type="password" placeholder=""/>
+                                            <Form.Control className={`${warnings.mdp ? "is-invalid" : ""}`} onChange={handleLoginChange} type="password" placeholder=""/>
+                                            <h5 className="text-danger">{t(warnings.mdp)}</h5>
                                         </Form.Group>
 
                                         <div className="text-center mt-4 mb-2">
