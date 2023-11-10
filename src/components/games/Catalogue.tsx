@@ -1,4 +1,3 @@
-import GameHeader from "./GameHeader";
 import {IJeu} from "../../assets/models/projet";
 import {useNavigate} from "react-router-dom";
 import sauveQuiPeut from "./../../assets/Images/sauveQuiPeut.png";
@@ -7,7 +6,6 @@ import duckHunt from "./../../assets/Images/35841-posts.article_lg-200.jpg";
 import Pong from "./../../assets/Images/35828-posts.article_lg-200.jpg";
 import ChuckyEgg from "./../../assets/Images/35834-posts.article_lg-200.jpg";
 import Paperboy from "./../../assets/Images/35829-posts.article_lg-200.jpg";
-import GameFooter from "./GameFooter";
 import React from "react";
 
 
@@ -68,7 +66,7 @@ function Catalogue(){
                         <div key={index} className="col-lg-3 card p-0 ms-5 me-3 mt-3 mb-5">
                             <img className="card-body p-0" alt={jeu.nom} src={jeu.imgFile} />
                             <div className="card-footer text-center">
-                                <a className="text-dark" href={jeu.url}>{jeu.nom}</a>
+                                <button className="btn btn-outline-info text-dark" onClick={() => navigate(jeu.url)}>{jeu.nom}</button>
                             </div>
                         </div>
                     ))}

@@ -4,17 +4,18 @@ import {useNavigate} from "react-router-dom";
 import { Accordion, Card, Button, Form } from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 
-function Connexion() {
+function Connexion({setTab}: {setTab: (tab: string) => void}) {
+
     const navigate = useNavigate();
     const [t] = useTranslation();
 
     // TODO: créer un compte pour le jeu?
     function handleLogin() {
-        navigate('/MiniGame/Catalogue');
+        setTab('catalogue');
     }
 
     function handleCreation() {
-        navigate('/MiniGame/Catalogue');
+        setTab('catalogue');
     }
 
     return (

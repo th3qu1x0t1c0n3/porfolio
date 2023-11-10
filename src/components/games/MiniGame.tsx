@@ -44,8 +44,9 @@ function MiniGame() {
                         </ul>
                     </nav>
 
+                    {/*TODO: Changer si connecté ou pas*/}
                     <div className="col-lg-4 col-md-6 col-sm-7 text-right mt-3 text-end" id="connexion">
-                        <p className="d-inline-block text-white" id="utilisateur">Veuillez vous connecter</p>
+                        <p className="d-inline-block text-white me-2" id="utilisateur">Veuillez vous connecter</p>
                         <button className="d-inline-block bg-danger" id="btnDeco">Déconnexion</button>
                     </div>
                 </div>
@@ -65,7 +66,7 @@ function MiniGame() {
                 </div>
             </div>
 
-            {tab === 'home' && <Connexion />}
+            {tab === 'home' && <Connexion setTab={setTab} />}
             {tab === 'catalogue' && <Catalogue />}
 
             <GameFooter />
