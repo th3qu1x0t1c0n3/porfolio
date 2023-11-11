@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import {BrowserRouter} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 import Main from "./components/layout/Main";
@@ -16,7 +17,7 @@ function App() {
                 position="top-center"
                 autoClose={3000}
                 hideProgressBar={false}
-                newestOnTop={false}
+                newestOnTop={true}
                 closeOnClick
                 rtl={false}
                 pauseOnFocusLoss

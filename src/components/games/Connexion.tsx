@@ -15,8 +15,57 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     const [creationForm, setCreationForm] = useState({email: '', username: '', mdp: '', mdp2: ''});
     const [warnings, setWarnings] = useState({email: '', username: '', mdp: '', mdp2: ''});
 
+    const [createFormInfo, setCreateFromInfo] = useState([
+        {
+            name: 'username',
+            label: 'pages.common.username',
+            placeholder: 'pages.common.enterUsername',
+            type: 'text',
+            warning: ''
+        },
+        {
+            name: 'email',
+            label: 'pages.common.email',
+            placeholder: 'pages.common.enterEmail',
+            type: 'email',
+            warning: ''
+        },
+        {
+            name: 'mdp',
+            label: 'pages.common.password',
+            placeholder: 'PassWord123',
+            type: 'password',
+            warning: ''
+        },
+        {
+            name: 'mdp2',
+            label: 'pages.common.confirmPassword',
+            placeholder: 'PassWord123',
+            type: 'password',
+            warning: ''
+        }
+    ])
+
+    const [loginFormInfo, setLoginFromInfo] = useState([
+        {
+            name: 'username',
+            label: 'pages.common.username',
+            placeholder: 'pages.common.enterUsername',
+            type: 'text',
+            warning: ''
+        },
+        {
+            name: 'mdp',
+            label: 'pages.common.password',
+            placeholder: 'PassWord123',
+            type: 'password',
+            warning: ''
+        }
+    ])
+
     // TODO: get tous Regex de BE
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9])(?!.*\s).{8,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+    const courielRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
     // TODO: créer un compte pour le jeu?
@@ -24,20 +73,28 @@ function Connexion({setTab, setUser}: ConnexionProps) {
         e.preventDefault();
         let isValid = true;
 
-        if (!passwordRegex.test(loginForm.mdp))
-        {
-            toast.error('Mot de passe valide');
-            setWarnings({...warnings, mdp: 'errors.password'});
+        if (!passwordRegex.test(loginForm.mdp)) {
+            toast.error(t('toast.error.password'));
+            setLoginFromInfo(loginFormInfo.map((formInfo, index) => {
+                if (formInfo.name === 'mdp'){
+                    formInfo.warning = 'errors.password';
+                    console.log("mdp", formInfo.warning, " : ", formInfo.name)
+                }
+                return formInfo;
+            }))
+            isValid = false;
+        } else if (loginForm.username.trim().length < 4) {
+            toast.error(t('toast.error.username'));
+            setLoginFromInfo(loginFormInfo.map((formInfo, index) => {
+                if (formInfo.name === 'username')
+                    formInfo.warning = 'errors.username';
+                return formInfo;
+            }))
             isValid = false;
         }
-        else if (loginForm.username.trim().length < 4) {
-            toast.error('username');
-            setWarnings({...warnings, username: 'errors.username'})
-            isValid = false;
-        }
-
-        if (!isValid)
+        if (!isValid){
             return;
+        }
 
         let gameUser = new GameUser();
         gameUser.username = loginForm.username;
@@ -48,6 +105,28 @@ function Connexion({setTab, setUser}: ConnexionProps) {
 
     function handleCreation(e: React.FormEvent) {
         e.preventDefault();
+        let isValid = true;
+
+        if (creationForm.username.trim().length < 4) {
+            toast.error(t('toast.error.username'));
+            setWarnings({...warnings, username: 'errors.username'})
+            isValid = false;
+        } else if (!courielRegex.test(creationForm.email)) {
+            toast.error('Courriel valide');
+            setWarnings({...warnings, email: 'errors.email'});
+            isValid = false;
+        } else if (!passwordRegex.test(creationForm.mdp)) {
+            toast.error(t('toast.error.password'));
+            setWarnings({...warnings, mdp: 'errors.password'});
+            isValid = false;
+        } else if (creationForm.mdp !== creationForm.mdp2) {
+            toast.error(t('toast.error.passwords'));
+            setWarnings({...warnings, mdp2: 'errors.password'});
+            isValid = false;
+        }
+
+        if (!isValid)
+            return;
 
         let gameUser = new GameUser();
         gameUser.email = creationForm.email;
@@ -79,19 +158,17 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                             <Accordion.Body>
                                 <Card.Body>
                                     <Form className="mb-4" autoComplete="off">
-                                        <Form.Group className="mb-3" controlId="username">
-                                            <Form.Label>{t('pages.common.username')}</Form.Label>
-                                            <Form.Control className={`${warnings.username ? "is-invalid" : ""}`} onChange={handleLoginChange} type="text"
-                                                          placeholder={t('pages.common.enterUsername')}/>
-                                            <h5 className="text-danger">{t(warnings.username)}</h5>
-                                        </Form.Group>
-
-                                        <Form.Group className="mb-3" controlId="mdp">
-                                            <Form.Label>{t('pages.common.password')}</Form.Label>
-                                            <Form.Control className={`${warnings.mdp ? "alert alert-danger" : ""}`} onChange={handleLoginChange} type="password" placeholder=""/>
-                                            <h5 className="text-danger">{t(warnings.mdp)}</h5>
-                                        </Form.Group>
-
+                                        {
+                                            loginFormInfo.map((formInfo, index) => (
+                                                <Form.Group className="mb-3" controlId={formInfo.name}>
+                                                    <Form.Label>{t(formInfo.label)}</Form.Label>
+                                                    <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
+                                                                  onChange={handleLoginChange} type={formInfo.type}
+                                                                  placeholder={t(formInfo.placeholder)}/>
+                                                    <h5 className="text-danger">{t(formInfo.warning)}</h5>
+                                                </Form.Group>
+                                            ))
+                                        }
                                         <div className="text-center mt-4 mb-2">
                                             <Button variant="success" className="me-2" onClick={handleLogin}>
                                                 {t('pages.common.login')}
@@ -117,22 +194,26 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                     <Form autoComplete="off">
                                         <Form.Group className="mb-3" controlId="userIn">
                                             <Form.Label>{t('pages.common.email')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="text" placeholder={t('pages.common.enterEmail')}/>
+                                            <Form.Control className="" onChange={handleCreationChange} type="text"
+                                                          placeholder={t('pages.common.enterEmail')}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="pseudo">
                                             <Form.Label>{t('pages.common.username')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="text" placeholder={t('pages.common.enterUsername')}/>
+                                            <Form.Control onChange={handleCreationChange} type="text"
+                                                          placeholder={t('pages.common.enterUsername')}/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdpIn">
                                             <Form.Label>{t('pages.common.password')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="password" placeholder="PassWord123"/>
+                                            <Form.Control onChange={handleCreationChange} type="password"
+                                                          placeholder="PassWord123"/>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3" controlId="mdpIn2">
                                             <Form.Label>{t('pages.common.confirmPassword')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="password" placeholder="PassWord123"/>
+                                            <Form.Control onChange={handleCreationChange} type="password"
+                                                          placeholder="PassWord123"/>
                                         </Form.Group>
 
                                         <div className="text-center mt-4">
