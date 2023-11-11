@@ -73,7 +73,7 @@ function MiniGame() {
                                     <p className="d-inline-block text-white me-2" id="utilisateur">{t('pages.common.welcome')} {user.username}</p>
                                     <button className="d-inline-block bg-danger" id="btnDeco" onClick={logout}>{t('pages.common.logout')}</button>
                                 </>:
-                                <p className="d-inline-block text-white me-2" id="utilisateur">Veuillez vous connecter</p>
+                                <p className="d-inline-block text-white me-2" id="utilisateur">{t('pages.common.pleaseLogin')}</p>
                         }
                     </div>
                 </div>

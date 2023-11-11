@@ -42,7 +42,8 @@
       "password": "Mot de passe",
       "forgotPassword": "Mot de passe oublié?",
       "enterUsername": "Entrer votre nom d'utilisateur",
-      "welcome": "Bienvenue"
+      "welcome": "Bienvenue",
+      "pleaseLogin": "Veuillez vous connecter"
     },
     "home": {
       "title": "Technique De L'Informatique",
