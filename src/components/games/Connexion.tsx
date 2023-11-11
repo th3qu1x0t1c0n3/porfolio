@@ -15,7 +15,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     const [creationForm, setCreationForm] = useState({email: '', username: '', mdp: '', mdp2: ''});
     const [createFormInfo, setCreateFromInfo] = useState([
         {
-            id: '1',
             name: 'username',
             label: 'pages.common.username',
             placeholder: 'pages.common.enterUsername',
@@ -23,7 +22,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
-            id: '2',
             name: 'email',
             label: 'pages.common.email',
             placeholder: 'pages.common.enterEmail',
@@ -31,7 +29,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
-            id: '3',
             name: 'mdp',
             label: 'pages.common.password',
             placeholder: 'PassWord123',
@@ -39,7 +36,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
-            id: '4',
             name: 'mdp2',
             label: 'pages.common.confirmPassword',
             placeholder: 'PassWord123',
@@ -49,7 +45,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     ])
     const [loginFormInfo, setLoginFromInfo] = useState([
         {
-            id: '1',
             name: 'username',
             label: 'pages.common.username',
             placeholder: 'pages.common.enterUsername',
@@ -57,7 +52,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
-            id: '2',
             name: 'mdp',
             label: 'pages.common.password',
             placeholder: 'PassWord123',
@@ -85,7 +79,8 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                 return formInfo;
             }))
             isValid = false;
-        } else if (loginForm.username.trim().length < 4) {
+        }
+        if (loginForm.username.trim().length < 4) {
             toast.error(t('toast.error.username'));
             setLoginFromInfo(loginFormInfo.map((formInfo) => {
                 if (formInfo.name === 'username')
@@ -95,6 +90,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             isValid = false;
         }
         if (!isValid){
+            console.log("USERNAME: " + loginForm.username, "MDP: " + loginForm.mdp);
             return;
         }
 
@@ -116,7 +112,8 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                 return formInfo;
             }))
             isValid = false;
-        } else if (!courielRegex.test(creationForm.email)) {
+        }
+        if (!courielRegex.test(creationForm.email)) {
             toast.error(t('toast.error.email'));
             setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'email')
@@ -124,7 +121,8 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                 return formInfo;
             }))
             isValid = false;
-        } else if (!passwordRegex.test(creationForm.mdp)) {
+        }
+        if (!passwordRegex.test(creationForm.mdp)) {
             toast.error(t('toast.error.password'));
             setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'mdp')
@@ -132,7 +130,8 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                 return formInfo;
             }))
             isValid = false;
-        } else if (creationForm.mdp !== creationForm.mdp2) {
+        }
+        if (creationForm.mdp !== creationForm.mdp2) {
             toast.error(t('toast.error.passwords'));
             setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'mdp2')
@@ -185,7 +184,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                     <Form className="mb-4" autoComplete="off">
                                         {
                                             loginFormInfo.map((formInfo, index) => (
-                                                <Form.Group key={index} className="mb-3">
+                                                <Form.Group key={index} className="mb-3" controlId={formInfo.name}>
                                                     <Form.Label>{t(formInfo.label)}</Form.Label>
                                                     <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
                                                                   onChange={handleLoginChange} type={formInfo.type}
@@ -219,7 +218,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                     <Form autoComplete="off">
                                         {
                                             createFormInfo.map((formInfo, index) => (
-                                                <Form.Group key={index} className="mb-3">
+                                                <Form.Group key={index} className="mb-3" controlId={formInfo.name}>
                                                     <Form.Label>{t(formInfo.label)}</Form.Label>
                                                     <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
                                                                   onChange={handleCreationChange} type={formInfo.type}

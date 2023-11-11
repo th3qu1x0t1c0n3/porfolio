@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import GameFooter from "./GameFooter";
 import {useTranslation} from "react-i18next";
 import Connexion from "./Connexion";
 import Catalogue from "./Catalogue";
@@ -72,7 +71,7 @@ function MiniGame() {
                                 <>
                                     <p className="d-inline-block text-white me-2" id="utilisateur">{t('pages.common.welcome')} {user.username}</p>
                                     <button className="d-inline-block bg-danger" id="btnDeco" onClick={logout}>{t('pages.common.logout')}</button>
-                                </>:
+                                </> :
                                 <p className="d-inline-block text-white me-2" id="utilisateur">{t('pages.common.pleaseLogin')}</p>
                         }
                     </div>
@@ -99,7 +98,11 @@ function MiniGame() {
             {tab === 'sauveQuiPeut' && <SauveQuiPeut/>}
             {tab === 'maintenance' && <Maintenance/>}
 
-            <GameFooter/>
+            <div className="row bg-light">
+                <div className="col text-center pt-3 mt-3">
+                    <p>&copy; Louis-Philippe Forget, Cégep André-Laurendeau, Hiver 2022</p>
+                </div>
+            </div>
         </div>
     );
 }
