@@ -75,13 +75,16 @@
   },
   "errors": {
     "password": "Le mot de passe doit contenir au moins 5 caractères, une majuscule, une minuscule et un chiffre.",
-    "username": "Le nom d'utilisateur doit contenir au moins 4 caractères."
+    "passwords": "Les mots de passe ne sont pas identiques.",
+    "username": "Le nom d'utilisateur doit contenir au moins 4 caractères.",
+    "email": "Le courriel est invalide."
   },
   "toast": {
     "error": {
       "password": "Mot de passe valide",
       "passwords": "Les mots de passe ne sont pas identiques",
       "username": "Nom d'utilisateur valide",
+      "email": "Courriel valide",
       "invalid": "Nom d'utilisateur ou mot de passe invalide"
     }
   }

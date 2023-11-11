@@ -109,19 +109,35 @@ function Connexion({setTab, setUser}: ConnexionProps) {
 
         if (creationForm.username.trim().length < 4) {
             toast.error(t('toast.error.username'));
-            setWarnings({...warnings, username: 'errors.username'})
+            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+                if (formInfo.name === 'username')
+                    formInfo.warning = 'errors.username';
+                return formInfo;
+            }))
             isValid = false;
         } else if (!courielRegex.test(creationForm.email)) {
-            toast.error('Courriel valide');
-            setWarnings({...warnings, email: 'errors.email'});
+            toast.error(t('toast.error.email'));
+            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+                if (formInfo.name === 'email')
+                    formInfo.warning = 'errors.email';
+                return formInfo;
+            }))
             isValid = false;
         } else if (!passwordRegex.test(creationForm.mdp)) {
             toast.error(t('toast.error.password'));
-            setWarnings({...warnings, mdp: 'errors.password'});
+            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+                if (formInfo.name === 'mdp')
+                    formInfo.warning = 'errors.password';
+                return formInfo;
+            }))
             isValid = false;
         } else if (creationForm.mdp !== creationForm.mdp2) {
             toast.error(t('toast.error.passwords'));
-            setWarnings({...warnings, mdp2: 'errors.password'});
+            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+                if (formInfo.name === 'mdp2')
+                    formInfo.warning = 'errors.passwords';
+                return formInfo;
+            }))
             isValid = false;
         }
 
@@ -137,10 +153,20 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     }
 
     function handleLoginChange(e: any) {
+        setLoginFromInfo(loginFormInfo.map((formInfo, index) => {
+            if (formInfo.name === e.target.id)
+                formInfo.warning = '';
+            return formInfo;
+        }))
         setLoginForm({...loginForm, [e.target.id]: e.target.value});
     }
 
     function handleCreationChange(e: any) {
+        setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+            if (formInfo.name === e.target.id)
+                formInfo.warning = '';
+            return formInfo;
+        }))
         setCreationForm({...creationForm, [e.target.id]: e.target.value});
     }
 
@@ -192,30 +218,17 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                             <Accordion.Body>
                                 <Card.Body>
                                     <Form autoComplete="off">
-                                        <Form.Group className="mb-3" controlId="userIn">
-                                            <Form.Label>{t('pages.common.email')}</Form.Label>
-                                            <Form.Control className="" onChange={handleCreationChange} type="text"
-                                                          placeholder={t('pages.common.enterEmail')}/>
-                                        </Form.Group>
-
-                                        <Form.Group className="mb-3" controlId="pseudo">
-                                            <Form.Label>{t('pages.common.username')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="text"
-                                                          placeholder={t('pages.common.enterUsername')}/>
-                                        </Form.Group>
-
-                                        <Form.Group className="mb-3" controlId="mdpIn">
-                                            <Form.Label>{t('pages.common.password')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="password"
-                                                          placeholder="PassWord123"/>
-                                        </Form.Group>
-
-                                        <Form.Group className="mb-3" controlId="mdpIn2">
-                                            <Form.Label>{t('pages.common.confirmPassword')}</Form.Label>
-                                            <Form.Control onChange={handleCreationChange} type="password"
-                                                          placeholder="PassWord123"/>
-                                        </Form.Group>
-
+                                        {
+                                            createFormInfo.map((formInfo, index) => (
+                                                <Form.Group className="mb-3" controlId={formInfo.name}>
+                                                    <Form.Label>{t(formInfo.label)}</Form.Label>
+                                                    <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
+                                                                  onChange={handleCreationChange} type={formInfo.type}
+                                                                  placeholder={t(formInfo.placeholder)}/>
+                                                    <h5 className="text-danger">{t(formInfo.warning)}</h5>
+                                                </Form.Group>
+                                            ))
+                                        }
                                         <div className="text-center mt-4">
                                             <Button variant="success" className="me-1" type="button"
                                                     onClick={handleCreation}>
