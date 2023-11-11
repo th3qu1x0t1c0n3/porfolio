@@ -15,6 +15,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     const [creationForm, setCreationForm] = useState({email: '', username: '', mdp: '', mdp2: ''});
     const [createFormInfo, setCreateFromInfo] = useState([
         {
+            id: '1',
             name: 'username',
             label: 'pages.common.username',
             placeholder: 'pages.common.enterUsername',
@@ -22,6 +23,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
+            id: '2',
             name: 'email',
             label: 'pages.common.email',
             placeholder: 'pages.common.enterEmail',
@@ -29,6 +31,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
+            id: '3',
             name: 'mdp',
             label: 'pages.common.password',
             placeholder: 'PassWord123',
@@ -36,6 +39,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
+            id: '4',
             name: 'mdp2',
             label: 'pages.common.confirmPassword',
             placeholder: 'PassWord123',
@@ -45,6 +49,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     ])
     const [loginFormInfo, setLoginFromInfo] = useState([
         {
+            id: '1',
             name: 'username',
             label: 'pages.common.username',
             placeholder: 'pages.common.enterUsername',
@@ -52,6 +57,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         },
         {
+            id: '2',
             name: 'mdp',
             label: 'pages.common.password',
             placeholder: 'PassWord123',
@@ -75,7 +81,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             setLoginFromInfo(loginFormInfo.map((formInfo) => {
                 if (formInfo.name === 'mdp'){
                     formInfo.warning = 'errors.password';
-                    console.log("mdp", formInfo.warning, " : ", formInfo.name)
                 }
                 return formInfo;
             }))
@@ -179,8 +184,8 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                 <Card.Body>
                                     <Form className="mb-4" autoComplete="off">
                                         {
-                                            loginFormInfo.map((formInfo) => (
-                                                <Form.Group className="mb-3" controlId={formInfo.name}>
+                                            loginFormInfo.map((formInfo, index) => (
+                                                <Form.Group key={index} className="mb-3">
                                                     <Form.Label>{t(formInfo.label)}</Form.Label>
                                                     <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
                                                                   onChange={handleLoginChange} type={formInfo.type}
@@ -213,8 +218,8 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                 <Card.Body>
                                     <Form autoComplete="off">
                                         {
-                                            createFormInfo.map((formInfo) => (
-                                                <Form.Group className="mb-3" controlId={formInfo.name}>
+                                            createFormInfo.map((formInfo, index) => (
+                                                <Form.Group key={index} className="mb-3">
                                                     <Form.Label>{t(formInfo.label)}</Form.Label>
                                                     <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
                                                                   onChange={handleCreationChange} type={formInfo.type}

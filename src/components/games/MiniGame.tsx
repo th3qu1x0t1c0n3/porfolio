@@ -31,6 +31,12 @@ function MiniGame() {
         setTab(tab);
     }
 
+    function logout() {
+        setUser(new GameUser());
+        setTab('home');
+        toast.info(t('toast.info.logout'));
+    }
+
     // TODO: Finir le jeu et arranger le reste
     return (
         <div id="acceuil" className="p-5 bg-info min-vh-100">
@@ -60,10 +66,15 @@ function MiniGame() {
                         </ul>
                     </nav>
 
-                    {/*TODO: Changer si connecté ou pas*/}
                     <div className="col-lg-4 col-md-6 col-sm-7 text-right mt-3 text-end" id="connexion">
-                        <p className="d-inline-block text-white me-2" id="utilisateur">Veuillez vous connecter</p>
-                        <button className="d-inline-block bg-danger" id="btnDeco">Déconnexion</button>
+                        {
+                            user.isLogged ?
+                                <>
+                                    <p className="d-inline-block text-white me-2" id="utilisateur">{t('pages.common.welcome')} {user.username}</p>
+                                    <button className="d-inline-block bg-danger" id="btnDeco" onClick={logout}>{t('pages.common.logout')}</button>
+                                </>:
+                                <p className="d-inline-block text-white me-2" id="utilisateur">Veuillez vous connecter</p>
+                        }
                     </div>
                 </div>
 

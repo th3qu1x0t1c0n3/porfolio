@@ -41,7 +41,8 @@
       "enterEmail": "Entrer votre courriel",
       "password": "Mot de passe",
       "forgotPassword": "Mot de passe oublié?",
-      "enterUsername": "Entrer votre nom d'utilisateur"
+      "enterUsername": "Entrer votre nom d'utilisateur",
+      "welcome": "Bienvenue"
     },
     "home": {
       "title": "Technique De L'Informatique",
