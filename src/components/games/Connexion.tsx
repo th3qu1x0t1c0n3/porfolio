@@ -13,8 +13,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     const [t] = useTranslation();
     const [loginForm, setLoginForm] = useState({username: '', mdp: ''});
     const [creationForm, setCreationForm] = useState({email: '', username: '', mdp: '', mdp2: ''});
-    const [warnings, setWarnings] = useState({email: '', username: '', mdp: '', mdp2: ''});
-
     const [createFormInfo, setCreateFromInfo] = useState([
         {
             name: 'username',
@@ -45,7 +43,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             warning: ''
         }
     ])
-
     const [loginFormInfo, setLoginFromInfo] = useState([
         {
             name: 'username',
