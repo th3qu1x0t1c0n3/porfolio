@@ -30,7 +30,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             setWarnings({...warnings, mdp: 'errors.password'});
             isValid = false;
         }
-        else if (loginForm.username.trim().length <= 4) {
+        else if (loginForm.username.trim().length < 4) {
             toast.error('username');
             setWarnings({...warnings, username: 'errors.username'})
             isValid = false;
@@ -79,7 +79,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                             <Accordion.Body>
                                 <Card.Body>
                                     <Form className="mb-4" autoComplete="off">
-                                        <Form.Group className="mb-3" controlId="user">
+                                        <Form.Group className="mb-3" controlId="username">
                                             <Form.Label>{t('pages.common.username')}</Form.Label>
                                             <Form.Control className={`${warnings.username ? "is-invalid" : ""}`} onChange={handleLoginChange} type="text"
                                                           placeholder={t('pages.common.enterUsername')}/>
@@ -88,7 +88,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
 
                                         <Form.Group className="mb-3" controlId="mdp">
                                             <Form.Label>{t('pages.common.password')}</Form.Label>
-                                            <Form.Control className={`${warnings.mdp ? "is-invalid" : ""}`} onChange={handleLoginChange} type="password" placeholder=""/>
+                                            <Form.Control className={`${warnings.mdp ? "alert alert-danger" : ""}`} onChange={handleLoginChange} type="password" placeholder=""/>
                                             <h5 className="text-danger">{t(warnings.mdp)}</h5>
                                         </Form.Group>
 
