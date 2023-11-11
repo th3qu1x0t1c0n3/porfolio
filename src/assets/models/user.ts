@@ -13,17 +13,20 @@ export interface IGameUser {
 }
 
 class GameUser implements IGameUser {
+    isLogged: boolean;
     email: string;
     username: string;
     password: string;
 
     constructor() {
+        this.isLogged = false;
         this.email = "";
         this.username = "";
         this.password = "";
     }
 
     public init(email: string, username: string, password: string) {
+        this.isLogged = true;
         this.email = email;
         this.username = username;
         this.password = password;

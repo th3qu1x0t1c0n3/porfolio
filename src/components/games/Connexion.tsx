@@ -94,8 +94,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
         }
 
         let gameUser = new GameUser();
-        gameUser.username = loginForm.username;
-        gameUser.password = loginForm.mdp;
+        gameUser.init('', loginForm.username, loginForm.mdp)
         setUser(gameUser);
         setTab('catalogue');
     }
@@ -142,9 +141,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             return;
 
         let gameUser = new GameUser();
-        gameUser.email = creationForm.email;
-        gameUser.username = creationForm.username;
-        gameUser.password = creationForm.mdp;
+        gameUser.init(creationForm.email, creationForm.username, creationForm.mdp)
         setUser(gameUser);
         setTab('catalogue');
     }

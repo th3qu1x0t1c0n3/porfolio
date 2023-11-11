@@ -5,11 +5,18 @@ import duckHunt from "./../../assets/Images/35841-posts.article_lg-200.jpg";
 import Pong from "./../../assets/Images/35828-posts.article_lg-200.jpg";
 import ChuckyEgg from "./../../assets/Images/35834-posts.article_lg-200.jpg";
 import Paperboy from "./../../assets/Images/35829-posts.article_lg-200.jpg";
-import React from "react";
+import React, {useEffect} from "react";
+import GameUser from "../../assets/models/user";
+import {toast} from "react-toastify";
+import {useTranslation} from "react-i18next";
 
+interface ICatalogue {
+    setTab: (tab: string) => void
+    user: GameUser
+}
 
-function Catalogue({setTab}: { setTab: (tab: string) => void }) {
-
+function Catalogue({setTab, user}: ICatalogue) {
+    const [t] = useTranslation();
     const leCatalogue: IJeu[] = [{
         nom: "Sauve qui peut",
         imgFile: sauveQuiPeut,
@@ -44,21 +51,6 @@ function Catalogue({setTab}: { setTab: (tab: string) => void }) {
 
     return (
         <div className={`row pt-4 p-3 bg-white`}>
-            <div className="modal fade" id="dlgErrModal" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="titre">Erreur</h5>
-                            <button type="button" className="btn btn-danger" id="sortieDlg" aria-label="Close"> x
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <p id="msg">Message d'erreur</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div className="container">
                 <div className="row mt-3 justify-content-center">

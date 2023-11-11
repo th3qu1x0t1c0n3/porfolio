@@ -6,6 +6,7 @@ import Catalogue from "./Catalogue";
 import Maintenance from "./Maintenance";
 import SauveQuiPeut from "./SauveQuiPeut";
 import GameUser from "../../assets/models/user";
+import {toast} from "react-toastify";
 
 function MiniGame() {
     const [t] = useTranslation();
@@ -17,6 +18,18 @@ function MiniGame() {
     ];
     const [tab, setTab] = useState('home');
     const [user, setUser] = useState(new GameUser());
+
+    function tabChange(tab: string) {
+        switch (tab) {
+            case 'catalogue':
+                if (!user.isLogged){
+                    toast.info(t('toast.info.notLogged'));
+                    return;
+                }
+                break;
+        }
+        setTab(tab);
+    }
 
     // TODO: Finir le jeu et arranger le reste
     return (
@@ -37,9 +50,7 @@ function MiniGame() {
                                     <li className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.id ? 'bg-white' : ''}`}
                                         key={tabItem.id}>
                                         <button className={`nav-link mb-2 font-weight-bold text-dark`}
-                                                onClick={() => {
-                                                    setTab(tabItem.id)
-                                                }}
+                                                onClick={() => tabChange(tabItem.id)}
                                         >
                                             {t(tabItem.label)}
                                         </button>
@@ -73,7 +84,7 @@ function MiniGame() {
                 </div>
             </div>
             {tab === 'home' && <Connexion setTab={setTab} setUser={setUser} />}
-            {tab === 'catalogue' && <Catalogue setTab={setTab}/>}
+            {tab === 'catalogue' && <Catalogue setTab={setTab} user={user} />}
             {tab === 'sauveQuiPeut' && <SauveQuiPeut/>}
             {tab === 'maintenance' && <Maintenance/>}
 

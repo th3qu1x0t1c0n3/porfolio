@@ -86,6 +86,11 @@
       "username": "Nom d'utilisateur valide",
       "email": "Courriel valide",
       "invalid": "Nom d'utilisateur ou mot de passe invalide"
+    },
+    "info": {
+      "logout": "Vous êtes déconnecté",
+      "login": "Vous êtes connecté",
+      "notLogged": "Vous devez vous connecter avant de procéder"
     }
   }
 }
