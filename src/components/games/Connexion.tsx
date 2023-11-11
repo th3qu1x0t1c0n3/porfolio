@@ -72,7 +72,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
 
         if (!passwordRegex.test(loginForm.mdp)) {
             toast.error(t('toast.error.password'));
-            setLoginFromInfo(loginFormInfo.map((formInfo, index) => {
+            setLoginFromInfo(loginFormInfo.map((formInfo) => {
                 if (formInfo.name === 'mdp'){
                     formInfo.warning = 'errors.password';
                     console.log("mdp", formInfo.warning, " : ", formInfo.name)
@@ -82,7 +82,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             isValid = false;
         } else if (loginForm.username.trim().length < 4) {
             toast.error(t('toast.error.username'));
-            setLoginFromInfo(loginFormInfo.map((formInfo, index) => {
+            setLoginFromInfo(loginFormInfo.map((formInfo) => {
                 if (formInfo.name === 'username')
                     formInfo.warning = 'errors.username';
                 return formInfo;
@@ -106,7 +106,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
 
         if (creationForm.username.trim().length < 4) {
             toast.error(t('toast.error.username'));
-            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+            setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'username')
                     formInfo.warning = 'errors.username';
                 return formInfo;
@@ -114,7 +114,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             isValid = false;
         } else if (!courielRegex.test(creationForm.email)) {
             toast.error(t('toast.error.email'));
-            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+            setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'email')
                     formInfo.warning = 'errors.email';
                 return formInfo;
@@ -122,7 +122,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             isValid = false;
         } else if (!passwordRegex.test(creationForm.mdp)) {
             toast.error(t('toast.error.password'));
-            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+            setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'mdp')
                     formInfo.warning = 'errors.password';
                 return formInfo;
@@ -130,7 +130,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             isValid = false;
         } else if (creationForm.mdp !== creationForm.mdp2) {
             toast.error(t('toast.error.passwords'));
-            setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+            setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'mdp2')
                     formInfo.warning = 'errors.passwords';
                 return formInfo;
@@ -150,7 +150,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     }
 
     function handleLoginChange(e: any) {
-        setLoginFromInfo(loginFormInfo.map((formInfo, index) => {
+        setLoginFromInfo(loginFormInfo.map((formInfo) => {
             if (formInfo.name === e.target.id)
                 formInfo.warning = '';
             return formInfo;
@@ -159,7 +159,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
     }
 
     function handleCreationChange(e: any) {
-        setCreateFromInfo(createFormInfo.map((formInfo, index) => {
+        setCreateFromInfo(createFormInfo.map((formInfo) => {
             if (formInfo.name === e.target.id)
                 formInfo.warning = '';
             return formInfo;
@@ -182,7 +182,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                 <Card.Body>
                                     <Form className="mb-4" autoComplete="off">
                                         {
-                                            loginFormInfo.map((formInfo, index) => (
+                                            loginFormInfo.map((formInfo) => (
                                                 <Form.Group className="mb-3" controlId={formInfo.name}>
                                                     <Form.Label>{t(formInfo.label)}</Form.Label>
                                                     <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
@@ -216,7 +216,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
                                 <Card.Body>
                                     <Form autoComplete="off">
                                         {
-                                            createFormInfo.map((formInfo, index) => (
+                                            createFormInfo.map((formInfo) => (
                                                 <Form.Group className="mb-3" controlId={formInfo.name}>
                                                     <Form.Label>{t(formInfo.label)}</Form.Label>
                                                     <Form.Control className={`${formInfo.warning !== '' ? "is-invalid" : ""}`}
