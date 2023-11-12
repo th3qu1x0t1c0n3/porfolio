@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next";
 import GameUser from "../../assets/models/user";
 import {toast} from "react-toastify";
 import {emailRegex, passwordRegex} from "../../App";
+import FormInput from "../../assets/models/Form";
 
 interface ConnexionProps {
     setTab: (tab: string) => void;
@@ -12,53 +13,25 @@ interface ConnexionProps {
 
 function Connexion({setTab, setUser}: ConnexionProps) {
     const [t] = useTranslation();
-    const [loginForm, setLoginForm] = useState({username: '', mdp: ''});
-    const [creationForm, setCreationForm] = useState({email: '', username: '', mdp: '', mdp2: ''});
+    const [loginForm, setLoginForm] = useState({
+        username: '',
+        mdp: ''
+    });
+    const [creationForm, setCreationForm] = useState({
+        email: '',
+        username: '',
+        mdp: '',
+        mdp2: ''
+    });
     const [createFormInfo, setCreateFromInfo] = useState([
-        {
-            name: 'username',
-            label: 'pages.common.username',
-            placeholder: 'pages.common.enterUsername',
-            type: 'text',
-            warning: ''
-        },
-        {
-            name: 'email',
-            label: 'pages.common.email',
-            placeholder: 'pages.common.enterEmail',
-            type: 'email',
-            warning: ''
-        },
-        {
-            name: 'mdp',
-            label: 'pages.common.password',
-            placeholder: 'PassWord123',
-            type: 'password',
-            warning: ''
-        },
-        {
-            name: 'mdp2',
-            label: 'pages.common.confirmPassword',
-            placeholder: 'PassWord123',
-            type: 'password',
-            warning: ''
-        }
+        new FormInput('username', 'pages.common.username', 'text', 'pages.common.enterUsername', ''),
+        new FormInput('email', 'pages.common.email', 'text', 'pages.common.enterEmail', ''),
+        new FormInput('mdp', 'pages.common.password', 'password', 'PassWord123', ''),
+        new FormInput('mdp2', 'pages.common.confirmPassword', 'password', 'PassWord123', '')
     ])
     const [loginFormInfo, setLoginFromInfo] = useState([
-        {
-            name: 'username',
-            label: 'pages.common.username',
-            placeholder: 'pages.common.enterUsername',
-            type: 'text',
-            warning: ''
-        },
-        {
-            name: 'mdp',
-            label: 'pages.common.password',
-            placeholder: 'PassWord123',
-            type: 'password',
-            warning: ''
-        }
+        new FormInput('username', 'pages.common.username', 'text', 'pages.common.enterUsername', ''),
+        new FormInput('mdp', 'pages.common.password', 'password', 'PassWord123', '')
     ])
 
     // TODO: créer un compte pour le jeu?
