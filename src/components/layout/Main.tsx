@@ -5,6 +5,8 @@ import ArchitectCloud from "../architect/ArchitectCloud";
 import References from "../architect/References";
 import MiniGame from "../games/MiniGame";
 import Dungeon from "../dungeon/Dungeon";
+import {Auth} from "googleapis";
+import Authentication from "../home/Auth/Authentication";
 
 
 function Main() {
@@ -14,6 +16,7 @@ function Main() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/portfolio" element={<Home/>}/>
+                <Route path="/portfolio/authentication" element={<Authentication />}/>
                 <Route path="/architectCloud" element={<ArchitectCloud/>}/>
                 <Route path="/architectCloud/references" element={<References/>}/>
 

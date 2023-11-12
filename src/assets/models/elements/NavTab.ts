@@ -1,14 +1,14 @@
 export interface INavTab {
-    name: string;
+    link: string;
     label: string;
 }
 
 class NavTab implements INavTab {
-    name: string;
+    link: string;
     label: string;
 
-    constructor(name: string, label: string) {
-        this.name = name;
+    constructor(link: string, label: string) {
+        this.link = link;
         this.label = label;
     }
 }

@@ -11,11 +11,12 @@ function Header() {
     const {t} = useTranslation()
     const navigate = useNavigate();
     const navItems = [
-        new NavTab('home', 'header.home'),
-        new NavTab('intro', 'header.intro'),
-        new NavTab('projet', 'header.project'),
-        new NavTab('progres', 'header.progress'),
-        new NavTab('contact', 'header.contact')
+        new NavTab('/portfolio#home', 'header.home'),
+        new NavTab('/portfolio#intro', 'header.intro'),
+        new NavTab('/portfolio#projet', 'header.project'),
+        new NavTab('/portfolio#progres', 'header.progress'),
+        new NavTab('/portfolio#contact', 'header.contact'),
+        new NavTab('/portfolio/authentication', 'header.login'),
     ]
 
     return (
@@ -33,8 +34,8 @@ function Header() {
                                 navItems.map((navItem: INavTab, index: number) => (
                                     <Nav.Item key={index}>
                                         <Nav.Link className={`px-3`}
-                                                  href={`/portfolio#${navItem.name}`}
-                                                  onClick={() => navigate(`/portfolio#${navItem.name}`)}>
+                                                  href={navItem.link}
+                                                  onClick={() => navigate(navItem.link)}>
                                             {t(navItem.label)}
                                         </Nav.Link>
                                     </Nav.Item>
