@@ -4,9 +4,9 @@ function PageNotFound() {
     const {t} = useTranslation()
 
     return (
-        <>
-            <h1>{t('utils.pageNotFound')}</h1>
-        </>
+        <div className={"text-center"}>
+            <h1 className={"pt-5"}>{t('utils.pageNotFound')}</h1>
+        </div>
     );
 }
 

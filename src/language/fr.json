@@ -1,6 +1,6 @@
 {
   "utils": {
-    "pageNotFound": "Erreur la page demandé n'est pas trouvable"
+    "pageNotFound": "Cette page n'existe pas :("
   },
   "header": {
     "home": "Acceuil",
