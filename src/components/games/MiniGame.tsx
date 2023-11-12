@@ -6,14 +6,16 @@ import Maintenance from "./Maintenance";
 import SauveQuiPeut from "./SauveQuiPeut";
 import GameUser from "../../assets/models/user";
 import {toast} from "react-toastify";
+import NavTab from "../../assets/models/elements/NavTab";
+import { Nav } from 'react-bootstrap';
 
 function MiniGame() {
     const [t] = useTranslation();
     const tabs = [
-        {id: 'home', label: 'home'},
-        {id: 'catalogue', label: 'catalogue'},
-        {id: 'sauveQuiPeut', label: 'sauveQuiPeut'},
-        {id: 'maintenance', label: 'maintenance'}
+        new NavTab('home', 'pages.common.home'),
+        new NavTab('catalogue', 'pages.games.catalog'),
+        new NavTab('sauveQuiPeut', 'pages.games.sauveQuiPeut'),
+        new NavTab('maintenance', 'pages.games.maintenance'),
     ];
     const [tab, setTab] = useState('home');
     const [user, setUser] = useState(new GameUser());
@@ -36,7 +38,6 @@ function MiniGame() {
         toast.info(t('toast.info.logout'));
     }
 
-    // TODO: Finir le jeu et arranger le reste
     return (
         <div id="acceuil" className="p-5 bg-info min-vh-100">
             <div className="bg-info">
@@ -48,21 +49,24 @@ function MiniGame() {
 
                 <div className="row bg-dark">
                     <nav className="col-lg-8 col-md-5 col-sm-5 navbar navbar-expand-sm navbar-light pb-0 mt-2">
-                        <ul className="navbar-nav">
-                            {
-                                tabs.map((tabItem) => (
-                                    tabItem.id !== 'maintenance' && (tabItem.id !== 'sauveQuiPeut' || tab === 'sauveQuiPeut') &&
-                                    <li className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.id ? 'bg-white' : ''}`}
-                                        key={tabItem.id}>
-                                        <button className={`nav-link mb-2 font-weight-bold text-dark`}
-                                                onClick={() => tabChange(tabItem.id)}
+                        <Nav>
+                            {tabs.map((tabItem) => (
+                                tabItem.link !== 'maintenance' &&
+                                (tabItem.link !== 'sauveQuiPeut' || tab === 'sauveQuiPeut') && (
+                                    <Nav.Item
+                                        key={tabItem.link}
+                                        className={`nav-item bg-secondary active rounded-top px-2 ${tab === tabItem.link ? 'bg-white' : ''}`}
+                                    >
+                                        <Nav.Link
+                                            className={`nav-link mb-2 font-weight-bold text-dark`}
+                                            onClick={() => tabChange(tabItem.link)}
                                         >
                                             {t(tabItem.label)}
-                                        </button>
-                                    </li>
-                                ))
-                            }
-                        </ul>
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                )
+                            ))}
+                        </Nav>
                     </nav>
 
                     <div className="col-lg-4 col-md-6 col-sm-7 text-right mt-3 text-end" id="connexion">

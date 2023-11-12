@@ -2,6 +2,7 @@ import React from "react";
 
 
 function SauveQuiPeut() {
+    // TODO: Implémenter le jeu
     return (
         <div className={`row pt-4 p-3 bg-white`}>
             <h1 className={"text-center"}>Sauve qui peut</h1>

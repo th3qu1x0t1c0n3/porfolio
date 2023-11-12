@@ -30,6 +30,7 @@
   },
   "pages": {
     "common": {
+      "home": "Acceuil",
       "login": "Se connecter",
       "signUp": "S'inscrire",
       "logout": "Se déconnecter",
@@ -73,6 +74,11 @@
       "message": "Message",
       "send": "Envoyer",
       "sent": "Message envoyé"
+    },
+    "games": {
+      "catalog": "Catalogue",
+      "sauveQuiPeut": "Sauve qui peut",
+      "maintenance": "Maintenance"
     }
   },
   "errors": {
