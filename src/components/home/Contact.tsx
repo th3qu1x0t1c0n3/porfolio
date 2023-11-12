@@ -1,21 +1,72 @@
 import {useTranslation} from "react-i18next";
-import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
+import {toast} from "react-toastify";
+import {Button, Form} from "react-bootstrap";
+import FormInput from "../../assets/models/Form";
+import {emailRegex, phoneNumRegex} from "../../App";
 
 function Contact() {
-    const navigate = useNavigate();
     const {t} = useTranslation();
-
-    const [formData, setFormData] = useState({
+    const [contactData, setContactData] = useState({
         name: '',
         email: '',
         number: '',
         message: ''
     });
+    const [contactFormInfo, setContactFormInfo] = useState([
+        new FormInput('name',  'pages.home.name','text', 'pages.home.name', ''),
+        new FormInput('email', 'pages.common.email','text', 'pages.home.email', ''),
+        new FormInput('number', 'pages.home.number','text', 'pages.home.number', ''),
+    ]);
+    const [message, setMessage] = useState(
+        new FormInput('message', 'pages.home.message','textarea', 'pages.home.message', '')
+    );
 
+    function sendEmail(e: any) {
+        e.preventDefault();
+        let isValid = true;
+        if (contactData.name === '') {
+            toast.error(t('toast.error.name'));
+            setContactFormInfo(contactFormInfo.map((contactInfo) => {
+                if (contactInfo.name === 'name') {
+                    contactInfo.warning = 'errors.name';
+                }
+                return contactInfo;
+            }));
+            isValid = false;
+        }
+        if (!emailRegex.test(contactData.email)) {
+            toast.error(t('toast.error.email'));
+            setContactFormInfo(contactFormInfo.map((contactInfo) => {
+                if (contactInfo.name === 'email') {
+                    contactInfo.warning = 'errors.email';
+                }
+                return contactInfo;
+            }));
+            isValid = false;
+        }
+        if (contactData.number !== '') {
+            if (!phoneNumRegex.test(contactData.number)) {
+                toast.error(t('toast.error.number'));
+                setContactFormInfo(contactFormInfo.map((contactInfo) => {
+                    if (contactInfo.name === 'number') {
+                        contactInfo.warning = 'errors.number';
+                    }
+                    return contactInfo;
+                }));
+                isValid = false;
+            }
+        }
+        if (contactData.message === '') {
+            toast.error(t('toast.error.message'));
+            setMessage({...message, warning: 'errors.message'})
+            isValid = false;
+        }
 
-    const handleSendEmail = async () => {
-        console.log("Send email")
+        if (!isValid) {
+            return;
+        }
+
         // const accessToken = 'your_access_token'; // Obtain this through OAuth 2.0
         // try {
         //     const response = await axios.post(
@@ -34,7 +85,19 @@ function Contact() {
         // } catch (error) {
         //     console.error('Error sending email:', error);
         // }
-    };
+
+        toast.success(t('toast.success.emailSent'));
+        setContactData({
+            name: '',
+            email: '',
+            number: '',
+            message: ''
+        });
+    }
+
+    function formChange(e: any) {
+        setContactData({...contactData, [e.target.id]: e.target.value});
+    }
 
     return (
         <>
@@ -48,30 +111,39 @@ function Contact() {
                     <div className="text-center text-secondary mb-4">
                         <h2>{t('pages.home.question')}</h2>
                     </div>
-                    <form className="text-muted">
-                        <div className="form-group">
-                            <label htmlFor="name">{t('pages.home.name')}</label>
-                            <input type="text" className="form-control" id="name" required/>
+                    <Form className="text-muted mb-4" autoComplete="off">
+                        {
+                            contactFormInfo.map((contactInfo, index) => (
+                                <Form.Group key={index} className="mb-3" controlId={contactInfo.name}>
+                                    <Form.Label>{t(contactInfo.label)}</Form.Label>
+                                    <Form.Control className={`${contactInfo.warning !== '' ? "is-invalid" : ""}`}
+                                                  onChange={formChange} type={contactInfo.type}
+                                                  placeholder={t(contactInfo.placeholder)}/>
+                                    <h5 className="text-danger">{t(contactInfo.warning)}</h5>
+                                </Form.Group>
+                            ))
+                        }
+                        <Form.Group className="mb-3" controlId="message">
+                            <Form.Label>{t(message.label)}</Form.Label>
+                            <Form.Control className={`${message.warning !== '' ? "is-invalid" : ""}`}
+                                as={'textarea'}
+                                rows={4}
+                                placeholder={t(message.placeholder)}
+                                onChange={formChange}
+                            />
+                            <h5 className="text-danger">{t(message.warning)}</h5>
+                        </Form.Group>
+                        <div className=" mt-4 mb-2">
+                            <Button variant={"btn-warning"} className="btn btn-outline-warning btn-block mt-2"
+                                    onClick={sendEmail}>
+                                {t('pages.home.send')}
+                            </Button>
+                            <Button variant="btn-dark" className="btn-outline-dark btn-block mt-2 ms-4"
+                                    onClick={sendEmail}>
+                                {t('pages.home.sent')}
+                            </Button>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="email">{t('pages.home.email')}</label>
-                            <input type="text" className="form-control" id="email" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="noTel">{t('pages.home.number')}</label>
-                            <input type="text" className="form-control" id="noTel"/>
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="message">{t('pages.home.message')}</label>
-                            <textarea className="form-control" id="message" rows={5} required></textarea>
-                        </div>
-
-                        <button className="btn btn-outline-warning btn-block mt-2" type="submit"
-                                onClick={handleSendEmail}>{t('pages.home.send')}</button>
-                        <button className="btn btn-outline-dark btn-block mt-2 ms-4"
-                                onClick={() => navigate('/login')}>{t('pages.home.sent')}</button>
-                    </form>
+                    </Form>
                 </div>
             </div>
         </>

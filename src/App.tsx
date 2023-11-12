@@ -37,6 +37,10 @@ function App() {
 
 export default App;
 
+export const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+export const phoneNumRegex = /^(\+|00)?[0-9]{9,}$/;
+export const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+
 export const server = axios.create({
     baseURL: 'http://localhost:8080/api',
     headers: {

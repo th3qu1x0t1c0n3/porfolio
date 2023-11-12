@@ -79,7 +79,10 @@
     "password": "Le mot de passe doit contenir au moins 5 caractères, une majuscule, une minuscule et un chiffre.",
     "passwords": "Les mots de passe ne sont pas identiques.",
     "username": "Le nom d'utilisateur doit contenir au moins 4 caractères.",
-    "email": "Le courriel est invalide."
+    "email": "Le courriel est invalide.",
+    "number": "Le numéro de téléphone est invalide.",
+    "name": "Veuillez entrer votre nom complet.",
+    "message": "Veuillez entrer un message."
   },
   "toast": {
     "error": {
@@ -87,12 +90,16 @@
       "passwords": "Les mots de passe ne sont pas identiques",
       "username": "Nom d'utilisateur valide",
       "email": "Courriel valide",
+      "message": "Votre message est vide",
       "invalid": "Nom d'utilisateur ou mot de passe invalide"
     },
     "info": {
       "logout": "Vous êtes déconnecté",
       "login": "Vous êtes connecté",
       "notLogged": "Vous devez vous connecter avant de procéder"
+    },
+    "success": {
+      "emailSent": "Courriel envoyé"
     }
   }
 }

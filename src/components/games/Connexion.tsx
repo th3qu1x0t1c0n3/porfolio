@@ -3,6 +3,7 @@ import {Accordion, Button, Card, Form} from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 import GameUser from "../../assets/models/user";
 import {toast} from "react-toastify";
+import {emailRegex, passwordRegex} from "../../App";
 
 interface ConnexionProps {
     setTab: (tab: string) => void;
@@ -60,11 +61,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
         }
     ])
 
-    // TODO: get tous Regex de BE
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,}$/;
-    const courielRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-
     // TODO: créer un compte pour le jeu?
     function handleLogin(e: React.FormEvent) {
         e.preventDefault();
@@ -90,7 +86,6 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             isValid = false;
         }
         if (!isValid){
-            console.log("USERNAME: " + loginForm.username, "MDP: " + loginForm.mdp);
             return;
         }
 
@@ -113,7 +108,7 @@ function Connexion({setTab, setUser}: ConnexionProps) {
             }))
             isValid = false;
         }
-        if (!courielRegex.test(creationForm.email)) {
+        if (!emailRegex.test(creationForm.email)) {
             toast.error(t('toast.error.email'));
             setCreateFromInfo(createFormInfo.map((formInfo) => {
                 if (formInfo.name === 'email')

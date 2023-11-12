@@ -31,10 +31,5 @@ class GameUser implements IGameUser {
         this.username = username;
         this.password = password;
     }
-
-    public getEmail(): string {
-        return this.email;
-    }
-
 }
 export default GameUser;
