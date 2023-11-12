@@ -9,7 +9,7 @@ function LanguageSelector() {
     };
 
     return (
-        <div className="me-5">
+        <div className="me-5 col-1">
             <select className={"form-select clickable"} onChange={(e) => changeLanguage(e.target.value)}>
                 <option value="en">English</option>
                 <option value="fr">Français</option>
