@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import GameUser from "../../assets/models/user";
 import {toast} from "react-toastify";
 import {emailRegex, passwordRegex} from "../../App";
-import FormInput from "../../assets/models/Form";
+import FormInput from "../../assets/models/elements/Form";
 
 interface ConnexionProps {
     setTab: (tab: string) => void;

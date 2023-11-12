@@ -37,6 +37,10 @@
     }
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 /* Catalogue Jeux */
 #enTete {
     background-image: url("./assets/Images/backgroundPhone.jpg");

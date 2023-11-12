@@ -2,7 +2,7 @@ import {useTranslation} from "react-i18next";
 import React, {useState} from "react";
 import {toast} from "react-toastify";
 import {Button, Form} from "react-bootstrap";
-import FormInput from "../../assets/models/Form";
+import FormInput from "../../assets/models/elements/Form";
 import {emailRegex, phoneNumRegex} from "../../App";
 
 function Contact() {
