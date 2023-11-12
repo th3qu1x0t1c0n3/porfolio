@@ -7,9 +7,11 @@ import MiniGame from "../games/MiniGame";
 import Dungeon from "../dungeon/Dungeon";
 import {Auth} from "googleapis";
 import Authentication from "../home/Auth/Authentication";
-
+import {useState} from "react";
+import {IUser} from "../../assets/models/user";
 
 function Main() {
+    const [user, setUser] = useState<IUser | null>(null);
 
     return (
         <main className='App-main min-vh-100 bg-light mx-auto'>

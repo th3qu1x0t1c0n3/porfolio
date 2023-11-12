@@ -73,7 +73,9 @@
       "number": "Numéro de téléphone",
       "message": "Message",
       "send": "Envoyer",
-      "sent": "Message envoyé"
+      "sent": "Message envoyé",
+
+      "authentifiaction": "Authentification"
     },
     "games": {
       "catalog": "Catalogue",

@@ -5,6 +5,7 @@ import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 import NavTab, {INavTab} from "../../assets/models/elements/NavTab";
+import {useState} from "react";
 
 
 function Header() {
@@ -16,7 +17,9 @@ function Header() {
         new NavTab('/portfolio#projet', 'header.project'),
         new NavTab('/portfolio#progres', 'header.progress'),
         new NavTab('/portfolio#contact', 'header.contact'),
-        new NavTab('/portfolio/authentication', 'header.login'),
+
+        new NavTab('signIn', 'pages.home.signIn'),
+        new NavTab('signUp', 'pages.home.signUp')
     ]
 
     return (
@@ -41,19 +44,13 @@ function Header() {
                                     </Nav.Item>
                                 ))
                             }
-                            {/*    /!* TODO: mettre que la personne est connecté *!/*/}
-                            {/*    <ul className="navbar-nav">*/}
-                            {/*        <li className="nav-item">*/}
-                            {/*            <a className="nav-link active" href="/login">*/}
-                            {/*                EDIT: Login*/}
-                            {/*            </a>*/}
-                            {/*        </li>*/}
-                            {/*    </ul>*/}
                         </Nav>
+                        {
+
+                        }
                         <LanguageSelector/>
                     </Navbar.Collapse>
                 </Navbar>
-
             </div>
         </div>
     );
