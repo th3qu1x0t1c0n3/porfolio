@@ -1,6 +1,6 @@
 function Dice() {
     return (
-        <div>
+        <div className={"text-white"}>
             <p>Dice</p>
         </div>
     )

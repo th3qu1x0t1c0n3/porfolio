@@ -1,5 +1,5 @@
-import Name from "./personnage/Name";
-import HealthBar from "./personnage/HealthBar";
+import Name from "./Name";
+import HealthBar from "./HealthBar";
 
 
 function Header(){

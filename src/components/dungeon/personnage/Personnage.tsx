@@ -1,6 +1,6 @@
 import React from 'react';
 import Statistics from "./Statistics";
-import Dice from "./Dice";
+import Dice from "../side/Dice";
 import Informations from "./Informations";
 import Armes from "./Armes";
 import Inventory from "./Inventory";

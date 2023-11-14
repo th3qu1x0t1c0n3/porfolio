@@ -81,6 +81,16 @@
       "catalog": "Catalogue",
       "sauveQuiPeut": "Sauve qui peut",
       "maintenance": "Maintenance"
+    },
+    "dungeon": {
+      "character": "Personage",
+      "store": "Magasin",
+      "compendium": "Compendium",
+      "inventory": "Inventaire",
+      "map": "Carte",
+      "administration": "Administration",
+
+      "characterName": "Nom du personnage"
     }
   },
   "errors": {
