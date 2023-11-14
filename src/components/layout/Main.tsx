@@ -21,7 +21,7 @@ function Main() {
 
                 <Route path="/MiniGame" element={<MiniGame/>}/>
 
-                <Route path="/Dungeon" element={<Dungeon/>}/>
+                <Route path="/dungeon" element={<Dungeon/>}/>
 
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>

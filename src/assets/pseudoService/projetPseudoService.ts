@@ -20,7 +20,7 @@ export const mesProjets: IProjet[] = [{
     auteur: "Louis-Philippe Forget",
     image: prevDungeon,
     desc: "projects.d&d.description",
-    lien: "/dungeon/personnage#acceuil"
+    lien: "/dungeon#acceuil"
 },
 // {
 //   titre: "Magasin ecom",

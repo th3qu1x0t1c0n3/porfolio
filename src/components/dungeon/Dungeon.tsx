@@ -1,8 +1,10 @@
+import Header from "./Header";
+
 function Dungeon() {
     return (
         <>
             <nav className="navbar navbar-expand-md navbar-light">
-                {/*TODO: HEADER bar*/}
+                <Header/>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <div className="container-fluid">
                         <div className="row">
