@@ -89,7 +89,9 @@
       "inventory": "Inventaire",
       "map": "Carte",
       "administration": "Administration",
-
+      "armor": "Classe d'armure:",
+      "initiative": "Initiative +",
+      "speed": "Vitesse:",
       "characterName": "Nom du personnage"
     }
   },
