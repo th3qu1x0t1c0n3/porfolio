@@ -17,9 +17,6 @@ function Header() {
         new NavTab('/portfolio#projet', 'header.project'),
         new NavTab('/portfolio#progres', 'header.progress'),
         new NavTab('/portfolio#contact', 'header.contact'),
-
-        new NavTab('signIn', 'pages.home.signIn'),
-        new NavTab('signUp', 'pages.home.signUp')
     ]
 
     return (
