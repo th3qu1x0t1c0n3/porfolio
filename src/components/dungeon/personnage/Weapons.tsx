@@ -1,4 +1,4 @@
-function Armes() {
+function Weapons() {
     return (
         <div className="bg-dark text-white">
             <h1>Armes</h1>
@@ -6,4 +6,4 @@ function Armes() {
     )
 }
 
-export default Armes;
+export default Weapons;

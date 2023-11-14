@@ -2,16 +2,15 @@ import React from 'react';
 import Statistics from "./Statistics";
 import Dice from "../side/Dice";
 import Informations from "./Informations";
-import Armes from "./Armes";
+import Weapons from "./Weapons";
 import Inventory from "./Inventory";
 import Spells from "./Spells";
 import Traits from "./Traits";
 import Logs from "./Logs";
 
-function Personnage() {
+function Character() {
     return (
         <div className="bg-secondary container-fluid">
-            {/* Espacement pour les fixed items*/}
             <div className="row mt-md-3"></div>
             <div className="row mt-md-5"></div>
             <div className="row mt-md-5"></div>
@@ -23,12 +22,11 @@ function Personnage() {
                     <Dice/>
                 </div>
             </div>
-            {/* Dés End  */}
 
             <div className="row">
                 <div className="col-lg-6 col-12">
                     <Informations/>
-                    <Armes/>
+                    <Weapons/>
                 </div>
                 <div className="col-lg-6 col-12">
                     <Inventory/>
@@ -36,11 +34,9 @@ function Personnage() {
             </div>
 
             <div className="row">
-                {/* sorts */}
                 <div className="col-lg-6 col-12">
                     <Spells/>
                 </div>
-                {/* traits de personnage */}
                 <div className="col-lg-6 col-12">
                     <Traits/>
                 </div>
@@ -51,4 +47,4 @@ function Personnage() {
     );
 }
 
-export default Personnage;
+export default Character;

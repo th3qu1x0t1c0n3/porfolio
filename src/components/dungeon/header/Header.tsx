@@ -4,7 +4,7 @@ import HealthBar from "./HealthBar";
 
 function Header(){
     return(
-        <div className="row fixed-top mt-5 clearfix bg-dark align-items-center">
+        <div className="row fixed-top mt-5 clearfix bg-dark align-items-center pt-3 pb-1">
             <div className="col-2 col-sm-1 d-md-none">
                 <button className="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
