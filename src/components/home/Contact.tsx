@@ -100,53 +100,55 @@ function Contact() {
     }
 
     return (
-        <>
-            <div className="row">
-                <div className="col text-center mb-3">
-                    <h1 className="text-warning display-2 text-capitalize">{t('pages.home.contact')}</h1>
-                </div>
-            </div>
-            <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8 col-sm-10">
-                    <div className="text-center text-secondary mb-4">
-                        <h2>{t('pages.home.question')}</h2>
+        <section id="contact" className=" bg-light pb-5">
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col text-center mb-3">
+                        <h1 className="text-warning display-2 text-capitalize">{t('pages.home.contact')}</h1>
                     </div>
-                    <Form className="text-muted mb-4" autoComplete="off">
-                        {
-                            contactFormInfo.map((contactInfo, index) => (
-                                <Form.Group key={index} className="mb-3" controlId={contactInfo.name}>
-                                    <Form.Label>{t(contactInfo.label)}</Form.Label>
-                                    <Form.Control className={`${contactInfo.warning !== '' ? "is-invalid" : ""}`}
-                                                  onChange={formChange} type={contactInfo.type}
-                                                  placeholder={t(contactInfo.placeholder)}/>
-                                    <h5 className="text-danger">{t(contactInfo.warning)}</h5>
-                                </Form.Group>
-                            ))
-                        }
-                        <Form.Group className="mb-3" controlId="message">
-                            <Form.Label>{t(message.label)}</Form.Label>
-                            <Form.Control className={`${message.warning !== '' ? "is-invalid" : ""}`}
-                                as={'textarea'}
-                                rows={4}
-                                placeholder={t(message.placeholder)}
-                                onChange={formChange}
-                            />
-                            <h5 className="text-danger">{t(message.warning)}</h5>
-                        </Form.Group>
-                        <div className=" mt-4 mb-2">
-                            <Button variant={"btn-warning"} className="btn btn-outline-warning btn-block mt-2"
-                                    onClick={sendEmail}>
-                                {t('pages.home.send')}
-                            </Button>
-                            <Button variant="btn-dark" className="btn-outline-dark btn-block mt-2 ms-4"
-                                    onClick={sendEmail}>
-                                {t('pages.home.sent')}
-                            </Button>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-lg-6 col-md-8 col-sm-10">
+                        <div className="text-center text-secondary mb-4">
+                            <h2>{t('pages.home.question')}</h2>
                         </div>
-                    </Form>
+                        <Form className="text-muted mb-4" autoComplete="off">
+                            {
+                                contactFormInfo.map((contactInfo, index) => (
+                                    <Form.Group key={index} className="mb-3" controlId={contactInfo.name}>
+                                        <Form.Label>{t(contactInfo.label)}</Form.Label>
+                                        <Form.Control className={`${contactInfo.warning !== '' ? "is-invalid" : ""}`}
+                                                      onChange={formChange} type={contactInfo.type}
+                                                      placeholder={t(contactInfo.placeholder)}/>
+                                        <h5 className="text-danger">{t(contactInfo.warning)}</h5>
+                                    </Form.Group>
+                                ))
+                            }
+                            <Form.Group className="mb-3" controlId="message">
+                                <Form.Label>{t(message.label)}</Form.Label>
+                                <Form.Control className={`${message.warning !== '' ? "is-invalid" : ""}`}
+                                              as={'textarea'}
+                                              rows={4}
+                                              placeholder={t(message.placeholder)}
+                                              onChange={formChange}
+                                />
+                                <h5 className="text-danger">{t(message.warning)}</h5>
+                            </Form.Group>
+                            <div className=" mt-4 mb-2">
+                                <Button variant={"btn-warning"} className="btn btn-outline-warning btn-block mt-2"
+                                        onClick={sendEmail}>
+                                    {t('pages.home.send')}
+                                </Button>
+                                <Button variant="btn-dark" className="btn-outline-dark btn-block mt-2 ms-4"
+                                        onClick={sendEmail}>
+                                    {t('pages.home.sent')}
+                                </Button>
+                            </div>
+                        </Form>
+                    </div>
                 </div>
             </div>
-        </>
+        </section>
     );
 }
 
