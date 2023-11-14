@@ -92,6 +92,7 @@
       "armor": "Classe d'armure:",
       "initiative": "Initiative +",
       "speed": "Vitesse:",
+      "throw": "Lancer",
       "characterName": "Nom du personnage"
     }
   },
