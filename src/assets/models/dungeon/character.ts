@@ -1,7 +1,7 @@
 export interface ICharactere {
     id: string;
     name: string;
-    statistics: { [key: string]: number }
+    statistics: IStatistics;
     race: string;
     player: string;
     classe: string;
@@ -21,6 +21,16 @@ export interface ICharactere {
     armorClass: number;
     initiative: number;
     speed: number;
+}
+
+export interface IStatistics {
+    [key: string]: number
+    // strength: number;
+    // dexterity: number;
+    // constitution: number;
+    // intelligence: number;
+    // wisdom: number;
+    // charisma: number;
 }
 
 export interface ITraitRef {

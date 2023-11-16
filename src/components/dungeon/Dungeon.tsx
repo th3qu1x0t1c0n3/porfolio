@@ -33,7 +33,7 @@ function Dungeon() {
             <section className="container-fluid g-0">
                 <div className="col-xl-9 col-lg-8 col-md-8 ms-auto g-0">
                     <div className="row my-md-2 my-4"></div>
-                    {tab === 'character' && <Character/>}
+                    {tab === 'character' && <Character character={character}/>}
                     {tab === 'store' && <Store/>}
                     {tab === 'compendium' && <h1>{t('pages.dungeon.compendium')}</h1>}
                     {tab === 'inventory' && <h1>{t('pages.dungeon.inventory')}</h1>}

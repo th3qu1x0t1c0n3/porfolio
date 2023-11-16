@@ -7,15 +7,16 @@ import Inventory from "./Inventory";
 import Spells from "./Spells";
 import Traits from "./Traits";
 import Logs from "./Logs";
+import {ICharactere} from "../../../assets/models/dungeon/character";
 
-function Character() {
+function Character({character}: {character: ICharactere}) {
     return (
         <div className="bg-secondary container-fluid">
             <div className="row mt-md-3"></div>
             <div className="row mt-md-5"></div>
             <div className="row mt-md-5"></div>
 
-            <Statistics/>
+            <Statistics character={character}/>
 
             <div className="row d-md-none">
                 <div className="col-lg-6 col-12">

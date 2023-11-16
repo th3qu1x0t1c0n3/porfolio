@@ -1,44 +1,14 @@
 import {ICharactere} from "../../../assets/models/dungeon/character";
 
-function Statistics() {
-    const myCharactere: ICharactere = {
-        id: "1",
-        name: "John Doe",
-        statistics: {
-            strength: 10,
-            dexterity: 10,
-            constitution: 10,
-            intelligence: 10,
-            sagesse: 10,
-            charisme: 10
-        },
-        race: "Human",
-        player: "Player1",
-        classe: "Warrior",
-        sousclasses: "Subclass1",
-        level: 1,
-        background: "Background1",
-        synopsis: "Synopsis1",
-        owner: "Owner1",
-        image: "Image1",
-        health: 100,
-        currentHealth: 100,
-        traits: [{
-            trait: "Trait1",
-            description: "Description1",
-        }],
-        armorClass: 10,
-        initiative: 10,
-        speed: 30,
-    };
+function Statistics({character}: {character: ICharactere}) {
     const statLookup = [
         // Pourquoi est-ce un mauvais choix???
         {prefix: 'str', suffix: 'ength', color: 'bg-danger'},
         {prefix: 'dex', suffix: 'terity', color: 'bg-primary'},
         {prefix: 'con', suffix: 'stitution', color: 'bg-warning'},
         {prefix: 'int', suffix: 'elligence', color: 'bg-success'},
-        {prefix: 'sag', suffix: 'esse', color: 'bg-info'},
-        {prefix: 'cha', suffix: 'risme', color: 'bg-dark'}
+        {prefix: 'wis', suffix: 'dom', color: 'bg-info'},
+        {prefix: 'cha', suffix: 'risma', color: 'bg-dark'}
     ];
 
     function getModifier(stat: number): string {
@@ -60,7 +30,7 @@ function Statistics() {
                                         {stat.prefix}<span className="d-none d-lg-inline">{stat.suffix}</span>
                                     </div>
                                     <div className={"h2"}>
-                                        {getModifier(myCharactere.statistics[stat.prefix + stat.suffix])}
+                                        {getModifier(character.statistics[stat.prefix + stat.suffix])}
                                     </div>
                                 </div>
                             </div>
