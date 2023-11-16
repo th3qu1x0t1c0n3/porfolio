@@ -42,7 +42,7 @@ function HealthBar({ character }: { character: ICharactere}) {
                 </div>
                 <button
                     className="btn btn-success mx-2 fw-bold"
-                    // onClick={incrementHealth}
+                    onClick={incrementHealth}
                     disabled={character.currentHealth === character.health}
                 >+</button>
             </div>
