@@ -1,6 +1,6 @@
 function Weapons() {
     return (
-        <div className="bg-dark text-white">
+        <div className="">
             <h1>Armes</h1>
         </div>
     )

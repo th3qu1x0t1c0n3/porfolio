@@ -41,7 +41,6 @@ function Character() {
                     <Traits/>
                 </div>
             </div>
-            {/* journal */}
             <Logs/>
         </div>
     );

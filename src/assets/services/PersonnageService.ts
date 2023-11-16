@@ -126,6 +126,15 @@ export class PersonnageService {
             })
     }
 
+    async putHp(life:{currentHealth:number}, characterId:string){
+        return await cegepInstance.put<any>(`health/${characterId}`, life)
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+
+
     async getMessages(): Promise<IMessageGet> {
         return await cegepInstance.get<IMessageGet>('message')
             .then((response) => {
@@ -139,12 +148,4 @@ export class PersonnageService {
                 return response.data;
             })
     }
-
-    async putHp(life:{currentHealth:number}, characterId:string){
-        return await cegepInstance.put<any>(`health/${characterId}`, life)
-            .then((response) => {
-                return response.data;
-            })
-    }
-
 }
