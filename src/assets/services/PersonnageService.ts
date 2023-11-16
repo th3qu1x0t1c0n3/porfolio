@@ -1,7 +1,8 @@
 import {cegepInstance} from "../../react-app-env";
 import {ICharactere, ITraitRef} from "../models/dungeon/character";
-import {IEquipementReference} from "../models/dungeon/equipments";
+import {IEquipementPost, IEquipementReference} from "../models/dungeon/equipments";
 import {ISpellReference} from "../models/dungeon/spells";
+import {IMessage, IMessageGet} from "../models/message";
 
 interface IToken {
     error: string,
@@ -40,6 +41,18 @@ interface IValidation {
 
 export class PersonnageService {
 
+    async createSession(username: string, password: string): Promise<string> {
+        return cegepInstance.post<IToken>('token', {
+            username: username,
+            password: password
+        }).then((response) => {
+            const token = response.data.data;
+            localStorage.setItem("token", token);
+            cegepInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            return token;
+        })
+    }
+
     getToken(): string {
         const token = localStorage.getItem("token")
         if (token) {
@@ -51,51 +64,87 @@ export class PersonnageService {
     }
 
     async getCharacter(id: string): Promise<ICharactere> {
-        return await cegepInstance.get<IDataLePerso>(`/character/${id}`).then((response) => {
-            return response.data.data;
-        })
+        return await cegepInstance.get<IDataLePerso>(`character/${id}`)
+            .then((response) => {
+                return response.data.data;
+            })
     }
 
     async getCharacters(): Promise<ICharactere[]> {
-        return await cegepInstance.get<IDataperso>('/character').then((response) => {
-            return response.data.data;
-        })
+        return await cegepInstance.get<IDataperso>('character')
+            .then((response) => {
+                return response.data.data;
+            })
     }
 
     async getEquipments(): Promise<IEquipementReference[]> {
-        return await cegepInstance.get<IDataEquipement>('/equipment').then((response) => {
-            return response.data.data;
-        })
+        return await cegepInstance.get<IDataEquipement>('equipment')
+            .then((response) => {
+                return response.data.data;
+            })
     }
 
     async getSpells(): Promise<ISpellReference[]> {
-        return await cegepInstance.get<IDataSpell>('/spell').then((response) => {
-            return response.data.data;
-        })
+        return await cegepInstance.get<IDataSpell>('spell')
+            .then((response) => {
+                return response.data.data;
+            })
+    }
+
+    async getSpell(id: string): Promise<ISpellReference> {
+        return await cegepInstance.get<ISpellReference>(`spell/${id}`)
+            .then((response) => {
+                return response.data;
+            })
     }
 
     async getTraits(): Promise<ITraitRef[]> {
-        return await cegepInstance.get<IDataTrait>('/trait').then((response) => {
-            return response.data.data;
-        })
+        return await cegepInstance.get<IDataTrait>('trait')
+            .then((response) => {
+                return response.data.data;
+            })
     }
 
     async getEquipement(id: string): Promise<IEquipementReference> {
-        return await cegepInstance.get<IEquipementReference>(`/equipment/${id}`).then((response) => {
-            return response.data;
-        })
+        return await cegepInstance.get<IEquipementReference>(`equipment/${id}`)
+            .then((response) => {
+                return response.data;
+            })
     }
 
-    async getValidations(): Promise<IValidation> {
-        return await cegepInstance.get<IValidation>('/validation').then((response) => {
-            return response.data;
-        })
+    async postEquipement(id: string, equipements: IEquipementPost) {
+        return await cegepInstance.post<any>(`equipments/${id}`, equipements)
+            .then((response) => {
+                return response.data;
+            })
     }
 
-    async getValidation(id: string): Promise<IValidation> {
-        return await cegepInstance.get<IValidation>(`/validation/${id}`).then((response) => {
-            return response.data;
-        })
+    async deleteEquipement(characterId: string, equipmentId: string) {
+        return await cegepInstance.delete<any>(`equipments/${characterId}/${equipmentId}`)
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+    async getMessages(): Promise<IMessageGet> {
+        return await cegepInstance.get<IMessageGet>('message')
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+    async postMessage(message: IMessage): Promise<IMessageGet> {
+        return await cegepInstance.put<any>(`contact/${message.userid}`)
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+    async putHp(life:{currentHealth:number}, characterId:string){
+        return await cegepInstance.put<any>(`health/${characterId}`, life)
+            .then((response) => {
+                return response.data;
+            })
     }
 
 }
