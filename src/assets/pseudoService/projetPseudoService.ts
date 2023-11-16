@@ -46,8 +46,8 @@ export const characs: ICharactere[] = [
         synopsis: "A brave warrior",
         owner: "Player 1",
         image: "url_to_image",
-        health: 100,
-        currentHealth: 100,
+        health: 20,
+        currentHealth: 15,
         traits: [
             {
                 trait: "Brave",
@@ -71,8 +71,8 @@ export const characs: ICharactere[] = [
         synopsis: "A cunning rogue",
         owner: "Player 2",
         image: "url_to_image",
-        health: 80,
-        currentHealth: 80,
+        health: 20,
+        currentHealth: 10,
         traits: [
             {
                 trait: "Nimble",

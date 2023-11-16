@@ -93,7 +93,8 @@
       "initiative": "Initiative +",
       "speed": "Vitesse:",
       "throw": "Lancer",
-      "characterName": "Nom du personnage"
+      "characterName": "Nom du personnage",
+      "reLevel": "re-level"
     }
   },
   "errors": {
