@@ -17,7 +17,7 @@ function Statistics({character}: {character: ICharactere}) {
     }
 
     return (
-        <div className="col-xl-9 col-lg-8 col-md-8 mt-5 ms-auto fixed-top d-none d-md-inline"
+        <div className="col-xl-9 col-lg-8 col-md-8 ms-auto d-none d-md-inline"
              style={{marginTop: '500px'}}>
             <div className="row text-center text-light bg-secondary mt-2 bg-transparent">
                 <div className="row mt-1"></div>

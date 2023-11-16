@@ -4,7 +4,14 @@ import {ICharactere} from "../../../assets/models/dungeon/character";
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 
-function Header({character, characters, changeCharacter}: {character: ICharactere, characters: ICharactere[], changeCharacter: any}){
+interface IHeaderDnd {
+    character: ICharactere,
+    characters: ICharactere[],
+    changeCharacter(e: any): void,
+    decrementHealth(): void,
+    incrementHealth(): void
+}
+function Header({character, characters, changeCharacter, decrementHealth, incrementHealth}: IHeaderDnd){
     const navigate = useNavigate();
     const [disable, setDisable] = useState(true);
 
@@ -26,15 +33,15 @@ function Header({character, characters, changeCharacter}: {character: ICharacter
                         <FormSelect className="form-select badge w-50 bg-light text-dark ms-5 mt-1"
                                     aria-label="Default select example" onChange={changeCharacter} defaultValue={character.id}>
                             {
-                                characters.map((character: ICharactere) => {
-                                    return <option value={character.id} className="fw-bold">{character.name}</option>
+                                characters.map((character: ICharactere, index) => {
+                                    return <option key={index} value={character.id} className="fw-bold">{character.name}</option>
                                 })
                             }
                         </FormSelect>
                     </Form>
                 </div>
             </div>
-            <HealthBar character={character}/>
+            <HealthBar character={character} decrementHealth={decrementHealth} incrementHealth={incrementHealth}/>
         </div>
     )
 }

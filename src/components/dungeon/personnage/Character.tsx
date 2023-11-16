@@ -12,10 +12,6 @@ import {ICharactere} from "../../../assets/models/dungeon/character";
 function Character({character}: {character: ICharactere}) {
     return (
         <div className="bg-secondary container-fluid">
-            <div className="row mt-md-3"></div>
-            <div className="row mt-md-5"></div>
-            <div className="row mt-md-5"></div>
-
             <Statistics character={character}/>
 
             <div className="row d-md-none">

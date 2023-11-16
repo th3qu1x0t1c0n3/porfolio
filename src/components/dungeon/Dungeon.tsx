@@ -13,14 +13,23 @@ function Dungeon() {
     const [character, setCharacter] = useState<ICharactere>(characs[1])
     const [characters, setCharacters] = useState<ICharactere[]>(characs)
 
-    function changeCharacter(e:any) {
+    function changeCharacter(e: any) {
         setCharacter(characters.find((charac: ICharactere) => charac.id === e.target.value) as ICharactere)
+    }
+
+    function decrementHealth() {
+        setCharacter({...character, currentHealth: character.currentHealth--})
+    }
+
+    function incrementHealth() {
+        setCharacter({...character, currentHealth: character.currentHealth++})
     }
 
     return (
         <div id={"acceuil"} className={"bg-dark"}>
             <nav className="navbar navbar-expand-md navbar-light">
-                <Header character={character} characters={characters} changeCharacter={changeCharacter}/>
+                <Header character={character} characters={characters} changeCharacter={changeCharacter}
+                        decrementHealth={decrementHealth} incrementHealth={incrementHealth}/>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <div className="container-fluid">
                         <div className="row">

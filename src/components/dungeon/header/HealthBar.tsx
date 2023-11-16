@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react';
 import {ICharactere} from "../../../assets/models/dungeon/character";
 
-function HealthBar({ character }: { character: ICharactere}) {
-    function decrementHealth() {
-        character.currentHealth--;
-    }
+interface IHealthBar {
+    character: ICharactere,
+    decrementHealth(): void,
+    incrementHealth(): void
+}
 
-    function incrementHealth() {
-        character.currentHealth++;
-    }
+function HealthBar({ character, decrementHealth, incrementHealth }: IHealthBar) {
 
     function getHealthColor() {
         if (character.currentHealth === 0) {
