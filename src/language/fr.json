@@ -100,6 +100,9 @@
       "background": "Background",
       "synopsis": "Synopsis",
       "informations": "Informations",
+      "journal": "Journal",
+      "dateTime": "Date & Heure",
+      "comments": "Commentaire",
       "sorts": "Sorts",
       "traits": "Traits de personnage",
       "previous": "Précédent",
@@ -109,7 +112,8 @@
       "name": "Nom",
       "weight": "Poids",
       "cost": "Coût",
-      "action": "Actions"
+      "action": "Actions",
+      "add": "Ajouter"
     }
   },
   "errors": {

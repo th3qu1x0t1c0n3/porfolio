@@ -3,6 +3,7 @@ import prevArchitectCloud from "../Images/architectCloud.png";
 import prevPortailJeux from "../Images/portailJeux.png";
 import prevDungeon from "../Images/dungeon.png";
 import {ICharactere} from "../models/dungeon/character";
+import {ILogs} from "../models/dungeon/logs";
 
 export const mesProjets: IProjet[] = [{
     titre: "projects.architect.title",
@@ -30,6 +31,17 @@ export const mesProjets: IProjet[] = [{
 //   desc: "N/A",
 //   lien: "/ecommerce"
 // }
+]
+
+export const preLogs: ILogs[] = [
+    {
+        date: "2014-05-12 02:12",
+        message: "We met a bard at the taverne who talk of a quest that is requested by the mayor."
+    },
+    {
+        date: "2014-05-12-05:23",
+        message: "Pick a fight with Silvis who laugh about me wanting a rat as familiar.... he win"
+    }
 ]
 
 export const characs: ICharactere[] = [
