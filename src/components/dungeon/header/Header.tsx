@@ -2,7 +2,6 @@ import HealthBar from "./HealthBar";
 import {Form, FormSelect} from "react-bootstrap";
 import {ICharactere} from "../../../assets/models/dungeon/character";
 import {useNavigate} from "react-router-dom";
-import React, {useState} from "react";
 
 interface IHeaderDnd {
     character: ICharactere,
@@ -13,7 +12,6 @@ interface IHeaderDnd {
 }
 function Header({character, characters, changeCharacter, decrementHealth, incrementHealth}: IHeaderDnd){
     const navigate = useNavigate();
-    const [disable, setDisable] = useState(true);
 
     return(
         <div className="row fixed-top mt-5 clearfix bg-dark align-items-center pt-3 pb-1">
