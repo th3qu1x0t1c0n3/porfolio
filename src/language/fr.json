@@ -94,7 +94,20 @@
       "speed": "Vitesse:",
       "throw": "Lancer",
       "characterName": "Nom du personnage",
-      "reLevel": "re-level"
+      "race": "Race",
+      "level": "Niveau & Classe",
+      "reLevel": "re-level",
+      "background": "Background",
+      "synopsis": "Synopsis",
+      "informations": "Informations",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "weapons": "Armes",
+      "qty": "Qté",
+      "name": "Nom",
+      "weight": "Poids",
+      "cost": "Coût",
+      "action": "Actions"
     }
   },
   "errors": {

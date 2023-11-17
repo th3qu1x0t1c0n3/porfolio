@@ -23,19 +23,19 @@ function Character({character}: {character: ICharactere}) {
             <div className="row">
                 <div className="col-lg-6 col-12">
                     <Informations character={character}/>
-                    <Weapons/>
+                    <Weapons />
                 </div>
                 <div className="col-lg-6 col-12">
-                    <Inventory/>
+                    <Inventory />
                 </div>
             </div>
 
             <div className="row">
                 <div className="col-lg-6 col-12">
-                    <Spells/>
+                    <Spells />
                 </div>
                 <div className="col-lg-6 col-12">
-                    <Traits/>
+                    <Traits />
                 </div>
             </div>
             <Logs/>
