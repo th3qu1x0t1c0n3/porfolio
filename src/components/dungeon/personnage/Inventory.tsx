@@ -1,16 +1,12 @@
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 import {IInventory} from "../../../assets/models/dungeon/equipments";
-import {personnageService} from "../../../App";
-import {toast} from "react-toastify";
-import {ICharactere} from "../../../assets/models/dungeon/character";
 
 interface IInventoryComponent {
-    character: ICharactere
     inventory: IInventory[]
     getInventory: () => Promise<void>
 }
-function Inventory({character, inventory, getInventory}: IInventoryComponent) {
+function Inventory({inventory, getInventory}: IInventoryComponent) {
     const {t} = useTranslation();
     const [totalPages, setTotalPages] = useState<number[]>([1, 2, 3]);
     const [pages, setPages] = useState<number[]>([1, 2, 3]);

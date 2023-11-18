@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Statistics from "./Statistics";
 import Dice from "../side/Dice";
 import Informations from "./Informations";
@@ -49,7 +49,7 @@ function Character({character}: {character: ICharactere}) {
                     <Weapons inventory={inventory}/>
                 </div>
                 <div className="col-lg-6 col-12">
-                    <Inventory character={character} inventory={inventory} getInventory={getInventory}/>
+                    <Inventory inventory={inventory} getInventory={getInventory}/>
                 </div>
             </div>
 
