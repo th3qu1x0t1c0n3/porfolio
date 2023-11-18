@@ -11,8 +11,8 @@ function Logs() {
     function logMessage(e: any) {
         e.preventDefault();
 
-        const date = document.getElementById('dateTime') as HTMLInputElement;
-        const message = document.getElementById('log') as HTMLInputElement;
+        const date = document.getElementById('date') as HTMLInputElement;
+        const message = document.getElementById('comments') as HTMLInputElement;
 
         if (date && message) {
             const newMessage = {
@@ -30,17 +30,17 @@ function Logs() {
             <h3 className="text-white text-center mb-3 mt-4">{t('pages.dungeon.journal')}</h3>
             <div className="col-sm-12 col-md-4 col-lg-3">
                 <Form onSubmit={logMessage}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label className="form-label text-white" htmlFor="dateTime">
+                    <Form.Group controlId="date">
+                        <Form.Label className="form-label text-white">
                             {t('pages.dungeon.dateTime')}
                         </Form.Label>
-                        <Form.Control type="datetime" id="dateTime"/>
+                        <Form.Control type="datetime-local"/>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="form-label text-white mt-3" htmlFor="log">
+                    <Form.Group className="mb-3" controlId="comments">
+                        <Form.Label className="form-label text-white mt-3" >
                             {t('pages.dungeon.comments')}
                         </Form.Label>
-                        <Form.Control as="textarea" id="log" size={"lg"} className="text-dark"/>
+                        <Form.Control as="textarea" size={"lg"} className="text-dark"/>
                     </Form.Group>
                     <Button variant="success" type="submit">{t('pages.dungeon.add')}</Button>
                 </Form>
