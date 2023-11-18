@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Statistics from "./Statistics";
 import Dice from "../side/Dice";
 import Informations from "./Informations";
@@ -13,6 +13,10 @@ import {personnageService} from "../../../App";
 
 function Character({character}: {character: ICharactere}) {
     const [inventory, setInventory] = useState<IInventory[]>([]);
+
+    useEffect(() => {
+        getInventory();
+    }, [character]);
 
     async function getInventory() {
         await personnageService.getEquipments(character.id)

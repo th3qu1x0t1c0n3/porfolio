@@ -24,7 +24,7 @@ function SideBar({setTab, tab}: { setTab: (tab: string) => void, tab: string }) 
                                 <div className="row mt-md-0 mt-5">
                                 </div>
                                 <div className="col-12 my-1 d-lg-inline d-none">
-                                    <h1>EDIT: IMG</h1>
+                                    <h1 className={"text-light"}>EDIT: IMG</h1>
                                 </div>
                                 <Nav defaultActiveKey="/home" className="flex-column me-auto mb-2 mb-lg-0 ">
                                     {navItems.map((tabItem, index) => (

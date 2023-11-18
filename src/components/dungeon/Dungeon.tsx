@@ -18,11 +18,11 @@ function Dungeon() {
     }
 
     function decrementHealth() {
-        setCharacter({...character, currentHealth: character.currentHealth--})
+        setCharacter({...character, currentHealth: character.currentHealth > 0 ? --character.currentHealth : 0})
     }
 
     function incrementHealth() {
-        setCharacter({...character, currentHealth: character.currentHealth++})
+        setCharacter({...character, currentHealth: character.currentHealth < character.health ? ++character.currentHealth : character.health})
     }
 
     return (
