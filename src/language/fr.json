@@ -119,7 +119,6 @@
       "confirmAdd": "Confirmer l'ajout",
       "noDescription": "Aucune description",
 
-
       "aaa": "aaa"
     }
   },
@@ -139,7 +138,8 @@
       "username": "Nom d'utilisateur valide",
       "email": "Courriel valide",
       "message": "Votre message est vide",
-      "invalid": "Nom d'utilisateur ou mot de passe invalide"
+      "invalid": "Nom d'utilisateur ou mot de passe invalide",
+      "log": "Les logs ne sont pas valides"
     },
     "info": {
       "logout": "Vous êtes déconnecté",

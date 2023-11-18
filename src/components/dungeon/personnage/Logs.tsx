@@ -3,6 +3,7 @@ import {Button, Form} from "react-bootstrap";
 import {useState} from "react";
 import {ILogs} from "../../../assets/models/dungeon/logs";
 import {preLogs} from "../../../assets/pseudoService/projetPseudoService";
+import {toast} from "react-toastify";
 
 function Logs() {
     const {t} = useTranslation();
@@ -14,7 +15,7 @@ function Logs() {
         const date = document.getElementById('date') as HTMLInputElement;
         const message = document.getElementById('comments') as HTMLInputElement;
 
-        if (date && message) {
+        if (date && message && date.value !=='' && message.value !=='') {
             const newMessage = {
                 date: date.value,
                 message: message.value
@@ -22,6 +23,8 @@ function Logs() {
             setMessages([...messages, newMessage])
             date.value = '';
             message.value = '';
+        } else {
+            toast.error(t('toast.error.log'));
         }
     }
 
