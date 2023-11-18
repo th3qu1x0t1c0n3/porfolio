@@ -45,11 +45,9 @@ out/
 .settings/
 
 # IntelliJ IDEA
-.idea/
 *.iml
 
 # Visual Studio Code
-.vscode/
 
 # NetBeans
 nbproject/private/

@@ -5,9 +5,7 @@ import duckHunt from "./../../assets/Images/35841-posts.article_lg-200.jpg";
 import Pong from "./../../assets/Images/35828-posts.article_lg-200.jpg";
 import ChuckyEgg from "./../../assets/Images/35834-posts.article_lg-200.jpg";
 import Paperboy from "./../../assets/Images/35829-posts.article_lg-200.jpg";
-import React, {useEffect} from "react";
 import GameUser from "../../assets/models/user";
-import {toast} from "react-toastify";
 import {useTranslation} from "react-i18next";
 
 interface ICatalogue {

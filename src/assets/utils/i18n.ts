@@ -20,6 +20,6 @@ i18n
         interpolation: {
             escapeValue: false,
         },
-    });
+    }).then(r => r);
 
 export default i18n;

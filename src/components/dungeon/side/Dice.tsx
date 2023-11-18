@@ -1,6 +1,6 @@
 import {Button, Form} from "react-bootstrap";
 import {useState} from "react";
-import {DnDDice, IDice} from "../../../assets/models/dungeon/IDice";
+import {IDice} from "../../../assets/models/dungeon/IDice";
 import {useTranslation} from "react-i18next";
 
 function Dice() {
