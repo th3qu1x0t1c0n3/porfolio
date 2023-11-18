@@ -5,38 +5,24 @@ import {personnageService} from "../../../App";
 
 function Inventory() {
     const {t} = useTranslation();
-    const [inventory, setInventory] = useState<IInventory[]>([{
-        qty: 1,
-        equipment: {
-            index: "minimal",
-            name: "Minimal Equipment",
-            desc: ["A minimal equipment object."],
-            weight: 4,
-            cost: {
-                quantity: 5,
-                unit: "gp",
-            },
-            equipment_category: {
-                index: "category",
-                name: "Category",
-                url: "/api/equipment-categories/category",
-            },
-            url: "/api/equipment/minimal",
-        },
-        isEquipped: false
-    }]);
-    const [pages, setPages] = useState<number[]>([1]);
+    const [inventory, setInventory] = useState<IInventory[]>([]);
+    const [totalPages, setTotalPages] = useState<number[]>([1,2,3]);
+    const [pages, setPages] = useState<number[]>([1,2,3]);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const maxPerPage = 10;
 
     useEffect(() => {
         getInventory()
-            .then(r => setPages(Array.from(Array(Math.ceil(inventory.length / maxPerPage)), (_, i) => i + 1)));
+            .then(r => setTotalPages(Array.from(Array(Math.ceil(inventory.length / maxPerPage)), (_, i) => i + 1)));
+        // console.log("IN: ", inventory)
+        // console.log("PAGES: ", pages.length)
+        // console.log("CURRENT PAGE: ", currentPage)
     }, []);
 
     async function getInventory() {
         await personnageService.getEquipments('demochar')
             .then((invent) => {
+                if (invent === undefined) return;
                 setInventory([]);
                 invent.map((item) => {
                     personnageService.getEquipmentByReference(item.reference).then((equip) => {
@@ -54,28 +40,18 @@ function Inventory() {
 
     function setPage(page: number) {
         setCurrentPage(page);
+
+        if (totalPages.length <= 3) setPages(Array<number>(Math.min(3, 3)).fill(page).map((_, i) => _ + i));
+        else if (page <= 2) setPages(Array<number>(Math.min(3, totalPages.length)).fill(1).map((_, i) => _ + i));
+        else if (page >= totalPages.length - 1) setPages(Array<number>(Math.min(3, totalPages.length)).fill(totalPages.length - 2).map((_, i) => _ + i));
+        else setPages(Array<number>(Math.min(3, totalPages.length)).fill(page).map((_, i) => _ + i));
+
+        console.log("CU: ", currentPage)
+        console.log("PAGES: ", totalPages)
     }
 
     function getInventoryByPage() {
         return inventory.slice((currentPage - 1) * maxPerPage, currentPage * maxPerPage);
-    }
-
-    function getPages() {
-        if (currentPage <= 2) return Array<number>(Math.min(3, pages.length)).fill(1).map((_, i) => _ + i);
-        if (currentPage >= pages.length - 1) return Array<number>(Math.min(3, pages.length)).fill(pages.length - 2).map((_, i) => _ + i);
-        return Array<number>(Math.min(3, pages.length)).fill(currentPage).map((_, i) => _ + i);
-    }
-
-    function nextPage() {
-        if (currentPage < pages.length) {
-            setCurrentPage(currentPage + 1);
-        }
-    }
-
-    function previousPage() {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
     }
 
     return (
@@ -118,12 +94,12 @@ function Inventory() {
             <nav>
                 <ul className="pagination justify-content-center">
                     <li className="page-item">
-                        <button className="page-link py-2 px-3" onClick={previousPage}>
+                        <button className="page-link py-2 px-3" disabled={currentPage === 1} onClick={() => setPage(currentPage-1)}>
                             <span>{t('pages.dungeon.previous')}</span>
                         </button>
                     </li>
                     {
-                        getPages().map((item, index) => {
+                        pages.map((item, index) => {
                             return (
                                 <li key={index} className="page-item">
                                     <button className={`page-link py-2 px-3 ${currentPage === item ? 'active' : ''}`} onClick={() => setPage(item)}>
@@ -135,7 +111,7 @@ function Inventory() {
                     }
 
                     <li className="page-item">
-                        <button className="page-link py-2 px-3" onClick={nextPage}>
+                        <button className="page-link py-2 px-3" disabled={currentPage === totalPages.length} onClick={() => setPage(currentPage+1)}>
                             <span>{t('pages.dungeon.next')}</span>
                         </button>
                     </li>
