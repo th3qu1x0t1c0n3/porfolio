@@ -10,6 +10,7 @@ import {I18nextProvider} from "react-i18next";
 import i18n from "./assets/utils/i18n";
 import axios from "axios";
 import {DndService} from "./assets/services/DndService";
+import {PersonnageService} from "./assets/services/PersonnageService";
 
 function App() {
     return (
@@ -43,6 +44,7 @@ export const phoneNumRegex = /^(\+|00)?[0-9]{9,}$/;
 export const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,}$/;
 
 export const dndService = new DndService();
+export const personnageService = new PersonnageService();
 export const server = axios.create({
     baseURL: 'http://localhost:8080/api',
     headers: {

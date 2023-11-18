@@ -1,8 +1,8 @@
 import {ICharactere, ITraitRef} from "../models/dungeon/character";
-import {IEquipementPost, IEquipementReference} from "../models/dungeon/equipments";
+import {IEquipementPost, IEquipementReference, IEquipments, IInventory} from "../models/dungeon/equipments";
 import {ISpellReference} from "../models/dungeon/spells";
 import {IMessage, IMessageGet} from "../models/message";
-import {cegepInstance} from "../../App";
+import {cegepInstance, dndInstance} from "../../App";
 
 interface IToken {
     error: string,
@@ -77,10 +77,54 @@ export class PersonnageService {
             })
     }
 
-    async getEquipments(): Promise<IEquipementReference[]> {
-        return await cegepInstance.get<IDataEquipement>('equipment')
+    async getInventory(id: string): Promise<IInventory[]> {
+        let inventory: IInventory[] = []
+
+        await this.getEquipments(id)
+            .then((invent) => {
+                invent.map((item) => {
+                    this.getEquipmentByReference(item.reference).then((equip) => {
+                        let nouvEquip: IInventory = {qty: item.qty, equipment: equip, isEquipped: item.equipped};
+                        inventory.push(nouvEquip)
+                    })
+                })
+        })
+
+        return inventory;
+    }
+
+    async getEquipments(id: string): Promise<IEquipementReference[]> {
+        return await cegepInstance.get<IDataEquipement>(`equipments/${id}`)
             .then((response) => {
                 return response.data.data;
+            })
+    }
+
+    async getEquipmentByReference(reference: string): Promise<IEquipments> {
+        return await dndInstance.get<IEquipments>(`${reference}`)
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+    async getEquipment(id: string): Promise<IEquipementReference> {
+        return await cegepInstance.get<IEquipementReference>(`equipment/${id}`)
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+    async postEquipment(id: string, equipements: IEquipementPost) {
+        return await cegepInstance.post<any>(`equipments/${id}`, equipements)
+            .then((response) => {
+                return response.data;
+            })
+    }
+
+    async deleteEquipement(characterId: string, equipmentId: string) {
+        return await cegepInstance.delete<any>(`equipments/${characterId}/${equipmentId}`)
+            .then((response) => {
+                return response.data;
             })
     }
 
@@ -102,27 +146,6 @@ export class PersonnageService {
         return await cegepInstance.get<IDataTrait>('trait')
             .then((response) => {
                 return response.data.data;
-            })
-    }
-
-    async getEquipement(id: string): Promise<IEquipementReference> {
-        return await cegepInstance.get<IEquipementReference>(`equipment/${id}`)
-            .then((response) => {
-                return response.data;
-            })
-    }
-
-    async postEquipement(id: string, equipements: IEquipementPost) {
-        return await cegepInstance.post<any>(`equipments/${id}`, equipements)
-            .then((response) => {
-                return response.data;
-            })
-    }
-
-    async deleteEquipement(characterId: string, equipmentId: string) {
-        return await cegepInstance.delete<any>(`equipments/${characterId}/${equipmentId}`)
-            .then((response) => {
-                return response.data;
             })
     }
 

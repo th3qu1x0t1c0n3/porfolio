@@ -67,7 +67,7 @@ export interface IEquipments {
 export interface IInventory {
     qty: number;
     equipment: IEquipments
-    equipped: boolean
+    isEquipped: boolean
 }
 
 export interface IEquipementReference {
