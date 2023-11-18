@@ -88,8 +88,7 @@ export class PersonnageService {
                         inventory.push(nouvEquip)
                     })
                 })
-        })
-
+            })
         return inventory;
     }
 
