@@ -9,6 +9,7 @@ import Footer from "./components/layout/Footer";
 import {I18nextProvider} from "react-i18next";
 import i18n from "./assets/utils/i18n";
 import axios from "axios";
+import {DndService} from "./assets/services/DndService";
 
 function App() {
     return (
@@ -41,6 +42,7 @@ export const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const phoneNumRegex = /^(\+|00)?[0-9]{9,}$/;
 export const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,}$/;
 
+export const dndService = new DndService();
 export const server = axios.create({
     baseURL: 'http://localhost:8080/api',
     headers: {
@@ -48,3 +50,21 @@ export const server = axios.create({
         'Accept': 'application/json'
     }
 });
+
+export const cegepInstance = axios.create({
+    baseURL: "https://cegep.fdtt.space/v1/",
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    params: {}
+})
+
+export const dndInstance = axios.create({
+    baseURL: "https://www.dnd5eapi.co/api/",
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    params: {}
+})

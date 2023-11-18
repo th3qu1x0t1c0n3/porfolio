@@ -113,7 +113,14 @@
       "weight": "Poids",
       "cost": "Coût",
       "action": "Actions",
-      "add": "Ajouter"
+      "add": "Ajouter",
+      "addInventory": "Ajouter à l'inventaire",
+      "newEquipments": "Nouvel équipement",
+      "confirmAdd": "Confirmer l'ajout",
+      "noDescription": "Aucune description",
+
+
+      "aaa": "aaa"
     }
   },
   "errors": {

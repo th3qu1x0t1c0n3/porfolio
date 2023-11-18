@@ -4,6 +4,7 @@ import prevPortailJeux from "../Images/portailJeux.png";
 import prevDungeon from "../Images/dungeon.png";
 import {ICharactere} from "../models/dungeon/character";
 import {ILogs} from "../models/dungeon/logs";
+import {IEquipments} from "../models/dungeon/equipments";
 
 export const mesProjets: IProjet[] = [{
     titre: "projects.architect.title",
@@ -96,3 +97,58 @@ export const characs: ICharactere[] = [
         speed: 35
     }
 ];
+
+export const equipements: IEquipments[] = [
+    {
+        index: "longsword",
+        name: "Longsword",
+        desc: ["A versatile and finely crafted longsword."],
+        equipment_category: {
+            index: "weapon",
+            name: "Weapon",
+            url: "/api/equipment-categories/weapon",
+        },
+        weapon_category: "Martial",
+        weapon_range: "Melee",
+        damage: {
+            damage_dice: "1d8",
+            damage_type: {
+                index: "slashing",
+                name: "Slashing",
+                url: "/api/damage-types/slashing",
+            },
+        },
+        range: {
+            normal: 5,
+        },
+        weight: 3,
+        cost: {
+            quantity: 15,
+            unit: "gp",
+        },
+        url: "/api/equipment/longsword",
+    },
+    {
+        index: "chain-mail",
+        name: "Chain Mail",
+        desc: ["A set of interlocking metal rings, offering good protection."],
+        equipment_category: {
+            index: "armor",
+            name: "Armor",
+            url: "/api/equipment-categories/armor",
+        },
+        armor_category: "Heavy",
+        armor_class: {
+            base: 16,
+            dex_bonus: false,
+        },
+        str_minimum: 13,
+        stealth_disadvantage: true,
+        weight: 55,
+        cost: {
+            quantity: 75,
+            unit: "gp",
+        },
+        url: "/api/equipment/chain-mail",
+    }
+]

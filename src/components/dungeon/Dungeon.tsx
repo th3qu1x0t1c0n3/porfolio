@@ -44,10 +44,10 @@ function Dungeon() {
                     <div className="row my-md-2 my-4"></div>
                     {tab === 'character' && <Character character={character}/>}
                     {tab === 'store' && <Store/>}
-                    {tab === 'compendium' && <h1>{t('pages.dungeon.compendium')}</h1>}
-                    {tab === 'inventory' && <h1>{t('pages.dungeon.inventory')}</h1>}
-                    {tab === 'map' && <h1>{t('pages.dungeon.map')}</h1>}
-                    {tab === 'administration' && <h1>{t('pages.dungeon.administration')}</h1>}
+                    {tab === 'compendium' && <div className={"container-fluid bg-danger p-5"}><h1 className="display-1">{t('pages.dungeon.compendium')}</h1></div>}
+                    {tab === 'inventory' && <div className={"container-fluid bg-info p-5"}><h1 className="display-1">{t('pages.dungeon.inventory')}</h1></div>}
+                    {tab === 'map' && <div className={"container-fluid bg-success p-5"}><h1 className="display-1">{t('pages.dungeon.map')}</h1></div>}
+                    {tab === 'administration' && <div className={"container-fluid bg-secondary p-5"}><h1 className="display-1">{t('pages.dungeon.administration')}</h1></div>}
                 </div>
             </section>
             {/*<BottomBar character={}/>*/}

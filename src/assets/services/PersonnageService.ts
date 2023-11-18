@@ -1,8 +1,8 @@
-import {cegepInstance} from "../../react-app-env";
 import {ICharactere, ITraitRef} from "../models/dungeon/character";
 import {IEquipementPost, IEquipementReference} from "../models/dungeon/equipments";
 import {ISpellReference} from "../models/dungeon/spells";
 import {IMessage, IMessageGet} from "../models/message";
+import {cegepInstance} from "../../App";
 
 interface IToken {
     error: string,

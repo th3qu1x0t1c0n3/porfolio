@@ -14,7 +14,7 @@ function HealthBar({ character, decrementHealth, incrementHealth }: IHealthBar) 
         } else if (character.currentHealth <= character.health / 4) {
             return 'bg-warning';
         } else if (character.currentHealth <= character.health / 2) {
-            return 'bg-info';
+            return 'bg-warning';
         } else {
             return 'bg-success';
         }
