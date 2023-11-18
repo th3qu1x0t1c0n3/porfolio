@@ -26,7 +26,7 @@ function Character({character}: {character: ICharactere}) {
                     <Weapons />
                 </div>
                 <div className="col-lg-6 col-12">
-                    <Inventory />
+                    <Inventory character={character}/>
                 </div>
             </div>
 

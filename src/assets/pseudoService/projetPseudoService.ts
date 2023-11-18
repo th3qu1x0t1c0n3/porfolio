@@ -46,7 +46,7 @@ export const preLogs: ILogs[] = [
 
 export const characs: ICharactere[] = [
     {
-        id: "1",
+        id: "demochar1",
         name: "Tester test",
         statistics: { strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10 },
         race: "Human",
@@ -71,7 +71,7 @@ export const characs: ICharactere[] = [
         speed: 30
     },
     {
-        id: "2",
+        id: "demochar",
         name: "Michel Michaud",
         statistics: { strength: 8, dexterity: 14, constitution: 12, intelligence: 14, wisdom: 10, charisma: 12 },
         race: "Elf",
