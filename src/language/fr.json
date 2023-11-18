@@ -120,6 +120,9 @@
       "noDescription": "Aucune description",
       "garbage": "Jeter",
       "equip": "Équiper",
+      "quantity": "Quantité",
+      "damage": "Dégâts",
+      "category": "Catégorie",
 
       "aaa": "aaa"
     }

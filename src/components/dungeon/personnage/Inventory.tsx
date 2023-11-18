@@ -5,9 +5,13 @@ import {personnageService} from "../../../App";
 import {toast} from "react-toastify";
 import {ICharactere} from "../../../assets/models/dungeon/character";
 
-function Inventory({character}: {character: ICharactere}) {
+interface IInventoryComponent {
+    character: ICharactere
+    inventory: IInventory[]
+    getInventory: () => Promise<void>
+}
+function Inventory({character, inventory, getInventory}: IInventoryComponent) {
     const {t} = useTranslation();
-    const [inventory, setInventory] = useState<IInventory[]>([]);
     const [totalPages, setTotalPages] = useState<number[]>([1, 2, 3]);
     const [pages, setPages] = useState<number[]>([1, 2, 3]);
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -17,25 +21,6 @@ function Inventory({character}: {character: ICharactere}) {
         getInventory()
             .then(r => setTotalPages(Array.from(Array(Math.ceil(inventory.length / maxPerPage)), (_, i) => i + 1)));
     }, []);
-
-    async function getInventory() {
-        await personnageService.getEquipments(character.id)
-            .then((invent) => {
-                if (invent === undefined) return;
-                setInventory([]);
-                invent.map((item) => {
-                    personnageService.getEquipmentByReference(item.reference).then((equip) => {
-                        if (equip === undefined) return;
-                        if (inventory.includes({qty: item.qty, equipment: equip, isEquipped: item.equipped})) return;
-                        setInventory(inventory => [...inventory, {
-                            qty: item.qty,
-                            equipment: equip,
-                            isEquipped: item.equipped
-                        }])
-                    })
-                })
-            })
-    }
 
     function setPage(page: number) {
         if (totalPages.length === 0) {
