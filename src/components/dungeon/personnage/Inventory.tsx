@@ -2,6 +2,7 @@ import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 import {IInventory} from "../../../assets/models/dungeon/equipments";
 import {personnageService} from "../../../App";
+import {toast} from "react-toastify";
 
 function Inventory() {
     const {t} = useTranslation();
@@ -14,9 +15,6 @@ function Inventory() {
     useEffect(() => {
         getInventory()
             .then(r => setTotalPages(Array.from(Array(Math.ceil(inventory.length / maxPerPage)), (_, i) => i + 1)));
-        // console.log("IN: ", inventory)
-        // console.log("PAGES: ", pages.length)
-        // console.log("CURRENT PAGE: ", currentPage)
     }, []);
 
     async function getInventory() {
@@ -39,6 +37,14 @@ function Inventory() {
     }
 
     function setPage(page: number) {
+        if (totalPages.length === 0) {
+            getInventory().then(r => setTotalPages(Array.from(Array(Math.ceil(inventory.length / maxPerPage)), (_, i) => i + 1)));
+        }
+        if (page < 1 || page > totalPages.length) {
+            toast.error(t('toast.error.pageCount'));
+            return;
+        }
+
         setCurrentPage(page);
 
         if (totalPages.length <= 3) setPages(Array<number>(Math.min(3, 3)).fill(page).map((_, i) => _ + i));
@@ -46,8 +52,9 @@ function Inventory() {
         else if (page >= totalPages.length - 1) setPages(Array<number>(Math.min(3, totalPages.length)).fill(totalPages.length - 2).map((_, i) => _ + i));
         else setPages(Array<number>(Math.min(3, totalPages.length)).fill(page).map((_, i) => _ + i));
 
-        console.log("CU: ", currentPage)
-        console.log("PAGES: ", totalPages)
+        console.log("PAGES: ", pages)
+        console.log("CURRENT PAGE: ", currentPage)
+        console.log("TOTAL PAGES: ", totalPages.length)
     }
 
     function getInventoryByPage() {
@@ -94,7 +101,7 @@ function Inventory() {
             <nav>
                 <ul className="pagination justify-content-center">
                     <li className="page-item">
-                        <button className="page-link py-2 px-3" disabled={currentPage === 1} onClick={() => setPage(currentPage-1)}>
+                        <button className={`page-link py-2 px-3 ${currentPage === 1 ? 'disabled' : ''}`} onClick={() => setPage(currentPage-1)}>
                             <span>{t('pages.dungeon.previous')}</span>
                         </button>
                     </li>
@@ -109,9 +116,8 @@ function Inventory() {
                             )
                         })
                     }
-
                     <li className="page-item">
-                        <button className="page-link py-2 px-3" disabled={currentPage === totalPages.length} onClick={() => setPage(currentPage+1)}>
+                        <button className={`page-link py-2 px-3 ${currentPage === totalPages.length ? 'disabled' : ''}`} onClick={() => setPage(currentPage+1)}>
                             <span>{t('pages.dungeon.next')}</span>
                         </button>
                     </li>

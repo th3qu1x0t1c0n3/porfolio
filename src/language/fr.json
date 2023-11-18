@@ -131,7 +131,8 @@
     "email": "Le courriel est invalide.",
     "number": "Le numéro de téléphone est invalide.",
     "name": "Veuillez entrer votre nom complet.",
-    "message": "Veuillez entrer un message."
+    "message": "Veuillez entrer un message.",
+    "pageCount": "La page que vous cherchez n'existe pas."
   },
   "toast": {
     "error": {
