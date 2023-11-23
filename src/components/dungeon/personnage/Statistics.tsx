@@ -13,7 +13,7 @@ function Statistics({character}: {character: ICharactere}) {
 
     function getModifier(stat: number): string {
         const mod = Math.floor((stat - 10) / 2)
-        return (mod < 0) ? '-' : '+' + mod.toString();
+        return (mod < 0) ? mod.toString() : '+' + mod.toString();
     }
 
     return (

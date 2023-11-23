@@ -1,5 +1,5 @@
 import NavTab from "../../../assets/models/elements/NavTab";
-import {Nav, Navbar} from "react-bootstrap";
+import {Image, Nav, Navbar} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import Dice from "./Dice";
 
@@ -24,6 +24,7 @@ function SideBar({setTab, tab}: { setTab: (tab: string) => void, tab: string }) 
                                 <div className="row mt-md-0 mt-5">
                                 </div>
                                 <div className="col-12 my-1 d-lg-inline d-none">
+                                    <Image src="https://via.placeholder.com/150" roundedCircle fluid/>
                                     <h1 className={"text-light"}>EDIT: IMG</h1>
                                 </div>
                                 <Nav defaultActiveKey="/home" className="flex-column me-auto mb-2 mb-lg-0 ">
