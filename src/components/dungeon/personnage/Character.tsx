@@ -59,7 +59,7 @@ function Character({character}: {character: ICharactere}) {
 
             <div className="row">
                 <div className="col-lg-6 col-12">
-                    <Spells />
+                    <Spells character={character} />
                 </div>
                 <div className="col-lg-6 col-12">
                     <Traits />

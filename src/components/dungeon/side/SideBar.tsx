@@ -30,11 +30,13 @@ function SideBar({setTab, tab, character}: ISideBarComponent) {
                                 <div className="row mt-md-0 mt-5">
                                 </div>
                                 <div className="col-12 my-1 d-lg-inline d-none text-center">
-                                    <Image src={character.image} roundedCircle fluid width="200px" className={"m-3 img-responsive"}/>
+                                    <Image src={character.image} roundedCircle fluid width="200px"
+                                           className={"m-3 img-responsive"}/>
                                 </div>
                                 <Nav defaultActiveKey="/home" className="flex-column me-auto mb-2 mb-lg-0 ">
                                     {navItems.map((tabItem, index) => (
-                                        <Nav.Item key={index} className={`rounded rounded-4  ${tab === tabItem.link ? 'bg-primary' : ''}`}>
+                                        <Nav.Item key={index}
+                                                  className={`rounded rounded-4  ${tab === tabItem.link ? 'bg-primary' : ''}`}>
                                             <Nav.Link className="nav-link text-white text-center text-capitalize"
                                                       onClick={() => setTab(tabItem.link)}>
                                                 {t(tabItem.label)}
@@ -43,8 +45,7 @@ function SideBar({setTab, tab, character}: ISideBarComponent) {
                                     ))}
                                 </Nav>
                                 <div className="col-12 my-1 d-md-inline d-none d-overflow-auto"
-                                     style={{maxHeight: '30%', overflow: 'auto'}}
-                                >
+                                     style={{maxHeight: '30%', overflow: 'auto'}}>
                                     <Dice/>
                                 </div>
                             </div>

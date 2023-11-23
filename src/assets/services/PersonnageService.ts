@@ -127,8 +127,8 @@ export class PersonnageService {
             })
     }
 
-    async getSpells(): Promise<ISpellReference[]> {
-        return await cegepInstance.get<IDataSpell>('spell')
+    async getSpells(id: string): Promise<ISpellReference[]> {
+        return await cegepInstance.get<IDataSpell>(`spells/${id}`)
             .then((response) => {
                 return response.data.data;
             })
