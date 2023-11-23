@@ -33,7 +33,7 @@ function Dungeon() {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <div className="container-fluid">
                         <div className="row">
-                            <SideBar setTab={setTab} tab={tab}/>
+                            <SideBar setTab={setTab} tab={tab} character={character}/>
                         </div>
                     </div>
                 </div>

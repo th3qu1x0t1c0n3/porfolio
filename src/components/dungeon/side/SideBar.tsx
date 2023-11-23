@@ -2,9 +2,15 @@ import NavTab from "../../../assets/models/elements/NavTab";
 import {Image, Nav, Navbar} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import Dice from "./Dice";
+import {ICharactere} from "../../../assets/models/dungeon/character";
 
+interface ISideBarComponent {
+    setTab: (tab: string) => void,
+    tab: string,
+    character: ICharactere
+}
 
-function SideBar({setTab, tab}: { setTab: (tab: string) => void, tab: string }) {
+function SideBar({setTab, tab, character}: ISideBarComponent) {
     const {t} = useTranslation();
     const navItems = [
         new NavTab('character', 'pages.dungeon.character'),
@@ -23,9 +29,8 @@ function SideBar({setTab, tab}: { setTab: (tab: string) => void, tab: string }) 
                             <div className="row align-items-start flex-column vh-100 not-fixed-sm">
                                 <div className="row mt-md-0 mt-5">
                                 </div>
-                                <div className="col-12 my-1 d-lg-inline d-none">
-                                    <Image src="https://via.placeholder.com/150" roundedCircle fluid/>
-                                    <h1 className={"text-light"}>EDIT: IMG</h1>
+                                <div className="col-12 my-1 d-lg-inline d-none text-center">
+                                    <Image src={character.image} roundedCircle fluid width="200px" className={"m-3 img-responsive"}/>
                                 </div>
                                 <Nav defaultActiveKey="/home" className="flex-column me-auto mb-2 mb-lg-0 ">
                                     {navItems.map((tabItem, index) => (

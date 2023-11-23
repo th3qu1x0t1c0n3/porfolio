@@ -4,6 +4,7 @@ import prevPortailJeux from "../Images/portailJeux.png";
 import prevDungeon from "../Images/dungeon.png";
 import {ICharactere} from "../models/dungeon/character";
 import {ILogs} from "../models/dungeon/logs";
+import xefoul from "../Images/xefoul.png";
 
 export const mesProjets: IProjet[] = [{
     titre: "projects.architect.title",
@@ -56,7 +57,7 @@ export const characs: ICharactere[] = [
         level: 1,
         background: "Soldier",
         synopsis: "A brave warrior",
-        owner: "Player 1",
+        owner: xefoul,
         image: "url_to_image",
         health: 20,
         currentHealth: 15,
@@ -82,7 +83,7 @@ export const characs: ICharactere[] = [
         background: "Criminal",
         synopsis: "A cunning rogue",
         owner: "Player 2",
-        image: "url_to_image",
+        image: xefoul,
         health: 20,
         currentHealth: 10,
         traits: [
