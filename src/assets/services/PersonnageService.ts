@@ -141,6 +141,13 @@ export class PersonnageService {
             })
     }
 
+    async getTrait(id: string): Promise<ITraitRef[]> {
+        return await cegepInstance.get<IDataTrait>(`traits/${id}`)
+            .then((response) => {
+                return response.data.data;
+            })
+    }
+
     async getTraits(): Promise<ITraitRef[]> {
         return await cegepInstance.get<IDataTrait>('trait')
             .then((response) => {

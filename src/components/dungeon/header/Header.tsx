@@ -6,11 +6,8 @@ import {useNavigate} from "react-router-dom";
 interface IHeaderDnd {
     character: ICharactere,
     characters: ICharactere[],
-
     changeCharacter(e: any): void,
-
     decrementHealth(): void,
-
     incrementHealth(): void
 }
 
