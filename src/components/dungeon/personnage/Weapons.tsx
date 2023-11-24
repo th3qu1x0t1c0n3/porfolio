@@ -12,7 +12,7 @@ function Weapons({inventory}: IWeapons) {
     const [weapons, setWeapons] = useState<IInventory[]>([])
 
     useEffect(() => {
-        setWeapons(inventory.filter((item) => item.isEquipped))
+        setWeapons(inventory.filter((item) => item.isEquipped && !weapons.includes(item)))
     }, [inventory]);
 
     function getNbCheckbox(item: IInventory) {
