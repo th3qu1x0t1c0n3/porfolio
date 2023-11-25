@@ -1,23 +1,20 @@
 package quixotic.personnal.porfolio.security;
 
 import io.jsonwebtoken.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import quixotic.personnal.porfolio.exceptions.badRequestException.InvalidJwtException;
 
 import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
-import java.util.Base64;
 import java.util.Date;
 
 @Component
 public class JwtTokenProvider{
-	@Value("${application.security.jwt.expiration}")
-	private int expirationInMs;
-	@Value("${application.security.jwt.secret-key}")
-	private String SECRET_KEY;
-	private final byte[] apiKeySecretBytes = Base64.getDecoder().decode(SECRET_KEY);
+	private final int expirationInMs = 86400000;
+	private final String SECRET_KEY = "2B7E151628AED2A6ABF7158809CF4F3C2B7E151628AED2A6ABF7158809CF4F3C";
+	private final byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(SECRET_KEY);
 
 	public String generateToken(Authentication authentication){
 		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
