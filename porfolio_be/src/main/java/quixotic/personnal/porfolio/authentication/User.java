@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
