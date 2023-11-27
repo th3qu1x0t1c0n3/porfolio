@@ -16,6 +16,7 @@ function Main() {
             <Routes>
                 <Route path="/" element={<Portfolio/>}/>
                 <Route path="/portfolio" element={<Portfolio/>}/>
+
                 <Route path="/architectCloud" element={<ArchitectCloud/>}/>
                 <Route path="/architectCloud/references" element={<References/>}/>
 
