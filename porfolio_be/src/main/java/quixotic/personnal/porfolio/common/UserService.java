@@ -52,20 +52,20 @@ public class UserService {
     }
 
     public String sendMessage(EmailDetailsDTO emailInfo){
-//        MimeMessage message = javaMailSender.createMimeMessage();
-//        try {
-//            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-//            helper.setFrom(MyEmail);
-//            helper.setTo(MyEmail);
-//            helper.setSubject(emailInfo.getName());
-//            helper.setText(getString(emailInfo), true);
-//            javaMailSender.send(message);
-//        } catch (MessagingException e) {
-//            throw new RuntimeException(e);
-//        } catch (MailSendException | MailAuthenticationException e){
-//            System.out.println(e.getMessage());
-//            throw new ContactException("Message not sent: " + e.getMessage());
-//        }
+        MimeMessage message = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setFrom(MyEmail);
+            helper.setTo(MyEmail);
+            helper.setSubject(emailInfo.getName());
+            helper.setText(getString(emailInfo), true);
+            javaMailSender.send(message);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        } catch (MailSendException | MailAuthenticationException e){
+            System.out.println(e.getMessage());
+            throw new ContactException("Message not sent: " + e.getMessage());
+        }
         return "Message sent";
     }
 
