@@ -11,11 +11,11 @@ function Progression(){
     ];
 
     function getColor(pct: number) {
-        if(pct < 30) return 'bg-danger';
+        if(pct <= 30) return 'bg-danger';
         if(pct <= 50) return 'bg-warning';
-        if(pct < 80) return 'bg-success';
+        if(pct <= 80) return 'bg-success';
         if(pct <= 90) return 'bg-info';
-        if(pct < 100) return 'bg-primary';
+        if(pct <= 100) return 'bg-primary';
 
         return 'bg-light';
     }
@@ -43,36 +43,6 @@ function Progression(){
                                 </div>
                             ))
                         }
-                        {/*<h2>JAVA</h2>*/}
-                        {/*<div className="progress bg-secondary mb-3">*/}
-                        {/*    <div className="progress-bar" style={{width: '95%'}}>*/}
-                        {/*        95%*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-                        {/*<h2>SQL</h2>*/}
-                        {/*<div className="progress bg-secondary mb-3">*/}
-                        {/*    <div className="progress-bar bg-danger" style={{width: '50%'}}>*/}
-                        {/*        50%*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-                        {/*<h2>ANGULAR</h2>*/}
-                        {/*<div className="progress bg-secondary mb-3">*/}
-                        {/*    <div className="progress-bar bg-warning" style={{width: '90%'}}>*/}
-                        {/*        90%*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-                        {/*<h2>React</h2>*/}
-                        {/*<div className="progress bg-secondary mb-3">*/}
-                        {/*    <div className="progress-bar bg-warning" style={{width: '90%'}}>*/}
-                        {/*        90%*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-                        {/*<h2>C++</h2>*/}
-                        {/*<div className="progress bg-secondary mb-3">*/}
-                        {/*    <div className="progress-bar bg-success" style={{width: '10%'}}>*/}
-                        {/*        10%*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
