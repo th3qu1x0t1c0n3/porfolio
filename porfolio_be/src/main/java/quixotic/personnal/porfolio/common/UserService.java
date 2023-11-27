@@ -18,6 +18,7 @@ import quixotic.personnal.porfolio.authentication.User;
 import quixotic.personnal.porfolio.dto.auth.LoginDTO;
 import quixotic.personnal.porfolio.dto.auth.RegisterDTO;
 import quixotic.personnal.porfolio.dto.email.EmailDetailsDTO;
+import quixotic.personnal.porfolio.exceptions.ContactException;
 import quixotic.personnal.porfolio.repository.UserRepository;
 import quixotic.personnal.porfolio.security.JwtTokenProvider;
 
@@ -31,7 +32,7 @@ public class UserService {
     private final JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
-    private final static String MyEmail = "GlucoseMaster@outlook.com";
+    private final static String MyEmail = "glucOSE.professionnel@outlook.com";
 
     public String authenticateUser(LoginDTO loginDto){
         Authentication authentication = authenticationManager.authenticate(
@@ -51,20 +52,20 @@ public class UserService {
     }
 
     public String sendMessage(EmailDetailsDTO emailInfo){
-        MimeMessage message = javaMailSender.createMimeMessage();
-        try {
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(emailInfo.getEmail());
-            helper.setTo(MyEmail);
-            helper.setSubject(emailInfo.getName());
-            helper.setText(getString(emailInfo), true);
-            javaMailSender.send(message);
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        } catch (MailSendException | MailAuthenticationException e){
-            System.out.println(e.getMessage());
-            return "Message not sent: " + e.getMessage();
-        }
+//        MimeMessage message = javaMailSender.createMimeMessage();
+//        try {
+//            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+//            helper.setFrom(MyEmail);
+//            helper.setTo(MyEmail);
+//            helper.setSubject(emailInfo.getName());
+//            helper.setText(getString(emailInfo), true);
+//            javaMailSender.send(message);
+//        } catch (MessagingException e) {
+//            throw new RuntimeException(e);
+//        } catch (MailSendException | MailAuthenticationException e){
+//            System.out.println(e.getMessage());
+//            throw new ContactException("Message not sent: " + e.getMessage());
+//        }
         return "Message sent";
     }
 

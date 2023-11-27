@@ -4,27 +4,35 @@ import {toast} from "react-toastify";
 import {Button, Form} from "react-bootstrap";
 import FormInput from "../../assets/models/elements/Form";
 import {emailRegex, phoneNumRegex, portfolioService} from "../../App";
-import {IMessage} from "../../assets/services/PortfolioService";
+import {Message} from "../../assets/models/message";
 
 function Contact() {
     const {t} = useTranslation();
-    const [contactData, setContactData] = useState<IMessage>({
-        name: '',
-        email: '',
-        number: '',
-        message: ''
-    });
+    const [contactData, setContactData] = useState<Message>(
+        new Message("", "", "", "","")
+    );
     const [contactFormInfo, setContactFormInfo] = useState([
         new FormInput('name', 'pages.home.name', 'text', 'pages.home.name', ''),
         new FormInput('email', 'pages.common.email', 'text', 'pages.home.email', ''),
-        new FormInput('number', 'pages.home.number', 'text', 'pages.home.number', ''),
+        new FormInput('telephone', 'pages.home.number', 'text', 'pages.home.number', ''),
     ]);
     const [message, setMessage] = useState(
         new FormInput('message', 'pages.home.message', 'textarea', 'pages.home.message', '')
     );
 
-    function sendEmail(e: any) {
-        e.preventDefault();
+    function resetData() {
+        contactData.reset();
+        setContactData(contactData);
+
+        setContactFormInfo(contactFormInfo.map((contactInfo) => {
+            contactInfo.warning = '';
+            return contactInfo;
+        }));
+        setMessage({...message, warning: ''})
+
+        console.log(contactData)
+    }
+    function formIsValid(): boolean {
         let isValid = true;
         if (contactData.name === '') {
             toast.error(t('toast.error.name'));
@@ -46,8 +54,8 @@ function Contact() {
             }));
             isValid = false;
         }
-        if (contactData.number !== '') {
-            if (!phoneNumRegex.test(contactData.number)) {
+        if (contactData.telephone !== '') {
+            if (!phoneNumRegex.test(contactData.telephone)) {
                 toast.error(t('toast.error.number'));
                 setContactFormInfo(contactFormInfo.map((contactInfo) => {
                     if (contactInfo.name === 'number') {
@@ -64,28 +72,47 @@ function Contact() {
             isValid = false;
         }
 
-        if (!isValid) {
-            return;
-        }
+        return isValid;
+    }
+
+    function sendEmail(e: any) {
+        e.preventDefault();
+        if (!formIsValid()) return;
 
         portfolioService.message(contactData)
             .then((response) => {
                 toast.success(response)
-                toast.success(t('toast.success.emailSent'));
+                resetData();
             }).catch((error) => {
                 toast.error(error.message);
             })
-
-        setContactData({
-            name: '',
-            email: '',
-            number: '',
-            message: ''
-        });
     }
 
     function formChange(e: any) {
-        setContactData({...contactData, [e.target.id]: e.target.value});
+        switch (e.target.id) {
+            case 'name':
+                contactData.setName(e.target.value);
+                break;
+            case 'email':
+                contactData.setEmail(e.target.value);
+                break;
+            case 'telephone':
+                contactData.setTelephone(e.target.value);
+                break;
+            case 'message':
+                contactData.setMessage(e.target.value);
+                break;
+            default:
+                break;
+        }
+        setContactData(contactData);
+
+        contactFormInfo.map((contactInfo) => {
+            if (contactInfo.name === e.target.id) {
+                contactInfo.warning = '';
+            }
+            return contactInfo;
+        });
     }
 
     return (
