@@ -63,6 +63,7 @@ public class UserService {
             throw new RuntimeException(e);
         } catch (MailSendException | MailAuthenticationException e){
             System.out.println(e.getMessage());
+            return "Message not sent: " + e.getMessage();
         }
         return "Message sent";
     }

@@ -3,23 +3,24 @@ import React, {useState} from "react";
 import {toast} from "react-toastify";
 import {Button, Form} from "react-bootstrap";
 import FormInput from "../../assets/models/elements/Form";
-import {emailRegex, phoneNumRegex} from "../../App";
+import {emailRegex, phoneNumRegex, portfolioService} from "../../App";
+import {IMessage} from "../../assets/services/PortfolioService";
 
 function Contact() {
     const {t} = useTranslation();
-    const [contactData, setContactData] = useState({
+    const [contactData, setContactData] = useState<IMessage>({
         name: '',
         email: '',
         number: '',
         message: ''
     });
     const [contactFormInfo, setContactFormInfo] = useState([
-        new FormInput('name',  'pages.home.name','text', 'pages.home.name', ''),
-        new FormInput('email', 'pages.common.email','text', 'pages.home.email', ''),
-        new FormInput('number', 'pages.home.number','text', 'pages.home.number', ''),
+        new FormInput('name', 'pages.home.name', 'text', 'pages.home.name', ''),
+        new FormInput('email', 'pages.common.email', 'text', 'pages.home.email', ''),
+        new FormInput('number', 'pages.home.number', 'text', 'pages.home.number', ''),
     ]);
     const [message, setMessage] = useState(
-        new FormInput('message', 'pages.home.message','textarea', 'pages.home.message', '')
+        new FormInput('message', 'pages.home.message', 'textarea', 'pages.home.message', '')
     );
 
     function sendEmail(e: any) {
@@ -67,26 +68,14 @@ function Contact() {
             return;
         }
 
-        // const accessToken = 'your_access_token'; // Obtain this through OAuth 2.0
-        // try {
-        //     const response = await axios.post(
-        //         'https://www.googleapis.com/gmail/v1/users/me/messages/send',
-        //         {
-        //             raw: formData.message,
-        //         },
-        //         {
-        //             headers: {
-        //                 Authorization: `Bearer ${accessToken}`,
-        //             },
-        //         }
-        //     );
-        //
-        //     console.log('Email sent:', response.data);
-        // } catch (error) {
-        //     console.error('Error sending email:', error);
-        // }
+        portfolioService.message(contactData)
+            .then((response) => {
+                toast.success(response)
+                toast.success(t('toast.success.emailSent'));
+            }).catch((error) => {
+                toast.error(error.message);
+            })
 
-        toast.success(t('toast.success.emailSent'));
         setContactData({
             name: '',
             email: '',

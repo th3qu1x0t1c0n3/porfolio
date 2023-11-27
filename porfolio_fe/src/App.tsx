@@ -11,6 +11,7 @@ import i18n from "./assets/utils/i18n";
 import axios from "axios";
 import {DndService} from "./assets/services/DndService";
 import {PersonnageService} from "./assets/services/PersonnageService";
+import {PortfolioService} from "./assets/services/PortfolioService";
 
 function App() {
     return (
@@ -45,14 +46,16 @@ export const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,}$/;
 
 export const dndService = new DndService();
 export const personnageService = new PersonnageService();
-export const server = axios.create({
-    baseURL: 'http://localhost:8080/api',
+export const portfolioService = new PortfolioService();
+
+export const serverInstance = axios.create({
+    baseURL: 'http://localhost:8080/api/portfolio/',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-    }
+    },
+    params: {}
 });
-
 export const cegepInstance = axios.create({
     baseURL: "https://cegep.fdtt.space/v1/",
     headers: {
@@ -60,8 +63,7 @@ export const cegepInstance = axios.create({
         'Accept': 'application/json'
     },
     params: {}
-})
-
+});
 export const dndInstance = axios.create({
     baseURL: "https://www.dnd5eapi.co/api/",
     headers: {
@@ -69,4 +71,5 @@ export const dndInstance = axios.create({
         'Accept': 'application/json'
     },
     params: {}
-})
+});
+
