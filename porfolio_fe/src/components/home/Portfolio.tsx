@@ -21,8 +21,10 @@ function Portfolio() {
             <section id="intro" className="p-5 bg-secondary">
                 <div className="text-center">
                     <h1 className="text-warning display-1">{t('pages.home.intro')}</h1>
-                    <h4 className="">{t('pages.home.me')}</h4>
-                    <p className="">{t('pages.home.desc')}</p>
+                    <h4>{t('pages.home.me')}</h4>
+                    <div className={`container`}>
+                        <p>{t('pages.home.desc')}</p>
+                    </div>
                 </div>
             </section>
 

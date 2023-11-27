@@ -1,6 +1,6 @@
 {
   "utils": {
-    "pageNotFound": "Error Page Not Found"
+    "pageNotFound": "This page does not exist :("
   },
   "header": {
     "home": "Home",
@@ -8,5 +8,156 @@
     "project": "Projects",
     "progress": "Progress",
     "contact": "Contact"
+  },
+  "footer": {
+    "title": "Bootstrap Website",
+    "desc": "CSS styles and some features",
+    "copyright": "© Copyright 2022 - Made by LP-F"
+  },
+  "projects": {
+    "architect": {
+      "title": "Architect Cloud",
+      "description": "This is my first web page started from scratch. It is made in pure HTML and CSS."
+    },
+    "games": {
+      "title": "Game Portal",
+      "description": "This is a web page made during the 2nd session implementing a simple login system, a game catalog and a game coded by us."
+    },
+    "d&d": {
+      "title": "Dungeon & Dragon",
+      "description": "This is a web page displaying different dungeon and dragon characters. Unfortunately, the API is closed by our professor for the moment."
+    }
+  },
+  "pages": {
+    "common": {
+      "home": "Home",
+      "login": "Login",
+      "signUp": "Sign Up",
+      "logout": "Logout",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "confirmPassword": "Confirm Password",
+      "username": "Username",
+      "email": "Email",
+      "enterEmail": "Enter your email",
+      "password": "Password",
+      "forgotPassword": "Forgot Password?",
+      "enterUsername": "Enter your username",
+      "welcome": "Welcome",
+      "pleaseLogin": "Please login"
+    },
+    "home": {
+      "title": "Computer Science Technique",
+      "description": "This page is presented by Louis-Philippe Forget, a computer science student at Cégep André-Laurendeau. You will find information about me, my projects and my progress in programming language.",
+      "intro": "Introduction",
+      "me": "Me",
+      "desc": "I am Louis-Philippe Forget, a computer science student at Cégep André-Laurendeau. I started this program in August 2021 and I have now finished. I have always loved computer science. Since my high school, I have a tower at home that I assembled myself. During the computer science technique at Cégep André-Laurendeau, I learned several programming languages including C++, C#, Java, JavaScript, TypeScript, dart, HTML and CSS. I also learned to use different operating systems including Windows and Linux. I also learned to use different software like Visual Studio Code, Visual Studio, IntelliJ, etc. I also learned to use different versioning tools like Git, GitLab and GitHub. I also learned to use different data storage methods like SQL and NoSQL databases.",
+      "aptitudes": "Skills",
+      "aptitudesDesc": "I am a programmer who loves to learn new things and who is able to adapt to new situations. I am also able to work in a team and adapt to new situations.",
+      "developpement": "Development",
+      "developpementDesc": "This is a personal web page. Several projects will be attached to it including the last one I did. This one is a D&D page that uses different APIs to load the characters of a game.",
+      "design": "Design",
+      "designDesc": "This page uses the designs of Bootstrap v5. I am not the best in design, but I think I am able to manage well to make an excellent user experience.",
+      "commands": "Commands & Requests",
+      "commandsDesc": "In the 420.0B program we use different operating systems and different methods to store data which forces us to learn command lines and requests.",
+      "projects": "My projects",
+      "projectSecond": "I had the chance to do several projects in web programming.",
+      "projectsDesc": "The different sites are here to see my evolution from the first session to the 3rd session. Unfortunately, some sites are not totally completed by the transcription of JavaScript to TypeScript. Also, the API of the Dungeon & Dragon site can be closed by our professor which gives it a much less justified look for the moment.",
+      "goToProjects": "Go to projects",
+      "progress": "Progress",
+      "progressDesc": "This page is made to show my evolution in web programming. You will find information on the different languages I have learned and the different projects I have done.",
+      "contact": "Contact Us",
+      "question": "If you have any questions, do not hesitate to contact us.",
+      "name": "Full name",
+      "email": "Email",
+      "number": "Phone number",
+      "message": "Message",
+      "send": "Send",
+      "sent": "Message sent",
+
+      "authentifiaction": "Authentication"
+    },
+    "games": {
+      "catalog": "Catalog",
+      "sauveQuiPeut": "Save who can",
+      "maintenance": "Maintenance"
+    },
+    "dungeon": {
+      "character": "Character",
+      "store": "Store",
+      "compendium": "Compendium",
+      "inventory": "Inventory",
+      "map": "Map",
+      "administration": "Administration",
+      "armor": "Armor Class:",
+      "initiative": "Initiative +",
+      "speed": "Speed:",
+      "throw": "Throw",
+      "characterName": "Character name",
+      "race": "Race",
+      "level": "Level & Class",
+      "reLevel": "re-level",
+      "background": "Background",
+      "synopsis": "Synopsis",
+      "informations": "Informations",
+      "journal": "Journal",
+      "dateTime": "Date & Time",
+      "comments": "Comment",
+      "sorts": "Spells",
+      "traits": "Character traits",
+      "previous": "Previous",
+      "next": "Next",
+      "weapons": "Weapons",
+      "qty": "Qty",
+      "name": "Name",
+      "weight": "Weight",
+      "cost": "Cost",
+      "action": "Actions",
+      "add": "Add",
+      "addInventory": "Add to inventory",
+      "newEquipments": "New equipment",
+      "confirmAdd": "Confirm addition",
+      "noDescription": "No description",
+      "garbage": "Throw",
+      "equip": "Equip",
+      "quantity": "Quantity",
+      "damage": "Damage",
+      "category": "Category",
+      "castingTime": "Casting Time: ",
+      "range": "Range: ",
+      "components": "Components: ",
+      "duration": "Duration: ",
+
+      "aaa": "aaa"
+    }
+  },
+  "errors": {
+    "password": "The password must contain at least 5 characters, an uppercase, a lowercase and a number.",
+    "passwords": "The passwords are not identical.",
+    "username": "The username must contain at least 4 characters.",
+    "email": "The email is invalid.",
+    "number": "The phone number is invalid.",
+    "name": "Please enter your full name.",
+    "message": "Please enter a message.",
+    "pageCount": "The page you are looking for does not exist."
+  },
+  "toast": {
+    "error": {
+      "password": "Valid password",
+      "passwords": "The passwords are not identical",
+      "username": "Valid username",
+      "email": "Valid email",
+      "message": "Your message is empty",
+      "invalid": "Invalid username or password",
+      "log": "The logs are not valid"
+    },
+    "info": {
+      "logout": "You are logged out",
+      "login": "You are logged in",
+      "notLogged": "You must login before proceeding"
+    },
+    "success": {
+      "emailSent": "Email sent"
+    }
   }
 }
