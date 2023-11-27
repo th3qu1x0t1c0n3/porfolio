@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import quixotic.personnal.porfolio.dto.auth.JWTAuthResponse;
 import quixotic.personnal.porfolio.dto.auth.LoginDTO;
 import quixotic.personnal.porfolio.dto.auth.RegisterDTO;
+import quixotic.personnal.porfolio.dto.email.EmailDetailsDTO;
 
 @RestController
 @RequestMapping("/api/portfolio/user")
@@ -18,13 +19,19 @@ public class UserController {
     private final UserService userService;
     @PostMapping("/login")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDTO loginDTO){
-        return ResponseEntity.accepted().contentType(MediaType.APPLICATION_JSON).body(
-                new JWTAuthResponse(userService.authenticateUser(loginDTO)));
+        return ResponseEntity.accepted().contentType(MediaType.APPLICATION_JSON)
+                .body(new JWTAuthResponse(userService.authenticateUser(loginDTO)));
     }
 
     @PostMapping("/register")
     public ResponseEntity<JWTAuthResponse> registerUser(@RequestBody RegisterDTO registerDTO){
-        return ResponseEntity.accepted().contentType(MediaType.APPLICATION_JSON).body(
-                new JWTAuthResponse(userService.registerUser(registerDTO)));
+        return ResponseEntity.accepted().contentType(MediaType.APPLICATION_JSON)
+                .body(new JWTAuthResponse(userService.registerUser(registerDTO)));
+    }
+
+    @PostMapping("/message")
+    public ResponseEntity<String> sendMessage(@RequestBody EmailDetailsDTO emailDetailsDTO){
+        return ResponseEntity.accepted().contentType(MediaType.APPLICATION_JSON)
+                .body(userService.sendMessage(emailDetailsDTO));
     }
 }

@@ -1,6 +1,13 @@
 package quixotic.personnal.porfolio.common;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailAuthenticationException;
+import org.springframework.mail.MailSendException;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -10,6 +17,7 @@ import quixotic.personnal.porfolio.authentication.Role;
 import quixotic.personnal.porfolio.authentication.User;
 import quixotic.personnal.porfolio.dto.auth.LoginDTO;
 import quixotic.personnal.porfolio.dto.auth.RegisterDTO;
+import quixotic.personnal.porfolio.dto.email.EmailDetailsDTO;
 import quixotic.personnal.porfolio.repository.UserRepository;
 import quixotic.personnal.porfolio.security.JwtTokenProvider;
 
@@ -20,6 +28,10 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
+    private final JavaMailSender javaMailSender;
+
+    @Value("${spring.mail.username}")
+    private final static String MyEmail = "GlucoseMaster@outlook.com";
 
     public String authenticateUser(LoginDTO loginDto){
         Authentication authentication = authenticationManager.authenticate(
@@ -38,4 +50,35 @@ public class UserService {
                 .build()).getEmail();
     }
 
+    public String sendMessage(EmailDetailsDTO emailInfo){
+        MimeMessage message = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setFrom(emailInfo.getEmail());
+            helper.setTo(MyEmail);
+            helper.setSubject(emailInfo.getName());
+            helper.setText(getString(emailInfo), true);
+            javaMailSender.send(message);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        } catch (MailSendException | MailAuthenticationException e){
+            System.out.println(e.getMessage());
+        }
+        return "Message sent";
+    }
+
+    private static String getString(EmailDetailsDTO emailInfo) {
+        return "<html>" +
+                "<head>" +
+                "<title>portfolio</title>" +
+                "</head>" +
+                "<body>" +
+                "<h1>Contact Portfolio</h1>" +
+                "<h2>Message de " + emailInfo.getName() + "</h2>" +
+                "<div>" +
+                "<p>" + emailInfo.getMessage() + "</p>" +
+                "</div>" +
+                "</body>" +
+                "</html>";
+    }
 }
