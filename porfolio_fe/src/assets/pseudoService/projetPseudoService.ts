@@ -2,6 +2,7 @@ import {IProjet} from "../models/projet";
 import prevArchitectCloud from "../Images/architectCloud.png";
 import prevPortailJeux from "../Images/portailJeux.png";
 import prevDungeon from "../Images/dungeon.png";
+import prevGlucose from "../Images/glucose.png";
 import {ICharactere} from "../models/dungeon/character";
 import {ILogs} from "../models/dungeon/logs";
 import xefoul from "../Images/xefoul.png";
@@ -32,6 +33,13 @@ export const mesProjets: IProjet[] = [{
 //   desc: "N/A",
 //   lien: "/ecommerce"
 // }
+{
+    titre: "projects.glucose.title",
+    auteur: "Louis-Philippe Forget, Gabriel, Chouaki Bendamane, Samuel Gignac, Zakaria",
+    image: prevGlucose,
+    desc: "projects.glucose.description",
+    lien: "/glucose"
+}
 ]
 
 export const preLogs: ILogs[] = [

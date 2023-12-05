@@ -1,10 +1,10 @@
 import {Route, Routes} from "react-router-dom";
 import Portfolio from "../home/Portfolio";
-import PageNotFound from "../PageNotFound";
-import ArchitectCloud from "../architect/ArchitectCloud";
-import References from "../architect/References";
-import MiniGame from "../games/MiniGame";
-import Dungeon from "../dungeon/Dungeon";
+import PageNotFound from "../utils/PageNotFound";
+import ArchitectCloud from "../projects/architect/ArchitectCloud";
+import References from "../projects/architect/References";
+import MiniGame from "../projects/games/MiniGame";
+import Dungeon from "../projects/dungeon/Dungeon";
 import {useState} from "react";
 import {IUser} from "../../assets/models/user";
 
@@ -23,6 +23,8 @@ function Main() {
                 <Route path="/MiniGame" element={<MiniGame/>}/>
 
                 <Route path="/dungeon" element={<Dungeon/>}/>
+
+                <Route path={"/glucose"} element={<div>Glucose</div>}/>
 
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>
