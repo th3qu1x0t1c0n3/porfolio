@@ -1,0 +1,55 @@
+body {
+
+}
+
+.container {
+
+}
+
+#enTete {
+    background-image: url("./../img/backgroundPhone.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#planJeu {
+    box-sizing: border-box;
+    position: relative;
+    /* Permet de maintenir un ratio largeur/hauteur constant pour ce div. */
+    padding-top: 50%;
+
+    background-color: lightgrey;
+}
+
+#safeZone {
+    /*border: 1px solid yellow;*/
+    width: 25%;
+    height: calc(25%);
+    position: absolute;
+    top: calc(37.5%);
+    left: calc(37.5%);
+}
+
+.ennemi {
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid red;
+    background: red;
+}
+
+#acteur {
+    position: absolute;
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+/*
+	Permet d'ajuster la taille de la police du texte en fonction de la largeur du navigateur sur les
+	plus petits écrans.
+*/
+@media (max-width: 768px) {
+    * {
+        font-size: 2vw;
+    }
+}

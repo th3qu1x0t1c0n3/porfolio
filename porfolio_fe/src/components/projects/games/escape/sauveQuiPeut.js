@@ -2,7 +2,7 @@
 
 // window.addEventListener("load", initJeu);
 $(document).ready(initJeu);
-let partieEnCours = false;
+partieEnCours = false;
 let colisionCheck, chronometre;
 
 function initJeu() {
