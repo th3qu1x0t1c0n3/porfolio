@@ -32,7 +32,7 @@ public class UserService {
     private final JavaMailSender javaMailSender;
 
     @Value("${spring.mail.username}")
-    private final static String MyEmail = "glucOSE.professionnel@outlook.com";
+    private final static String MyEmail = "lokolokololo41@gmail.com";
 
     public String authenticateUser(LoginDTO loginDto){
         Authentication authentication = authenticationManager.authenticate(

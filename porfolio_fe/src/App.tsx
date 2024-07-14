@@ -48,8 +48,11 @@ export const dndService = new DndService();
 export const personnageService = new PersonnageService();
 export const portfolioService = new PortfolioService();
 
+export const baseURL = 'http://localhost:8083/api/portfolio/';
+// export const baseURL = 'https://portapi.quixotic.date/api/portfolio/';
+
 export const serverInstance = axios.create({
-    baseURL: 'http://localhost:8080/api/portfolio/',
+    baseURL: baseURL,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

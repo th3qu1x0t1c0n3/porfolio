@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import quixotic.personnal.porfolio.dto.CustomErrorResponse;
+import quixotic.personnal.porfolio.exceptions.CustomErrorResponse;
 import quixotic.personnal.porfolio.exceptions.APIException;
 
 import java.sql.SQLException;

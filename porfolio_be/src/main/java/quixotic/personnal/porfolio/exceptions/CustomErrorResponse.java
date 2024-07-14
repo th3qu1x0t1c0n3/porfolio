@@ -1,4 +1,4 @@
-package quixotic.personnal.porfolio.dto;
+package quixotic.personnal.porfolio.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
