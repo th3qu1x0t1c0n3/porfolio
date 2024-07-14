@@ -83,6 +83,7 @@ function Contact() {
             .then((response) => {
                 toast.success(response)
                 resetData();
+                e.target.form.reset();
             }).catch((error) => {
                 toast.error(error.message);
             })
@@ -155,10 +156,10 @@ function Contact() {
                                         onClick={sendEmail}>
                                     {t('pages.home.send')}
                                 </Button>
-                                <Button variant="btn-dark" className="btn-outline-dark btn-block mt-2 ms-4"
-                                        onClick={sendEmail}>
-                                    {t('pages.home.sent')}
-                                </Button>
+                                {/*<Button variant="btn-dark" className="btn-outline-dark btn-block mt-2 ms-4"*/}
+                                {/*        onClick={sendEmail}>*/}
+                                {/*    {t('pages.home.sent')}*/}
+                                {/*</Button>*/}
                             </div>
                         </Form>
                     </div>

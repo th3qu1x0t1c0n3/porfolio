@@ -28,6 +28,10 @@
     "d&d": {
       "title": "Dungeon & Dragon",
       "description": "This is a web page displaying different dungeon and dragon characters. Unfortunately, the API is closed by our professor for the moment."
+    },
+    "glucose": {
+      "title": "GlucOSE",
+      "description": "This is a web application for managing student internships. It is made with Angular and Node.js."
     }
   },
   "pages": {
@@ -503,9 +507,10 @@
   },
   "toast": {
     "error": {
-      "password": "Valid password",
+      "password": "Invalid password",
       "passwords": "The passwords are not identical",
-      "username": "Valid username",
+      "username": "Invalid username",
+      "name": "Invalid name",
       "email": "Valid email",
       "message": "Your message is empty",
       "invalid": "Invalid username or password",

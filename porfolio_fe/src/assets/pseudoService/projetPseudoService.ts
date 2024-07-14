@@ -7,39 +7,32 @@ import {ICharactere} from "../models/dungeon/character";
 import {ILogs} from "../models/dungeon/logs";
 import xefoul from "../Images/xefoul.png";
 
-export const mesProjets: IProjet[] = [{
-    titre: "projects.architect.title",
-    auteur: "Louis-Philippe Forget",
-    image: prevArchitectCloud,
-    desc: "projects.architect.description",
-    lien: "/architectCloud#acceuil"
-}, {
-    titre: "projects.games.title",
-    auteur: "Louis-Philippe Forget",
-    image: prevPortailJeux,
-    desc: "projects.games.description",
-    lien: "/MiniGame#acceuil"
-}, {
-    titre: "projects.d&d.title",
-    auteur: "Louis-Philippe Forget",
-    image: prevDungeon,
-    desc: "projects.d&d.description",
-    lien: "/dungeon#acceuil"
-},
-// {
-//   titre: "Magasin ecom",
-//   auteur: "Louis-Philippe Forget",
-//   image: "./assets/Images/dungeon.png",
-//   desc: "N/A",
-//   lien: "/ecommerce"
-// }
-{
-    titre: "projects.glucose.title",
-    auteur: "Louis-Philippe Forget, Gabriel, Chouaki Bendamane, Samuel Gignac, Zakaria",
-    image: prevGlucose,
-    desc: "projects.glucose.description",
-    lien: "/glucose"
-}
+export const mesProjets: IProjet[] = [
+    {
+        titre: "projects.architect.title",
+        auteur: "Louis-Philippe Forget",
+        image: prevArchitectCloud,
+        desc: "projects.architect.description",
+        lien: "/architectCloud#acceuil"
+    }, {
+        titre: "projects.games.title",
+        auteur: "Louis-Philippe Forget",
+        image: prevPortailJeux,
+        desc: "projects.games.description",
+        lien: "/MiniGame#acceuil"
+    }, {
+        titre: "projects.d&d.title",
+        auteur: "Louis-Philippe Forget",
+        image: prevDungeon,
+        desc: "projects.d&d.description",
+        lien: "/dungeon#acceuil"
+    }, {
+        titre: "projects.glucose.title",
+        auteur: "Louis-Philippe Forget, Gabriel, Chouaki Bendamane, Samuel Gignac, Zakaria",
+        image: prevGlucose,
+        desc: "projects.glucose.description",
+        lien: "https://glucose.quixotic.date/"
+    }
 ]
 
 export const preLogs: ILogs[] = [
@@ -57,7 +50,7 @@ export const characs: ICharactere[] = [
     {
         id: "demochar1",
         name: "Tester test",
-        statistics: { strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10 },
+        statistics: {strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10},
         race: "Human",
         player: "Player 1",
         classe: "Warrior",
@@ -82,7 +75,7 @@ export const characs: ICharactere[] = [
     {
         id: "demochar",
         name: "Michel Michaud",
-        statistics: { strength: 8, dexterity: 14, constitution: 12, intelligence: 14, wisdom: 10, charisma: 12 },
+        statistics: {strength: 8, dexterity: 14, constitution: 12, intelligence: 14, wisdom: 10, charisma: 12},
         race: "Elf",
         player: "Player 2",
         classe: "Rogue",

@@ -7,6 +7,14 @@ function Projects() {
     const {t} = useTranslation()
     const navigate = useNavigate();
 
+    function handleNavigate(lien: string) {
+        if (lien.charAt(0) === '/') {
+            return () => navigate(lien)
+        } else {
+            return () => window.open(lien, "_blank");
+        }
+    }
+
     return (
         <>
             <div id="projet" className="text-center container-fluid pt-5 mt-4">
@@ -24,8 +32,8 @@ function Projects() {
                             <p className="text-secondary">{t(projet.desc)}</p>
                         </div>
                         <div className="text-end">
-                            <a className="btn btn-outline-dark m-2 mt-0" href={projet.lien}
-                               onClick={() => navigate(projet.lien)}>{t('pages.home.goToProjects')}</a>
+                            <button className="btn btn-outline-dark m-2 mt-0"
+                               onClick={handleNavigate(projet.lien)}>{t('pages.home.goToProjects')}</button>
                         </div>
                     </div>
                 ))}
@@ -36,3 +44,5 @@ function Projects() {
 }
 
 export default Projects;
+
+// target={projet.lien.charAt(0) === '/' ? "_top" : "_blank"}

@@ -28,6 +28,10 @@
     "d&d": {
       "title": "Dungeon & Dragon",
       "description": "Ceci est une page web affichant différent personnage de dungeon et dragon. Malheureusement, l'API est fermé par notre professeur pour le moment."
+    },
+    "glucose": {
+      "title": "GlucOSE",
+      "description": "Ceci est une application web qui permet de gérer les stages des étudiants."
     }
   },
   "pages": {
@@ -502,13 +506,14 @@
   },
   "toast": {
     "error": {
-      "password": "Mot de passe valide",
+      "password": "Mot de passe invalide",
       "passwords": "Les mots de passe ne sont pas identiques",
-      "username": "Nom d'utilisateur valide",
+      "username": "Nom d'utilisateur invalide",
+      "name": "Nom invalide",
       "email": "Courriel valide",
       "message": "Votre message est vide",
       "invalid": "Nom d'utilisateur ou mot de passe invalide",
-      "log": "Les logs ne sont pas valides"
+      "log": "Les logs ne sont pas invalide"
     },
     "info": {
       "logout": "Vous êtes déconnecté",
