@@ -12,6 +12,8 @@
   "footer": {
     "title": "Site web Bootstrap",
     "desc": "Styles css et certaines fonctionnalités",
+    "personalGit": "Mon GitHub personnel",
+    "schoolGit": "GitHub scolaire",
     "copyright": "© Copyright 2022 - Made by LP-F"
   },
   "projects": {

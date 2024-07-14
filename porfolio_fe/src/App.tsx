@@ -60,7 +60,7 @@ export const serverInstance = axios.create({
     params: {}
 });
 export const cegepInstance = axios.create({
-    baseURL: "https://cegep.fdtt.space/v1/",
+    baseURL: "http://cegep.fdtt.space/v1/",
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
