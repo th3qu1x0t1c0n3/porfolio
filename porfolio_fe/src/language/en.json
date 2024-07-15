@@ -32,6 +32,14 @@
     "glucose": {
       "title": "GlucOSE",
       "description": "This is a web application for managing student internships. It is made with Angular and Node.js."
+    },
+    "cookbook": {
+      "title": "Cookbook",
+      "description": "This is a web page that I made during the 6th session to catalog recipes and cooking tricks for every user to share and cook."
+    },
+    "cpm": {
+      "title": "Crypto Portfolio Manager",
+      "description": "Ceci est une application web qui permet de gérer un portefeuille de cryptomonnaie. Ce projet est toujours en cours de développement et très rudimentaire."
     }
   },
   "pages": {

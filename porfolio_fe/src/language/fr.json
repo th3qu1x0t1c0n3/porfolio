@@ -32,6 +32,14 @@
     "glucose": {
       "title": "GlucOSE",
       "description": "Ceci est une application web qui permet de gérer les stages des étudiants."
+    },
+    "cookbook": {
+      "title": "Cookbook",
+      "description": "Ceci est une application web qui permet de gérer des recettes de cuisine. J'ai fait ce projet seul pour la 6e session."
+    },
+    "cpm": {
+      "title": "Crypto Portfolio Manager",
+      "description": "Ceci est une application web qui permet de gérer un portefeuille de cryptomonnaie. Ce projet est toujours en cours de développement et très rudimentaire."
     }
   },
   "pages": {
@@ -80,7 +88,6 @@
       "message": "Message",
       "send": "Envoyer",
       "sent": "Message envoyé",
-
       "authentifiaction": "Authentification"
     },
     "games": {

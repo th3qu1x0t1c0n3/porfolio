@@ -40,9 +40,7 @@ function Header() {
                                 ))
                             }
                         </Nav>
-                        {
 
-                        }
                         <LanguageSelector/>
                     </Navbar.Collapse>
                 </Navbar>
