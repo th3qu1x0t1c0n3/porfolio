@@ -10,6 +10,7 @@ function PlanJeu() {
         score: 0,
         time: "0",
     });
+    let moveInterval: NodeJS.Timer | null | undefined = null;
 
     useEffect(() => {
         const initialEnemies = genererEnnemis(15);
@@ -18,6 +19,51 @@ function PlanJeu() {
             enemies: initialEnemies,
         }));
     }, []);
+
+    useEffect(() => {
+        if (partieEnCours) {
+            // Start moving enemies if partieEnCours is true
+            moveInterval = setInterval(moveEnemies, 100);
+        } else {
+            // Stop moving enemies if partieEnCours becomes false
+            if (moveInterval) clearInterval(moveInterval);
+        }
+
+        // Cleanup function to clear the interval when the component unmounts or partieEnCours changes
+        return () => {
+            if (moveInterval && !partieEnCours) clearInterval(moveInterval);
+        };
+    }, [partieEnCours]);
+
+    const moveEnemies = () => {
+        const updatedEnemies = gameState.enemies.map(enemy => {
+            let newX = enemy.x + enemy.deltaX;
+            let newY = enemy.y + enemy.deltaY;
+
+            // Assuming the game area is 100x100 units
+            const gameAreaSize = 100;
+            const enemySize = enemy.size;
+
+            // Check bounds for X and reverse direction if necessary
+            if (newX < 0 || newX + enemySize > gameAreaSize) {
+                enemy.deltaX *= -1;
+                newX = enemy.x + enemy.deltaX; // Recalculate newX after direction change
+            }
+
+            // Check bounds for Y and reverse direction if necessary
+            if (newY < 0 || newY + enemySize > gameAreaSize) {
+                enemy.deltaY *= -1;
+                newY = enemy.y + enemy.deltaY; // Recalculate newY after direction change
+            }
+
+            return {...enemy, x: newX, y: newY};
+        });
+
+        setGameState(prevState => ({
+            ...prevState,
+            enemies: updatedEnemies,
+        }));
+    }
 
     const initJeu = () => {
         // Initialize game state, add listeners, etc.
@@ -46,7 +92,7 @@ function PlanJeu() {
 
             const deltaX = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 4); // Random deltaX between -4 and 4
             const deltaY = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 4); // Random deltaY between -4 and 4
-            enemies.push({ id: i, x, y, deltaX, deltaY, size: taille });
+            enemies.push({id: i, x, y, deltaX, deltaY, size: taille, isMoving: false});
         }
         return enemies;
     };
@@ -54,13 +100,21 @@ function PlanJeu() {
     const btnRecommencerClic = () => {
         // Logic to handle "Recommencer" button click
         setPartieEnCours(false);
-        // Additional logic to reset the game state
+
+        clearInterval(moveInterval as NodeJS.Timer)
+        setGameState({
+            partieEnCours: false,
+            actor: {x: "46%", y: "37%", size: 5},
+            enemies: genererEnnemis(15),
+            score: 0,
+            time: "0",
+        });
     };
 
     const btnGoClic = () => {
         // Logic to handle "Go" button click
         setPartieEnCours(true);
-        // Additional logic to start the game
+
     };
 
     return (

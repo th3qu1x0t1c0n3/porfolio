@@ -6,6 +6,7 @@ export interface Enemy {
     deltaX: number;
     deltaY: number;
     size: number;
+    isMoving: boolean;
 }
 
 export interface Actor {

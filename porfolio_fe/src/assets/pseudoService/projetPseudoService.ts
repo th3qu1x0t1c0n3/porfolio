@@ -3,6 +3,8 @@ import prevArchitectCloud from "../Images/architectCloud.png";
 import prevPortailJeux from "../Images/portailJeux.png";
 import prevDungeon from "../Images/dungeon.png";
 import prevGlucose from "../Images/glucose.png";
+import prevCookbook from "../Images/cookbook.png";
+import prevCPM from "../Images/cpm.png";
 import {ICharactere} from "../models/dungeon/character";
 import {ILogs} from "../models/dungeon/logs";
 import xefoul from "../Images/xefoul.png";
@@ -32,6 +34,18 @@ export const mesProjets: IProjet[] = [
         image: prevGlucose,
         desc: "projects.glucose.description",
         lien: "https://glucose.quixotic.date/"
+    }, {
+        titre: "projects.cookbook.title",
+        auteur: "Louis-Philippe Forget",
+        image: prevCookbook,
+        desc: "projects.cookbook.description",
+        lien: "https://cookbook.quixotic.date/"
+    }, {
+        titre: "projects.cpm.title",
+        auteur: "Louis-Philippe Forget",
+        image: prevCPM,
+        desc: "projects.cpm.description",
+        lien: "https://cpm.quixotic.date/"
     }
 ]
 
