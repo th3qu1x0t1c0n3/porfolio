@@ -21,7 +21,8 @@ export const mesProjets: IProjet[] = [
         auteur: "Louis-Philippe Forget",
         image: prevPortailJeux,
         desc: "projects.games.description",
-        lien: "/MiniGame#acceuil"
+        lien: "https://minijeux.quixotic.date/"
+        // lien: "/MiniGame#acceuil"
     }, {
         titre: "projects.d&d.title",
         auteur: "Louis-Philippe Forget",
