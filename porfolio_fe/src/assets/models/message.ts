@@ -15,14 +15,14 @@ export class Message {
     userid: string
     name: string
     email: string
-    telephone: string
+    phoneNumber: string
     message: string
 
-    constructor(userid: string, name: string, email: string, telephone: string, message: string) {
+    constructor(userid: string, name: string, email: string, phoneNumber: string, message: string) {
         this.userid = userid
         this.name = name
         this.email = email
-        this.telephone = telephone
+        this.phoneNumber = phoneNumber
         this.message = message
     }
 
@@ -30,7 +30,7 @@ export class Message {
         this.userid = ""
         this.name = ""
         this.email = ""
-        this.telephone = ""
+        this.phoneNumber = ""
         this.message = ""
     }
 
@@ -44,7 +44,7 @@ export class Message {
         this.email = email
     }
     setTelephone(telephone: string) {
-        this.telephone = telephone
+        this.phoneNumber = telephone
     }
     setMessage(message: string) {
         this.message = message

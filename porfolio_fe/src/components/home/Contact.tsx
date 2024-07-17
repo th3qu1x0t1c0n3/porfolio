@@ -54,8 +54,8 @@ function Contact() {
             }));
             isValid = false;
         }
-        if (contactData.telephone !== '') {
-            if (!phoneNumRegex.test(contactData.telephone)) {
+        if (contactData.phoneNumber !== '') {
+            if (!phoneNumRegex.test(contactData.phoneNumber)) {
                 toast.error(t('toast.error.number'));
                 setContactFormInfo(contactFormInfo.map((contactInfo) => {
                     if (contactInfo.name === 'number') {
@@ -156,10 +156,6 @@ function Contact() {
                                         onClick={sendEmail}>
                                     {t('pages.home.send')}
                                 </Button>
-                                {/*<Button variant="btn-dark" className="btn-outline-dark btn-block mt-2 ms-4"*/}
-                                {/*        onClick={sendEmail}>*/}
-                                {/*    {t('pages.home.sent')}*/}
-                                {/*</Button>*/}
                             </div>
                         </Form>
                     </div>
