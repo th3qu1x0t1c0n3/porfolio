@@ -89,3 +89,61 @@ build/
 nbbuild/
 dist/
 nbdist/
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/secret
+
+# Fichiers et dossiers générés par la plupart des IDE
+.idea/
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Fichiers de sauvegarde
+*~
+*.bak
+*.swp
+
+# Dossiers de compilation et fichiers temporaires
+bin/
+obj/
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+*.iml
+
+# Visual Studio Code
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
